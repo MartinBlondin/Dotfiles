@@ -10,6 +10,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
@@ -67,3 +68,12 @@ augroup vimrc_autocmds
     autocmd FileType python match Excess /\%90v.*/
     autocmd FileType python set nowrap
 augroup END
+
+" Key bindings
+nmap <Leader>c :r ! echo "" \| bc <Left><Left><Left><Left><Left><Left><Left>
+
+xmap " S"
+xmap ' S'
+xmap ( S)
+xmap [ S]
+xmap { S}
