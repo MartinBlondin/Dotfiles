@@ -71,8 +71,8 @@ augroup END
 
 " Key bindings
 nmap <Leader>c :r ! echo "" \| bc 6<Left>
-
-nmap <Leader>r :w<ENTER> :! pandoc -o <c-R>%<BS><BS><BS>.pdf --template assignment <c-R>%<ENTER><ENTER>
+autocmd FileType markdown nmap <Leader>l :w<ENTER> :! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>
+autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
 
 xmap " S"
 xmap ' S'
