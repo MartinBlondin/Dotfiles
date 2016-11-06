@@ -70,10 +70,15 @@ augroup vimrc_autocmds
 augroup END
 
 " Key bindings
-nmap <Leader>c :r ! echo "" \| bc <Left><Left><Left><Left><Left><Left><Left>
+nmap <Leader>c :r ! echo "" \| bc 6<Left>
+
+nmap <Leader>r :w<ENTER> :! pandoc -o <c-R>%<BS><BS><BS>.pdf --template assignment <c-R>%<ENTER><ENTER>
 
 xmap " S"
 xmap ' S'
 xmap ( S)
 xmap [ S]
 xmap { S}
+
+" Prefrences
+set noswapfile
