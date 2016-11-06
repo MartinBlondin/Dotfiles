@@ -9,9 +9,8 @@ echo Deleted old files..
 
 ln .vimrc ~/.vimrc
 ln $colourscheme.vim /usr/share/vim/vim80/colors/$colourscheme.vim
-echo Linked new files..
-
 sudo chmod 777 ~/.vimrc
+echo Linked new files..
 
 echo Installing Plugins...
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
