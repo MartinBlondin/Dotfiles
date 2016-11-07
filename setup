@@ -12,7 +12,7 @@ rm /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Deleted old files..
 
 ln .vimrc ~/.vimrc
-mv $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
+cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo chmod 777 ~/.vimrc
 echo Linked new files..
 
