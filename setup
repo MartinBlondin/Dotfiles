@@ -19,7 +19,6 @@ echo Deleted old files..
 
 ln .vimrc ~/.vimrc
 cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
-sudo chmod 777 ~/.vimrc
 echo Linked new files..
 
 echo Installing plugins..
