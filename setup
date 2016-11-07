@@ -1,14 +1,14 @@
 colourscheme='molokai'
-vimversion='vim80'
+vimversion='vim74'
 
 sudo chmod 777 /usr/share/vim/$vimversion/colors
 
 rm ~/.vimrc
-rm /usr/share/vim/vim80/colors/$colourscheme.vim
+rm /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Deleted old files..
 
 ln .vimrc ~/.vimrc
-ln $colourscheme.vim /usr/share/vim/vim80/colors/$colourscheme.vim
+mv $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo chmod 777 ~/.vimrc
 echo Linked new files..
 
