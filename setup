@@ -1,14 +1,20 @@
 colourscheme='molokai'
-vimversion='vim74'
+vimversion='vim80'
 bashrc=$(<~/.bashrc)
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+cd $DIR
+{
+    git pull
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+} &> /dev/null
 
-git pull
+echo ____________
+echo Updating vim
+echo ____________
 
-sudo chmod 777 /usr/share/vim/$vimversion/colors
-
-rm ~/.vimrc
-rm /usr/share/vim/$vimversion/colors/$colourscheme.vim
+rm -f ~/.vimrc
+rm -f /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Deleted old files..
 
 ln .vimrc ~/.vimrc
@@ -16,15 +22,16 @@ cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo chmod 777 ~/.vimrc
 echo Linked new files..
 
-echo Installing Plugins...
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+echo Installing plugins..
 
-if [[ $bashrc =~ vimupdate ]]
+vim +PluginClean +qall
+vim +PluginInstall +qall
+vim +PluginUpdate +qall
+
+if [[ ! $bashrc =~ vimupdate ]]
 then
-    echo vimupdate already mapped
-else
     echo alias vimupdate=\"bash $PWD/setup\" >> ~/.bashrc
 fi
     
-echo Done! You can now use Vim. use vimupdate to run this script again. it automatically git pulls aswell.
+echo Done! You can now use Vim. use vimupdate to run this script again
+echo
