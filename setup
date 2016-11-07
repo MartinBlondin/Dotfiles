@@ -1,5 +1,9 @@
 colourscheme='molokai'
 vimversion='vim74'
+bashrc=$(<~/.bashrc)
+
+
+git pull
 
 sudo chmod 777 /usr/share/vim/$vimversion/colors
 
@@ -16,4 +20,11 @@ echo Installing Plugins...
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-echo Done! You can now use Vim.
+if [[ $bashrc =~ vimupdate ]]
+then
+    echo vimupdate already mapped
+else
+    echo alias vimupdate=\"bash $PWD/setup\" >> ~/.bashrc
+fi
+    
+echo Done! You can now use Vim. use vimupdate to run this script again. it automatically git pulls aswell.
