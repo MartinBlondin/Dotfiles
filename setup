@@ -22,7 +22,6 @@ cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Linked new files..
 
 echo Installing plugins..
-
 vim +PluginClean +qall
 vim +PluginInstall +qall
 vim +PluginUpdate +qall
