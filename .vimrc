@@ -19,6 +19,8 @@ filetype plugin indent on
 " Leader
 let mapleader=","
 
+" LaTeX
+
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>
 
@@ -73,6 +75,7 @@ augroup END
 nmap <Leader>c :r ! echo "" \| bc 6<Left>
 autocmd FileType markdown nmap <Leader>l :w<ENTER> :! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
+autocmd FileType tex nmap <Leader>l :w<ENTER> :! pdflatex <c-R>%<ENTER><ENTER>
 
 xmap " S"
 xmap ' S'
