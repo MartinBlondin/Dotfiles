@@ -31,7 +31,6 @@ let g:pymode_rope = 0
 syntax on
 colorscheme molokai
 set nofoldenable
-set t_Co=256
 
 " set working directory to current file's directory
 set autochdir
@@ -71,8 +70,10 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
 augroup END
 
-" Key bindings
+" using bc to calculate
 nmap <Leader>c :r ! echo "" \| bc 6<Left>
+
+" rendering with <leader>l
 autocmd FileType markdown nmap <Leader>l :w<ENTER> :! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
 autocmd FileType tex nmap <Leader>l :w<ENTER> :! pdflatex <c-R>%<ENTER><ENTER>
