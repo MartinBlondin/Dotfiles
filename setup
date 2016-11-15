@@ -21,8 +21,9 @@ ln .vimrc ~/.vimrc
 cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo mv gtd /usr/bin/gtd
 sudo chmod 777 /usr/bin/gtd
-sudo ln work-tmux /usr/bin/work-tmux
+sudo ln work-tmux /usr/bin/work-tmux >> /dev/null
 sudo chmod 777 /usr/bin/work-tmux
+ln tmux-session-config ~/.tmux-session-config >> /dev/null
 echo Linked new files..
 
 echo Installing plugins..

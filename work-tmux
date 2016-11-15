@@ -1,6 +1,3 @@
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $DIR
-
 while getopts t: option
 do
     case "${option}"
@@ -9,16 +6,11 @@ do
     esac
 done
 
-work-tmux() {
-    if [ -n "$TIME" ]
-    then
-        export gtdtime=$TIME
-    else
-        export gtdtime=25
-    fi
+if [ -n "$TIME" ]
+then
+    export gtdtime=$TIME
+else
+    export gtdtime=25
+fi
 
-    tmux new-session "tmux source-file tmux-session-config"
-
-}
-
-work-tmux
+tmux new-session "tmux source-file ~/.tmux-session-config"

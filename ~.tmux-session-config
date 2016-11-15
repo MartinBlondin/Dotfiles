@@ -1,0 +1,9 @@
+neww 'gtd $gtdtime'
+split-window -v
+resize-pane -U 6
+selectp -t 0 
+split-window -h 'tty-clock'
+resize-pane -R 3
+split-window -h 'nautilus .'
+break-pane -dP
+selectp -t 2 
