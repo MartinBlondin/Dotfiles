@@ -6,5 +6,3 @@ work-tmux() {
         export gtdtime=25
     fi
 
-    tmux -2 new-session 'tmux source-file /home/martin/vimconfig/tmux-sessio    n-config'
-}

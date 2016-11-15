@@ -3,6 +3,8 @@ vimversion='vim80'
 bashrc=$(<~/.bashrc)
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+export vimconfdir=$DIR
+
 cd $DIR
 {
     git pull
@@ -41,6 +43,8 @@ fi
 if [[ ! $bashrc =~ work-tmux ]]
 then
     cat $DIR/work-tmux-func >> ~/.bashrc
+    echo tmux new-session \"tmux source-file $DIR/tmux-session-config\" >> ~/.bashrc
+    echo } >> ~/.bashrc
 fi
     
 echo Done! You can now use Vim. use vimupdate to run this script again
