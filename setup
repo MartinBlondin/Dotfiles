@@ -7,6 +7,9 @@ cd $DIR
 {
     git pull
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    wget https://raw.githubusercontent.com/connermcd/gtd/master/gtd
+    sudo mv gtd.1 /usr/bin/gtd
+    sudo chmod 777 /usr/bin/gtd
 } &> /dev/null
 
 echo Updating vim
@@ -16,9 +19,6 @@ rm -f ~/.vimrc
 rm -f /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Deleted old files..
 
-wget https://raw.githubusercontent.com/connermcd/gtd/master/gtd /usr/bin/
-sudo mv gtd.1 /usr/bin/gtd
-sudo chmod 777 /usr/bin/gtd
 ln .vimrc ~/.vimrc
 cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Linked new files..
