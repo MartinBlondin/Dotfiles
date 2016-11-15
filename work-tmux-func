@@ -1,8 +1,0 @@
-work-tmux() {
-    if [ $1 -gt 0 ]
-    then
-        export gtdtime=$1
-    else
-        export gtdtime=25
-    fi
-

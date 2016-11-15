@@ -3,15 +3,11 @@ vimversion='vim80'
 bashrc=$(<~/.bashrc)
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-export vimconfdir=$DIR
-
 cd $DIR
 {
     git pull
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     wget https://raw.githubusercontent.com/connermcd/gtd/master/gtd
-    sudo mv gtd.1 /usr/bin/gtd
-    sudo chmod 777 /usr/bin/gtd
 } &> /dev/null
 
 echo Updating vim
@@ -23,6 +19,10 @@ echo Deleted old files..
 
 ln .vimrc ~/.vimrc
 cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
+sudo mv gtd /usr/bin/gtd
+sudo chmod 777 /usr/bin/gtd
+sudo ln work-tmux /usr/bin/work-tmux
+sudo chmod 777 /usr/bin/work-tmux
 echo Linked new files..
 
 echo Installing plugins..
@@ -38,13 +38,6 @@ fi
 if [[ ! $bashrc =~ uploadvimrc ]]
 then
     echo alias uploadvimrc=\"bash $PWD/editrc\" >> ~/.bashrc
-fi
-    
-if [[ ! $bashrc =~ work-tmux ]]
-then
-    cat $DIR/work-tmux-func >> ~/.bashrc
-    echo tmux new-session \"tmux source-file $DIR/tmux-session-config\" >> ~/.bashrc
-    echo } >> ~/.bashrc
 fi
     
 echo Done! You can now use Vim. use vimupdate to run this script again
