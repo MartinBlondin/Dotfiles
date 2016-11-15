@@ -1,0 +1,10 @@
+work-tmux() {
+    if [ $1 -gt 0 ]
+    then
+        export gtdtime=$1
+    else
+        export gtdtime=25
+    fi
+
+    tmux -2 new-session 'tmux source-file /home/martin/vimconfig/tmux-sessio    n-config'
+}

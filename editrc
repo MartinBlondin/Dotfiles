@@ -1,0 +1,8 @@
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+cd $DIR
+{
+    git add .vimrc
+    git commit -m 'updated vimrc'
+    git push origin master
+} &> /dev/null
