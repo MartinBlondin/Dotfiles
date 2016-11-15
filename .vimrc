@@ -19,8 +19,6 @@ filetype plugin indent on
 " Leader
 let mapleader=","
 
-" LaTeX
-
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>
 
