@@ -40,5 +40,10 @@ if [[ ! $bashrc =~ uploadvimrc ]]
 then
     echo alias uploadvimrc=\"bash $PWD/editrc\" >> ~/.bashrc
 fi
+
+if [[ ! $bashrc =~ work-tmux ]]
+then
+    echo alias work-tmux=\"bash $DIR/work-tmux\" >> ~/.bashrc
+fi
     
 echo Done! You can now use Vim. use vimupdate to run this script again
