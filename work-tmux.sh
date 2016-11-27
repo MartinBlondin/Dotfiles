@@ -1,9 +1,9 @@
-while getopts pt: option
+while getopts bt: option
 do
     case "${option}"
     in
         t) TIME=${OPTARG};;
-        p) PAUSE=1;;
+        b) PAUSE=1;;
     esac
 done
 
