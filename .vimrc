@@ -29,6 +29,7 @@ let g:pymode_rope = 0
 syntax on
 colorscheme molokai
 set nofoldenable
+set t_Co=256
 
 " set working directory to current file's directory
 set autochdir
