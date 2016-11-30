@@ -19,4 +19,4 @@ then
     export tmcom="$tmcom -t $TIME"
 fi
 
-tmux new-session "tmux source-file ~/.tmux-session-config"
+tmux new-session "tmux source-file ~/vimconfig/tmux-session-config"

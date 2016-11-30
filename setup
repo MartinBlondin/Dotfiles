@@ -21,9 +21,6 @@ ln .vimrc ~/.vimrc
 cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo mv gtd /usr/bin/gtd
 sudo chmod 777 /usr/bin/gtd
-sudo ln work-tmux.sh /usr/bin/work-tmux >> /dev/null
-sudo chmod 777 /usr/bin/work-tmux
-ln tmux-session-config ~/.tmux-session-config >> /dev/null
 echo Linked new files..
 
 echo Installing plugins..
@@ -46,4 +43,9 @@ then
     echo alias uploadvimrc=\"bash $PWD/editrc\" >> ~/.bashrc
 fi
     
+if [[ ! $bashrc =~ work-tmux ]]
+then
+    echo alias work-tmux=\"bash $PWD/work-tmux.sh\" >> ~/.bashrc
+fi
+
 echo Done! You can now use Vim. use vimupdate to run this script again
