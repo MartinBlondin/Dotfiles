@@ -10,7 +10,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 
-
 " Git plugins
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
