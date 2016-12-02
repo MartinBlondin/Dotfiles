@@ -5,7 +5,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd $DIR
 {
-    git pull
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     wget https://raw.githubusercontent.com/connermcd/gtd/master/gtd
 } &> /dev/null
@@ -35,7 +34,7 @@ fi
 
 if [[ ! $bashrc =~ vimupdate ]]
 then
-    echo alias vimupdate=\"bash $PWD/setup\" >> ~/.bashrc
+    echo alias vimupdate=\"bash $PWD/setup.sh\" >> ~/.bashrc
 fi
 
 if [[ ! $bashrc =~ uploadvimrc ]]
@@ -47,5 +46,7 @@ if [[ ! $bashrc =~ work-tmux ]]
 then
     echo alias work-tmux=\"bash $PWD/work-tmux.sh\" >> ~/.bashrc
 fi
+
+bash setup_autocomplete.sh
 
 echo Done! You can now use Vim. use vimupdate to run this script again

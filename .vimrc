@@ -5,11 +5,18 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
     
+" VIM plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-surround'
+
+
+" Git plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" Programming plugins
+Plugin 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 
