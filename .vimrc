@@ -6,11 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
     
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ternjs/tern_for_vim'
 
 call vundle#end()
 
@@ -85,3 +86,4 @@ xmap { S}
 
 " Prefrences
 set noswapfile
+set nohlsearch
