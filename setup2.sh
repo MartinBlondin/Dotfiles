@@ -14,6 +14,7 @@ rm -f ~/.vimrc
 echo Deleted old files..
 
 ln .vimrc ~/.vimrc
+ln .nvimrc ~/.nvimrc
 sudo mv gtd /usr/bin/gtd
 sudo chmod 777 /usr/bin/gtd
 echo Linked new files..
@@ -33,11 +34,6 @@ then
     echo alias vimupdate=\"bash $PWD/setup.sh\" >> ~/.bashrc
 fi
 
-if [[ ! $bashrc =~ uploadvimrc ]]
-then
-    echo alias uploadvimrc=\"bash $PWD/editrc\" >> ~/.bashrc
-fi
-    
 if [[ ! $bashrc =~ work-tmux ]]
 then
     echo alias work-tmux=\"bash $PWD/work-tmux.sh\" >> ~/.bashrc
@@ -45,7 +41,7 @@ fi
 
 if [[ ! $bashrc =~ nvim ]]
 then
-    echo alias vim=\"nvim\" >> ~/.bashrc
+    echo alias vim=\"nvim -u ~/.nvimrc\" >> ~/.bashrc
 fi
 
 bash setup_autocomplete.sh
