@@ -1,5 +1,3 @@
-colourscheme='molokai'
-vimversion='vim80'
 bashrc=$(<~/.bashrc)
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -13,11 +11,9 @@ echo Updating vim
 echo ____________
 
 rm -f ~/.vimrc
-rm -f /usr/share/vim/$vimversion/colors/$colourscheme.vim
 echo Deleted old files..
 
 ln .vimrc ~/.vimrc
-cp $colourscheme.vim /usr/share/vim/$vimversion/colors/$colourscheme.vim
 sudo mv gtd /usr/bin/gtd
 sudo chmod 777 /usr/bin/gtd
 echo Linked new files..
@@ -45,6 +41,11 @@ fi
 if [[ ! $bashrc =~ work-tmux ]]
 then
     echo alias work-tmux=\"bash $PWD/work-tmux.sh\" >> ~/.bashrc
+fi
+
+if [[ ! $bashrc =~ nvim ]]
+then
+    echo alias vim=\"nvim\" >> ~/.bashrc
 fi
 
 bash setup_autocomplete.sh
