@@ -1,7 +1,6 @@
 "" vundle
 set nocompatible
 filetype off
-afaf
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
@@ -10,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
+Plugin 'joshdick/onedark.vim'
 
 " Git plugins
 Plugin 'tpope/vim-fugitive'
@@ -35,7 +35,7 @@ let g:pymode_rope = 0
 
 " colourscheme
 syntax on
-colorscheme molokai
+colorscheme onedark
 set nofoldenable
 set t_Co=256
 
