@@ -1,4 +1,4 @@
-"" vundle
+" Vundle
 set nocompatible
 filetype off
 
@@ -10,15 +10,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'joshdick/onedark.vim'
+Plugin 'wellle/targets.vim'
+Plugin 'tpope/vim-characterize'
 
 " Git plugins
-Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 
 " Programming plugins
 Plugin 'sheerun/vim-polyglot'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'lifepillar/vim-mucomplete'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'joonty/vdebug'
 
 call vundle#end()
