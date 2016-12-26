@@ -17,6 +17,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Programming plugins
 Plugin 'sheerun/vim-polyglot'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'joonty/vdebug'
@@ -32,7 +33,9 @@ let mapleader=","
 set termguicolors
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-nmap <Leader>t :bot 4sp<ENTER> :terminal<ENTER>
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
+nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
 let g:gitgutter_sign_removed_first_line = "^_"
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
