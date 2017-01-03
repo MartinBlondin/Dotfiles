@@ -123,7 +123,7 @@ set $workspace3 " Files"
 set $workspace4 " Books"
 set $workspace5 " VPN"
 set $workspace6 " Gimp"
-set $workspace7 " 7"
+set $workspace7 " Blender"
 set $workspace8 " 8"
 set $workspace9 " 9"
 set $workspace10 " 10"
@@ -214,4 +214,4 @@ bar {
 }
 
 # Background
-exec_always --no-startup-id /usr/bin/feh --bg-scale /home/hodeb/Pictures/Wallpapers/Bakgrunn.png
+exec_always --no-startup-id /usr/bin/feh --bg-scale /home/hodeb/Pictures/Bakgrunn.png
