@@ -18,7 +18,6 @@ Plugin 'airblade/vim-gitgutter'
 
 " Programming plugins
 Plugin 'sheerun/vim-polyglot'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'ternjs/tern_for_vim'
