@@ -192,10 +192,10 @@ set $inactive-text-colour   #878E7D
 set $urgent-bg-colour       #E53935
 
 # Window colours
-client.focused                  $bg-colour          $bg-colour          $text-colour             #00ff00
-client.unfocused                $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    #00ff00
-client.focused_inactive         $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    #00ff00
-client.urgent $urgent-bg-colour $urgent-bg-colour   $bg-colour          $text-colour             #00ff00
+client.focused                  $bg-colour          $bg-colour          $text-colour             $bg-colour
+client.unfocused                $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $bg-colour
+client.focused_inactive         $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $bg-colour
+client.urgent $urgent-bg-colour $urgent-bg-colour   $bg-colour          $text-colour             $bg-colour
 
 hide_edge_borders both
 
