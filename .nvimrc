@@ -33,7 +33,7 @@ let mapleader=","
 
 " Neovim specific settings
 set termguicolors
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let g:ycm_python_binary_path = '/usr/bin/python3'
 
@@ -83,8 +83,8 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>]"
 
 " autoindent inside of bracket
-:set autoindent
-:set cindent
+set autoindent
+set cindent
 
 " highlight characters past column 90
 augroup vimrc_autocmds
@@ -95,7 +95,7 @@ augroup vimrc_autocmds
 augroup END
 
 " using bc to calculate
-nmap <Leader>c :r ! echo "" \| bc 6<Left>
+nmap <Leader>c $a =<ESC>:r ! echo "<c-R>0" \| bc<ENTER>kJ$
 
 " rendering with <leader>l
 autocmd FileType markdown nmap <Leader>l :! rm <c-R>%<BS><BS>pdf<ENTER> :w<ENTER> :! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER> :! evince <c-R>%<BS><BS>pdf<ENTER>
