@@ -34,9 +34,10 @@ let mapleader=","
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-let g:ycm_python_binary_path = '/usr/bin/python3'
-
+" Opening terminal in a new tab
 nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
+
+" Gitgutter
 let g:gitgutter_sign_removed_first_line = "^_"
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -101,6 +102,7 @@ autocmd FileType markdown nmap <Leader>l :!rm<c-R>%<BS><BS>pdf<ENTER>:w<ENTER>:!
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
 autocmd FileType tex nmap <Leader>l :! rm <c-R>%<BS><BS><BS>pdf :w<ENTER> :! pdflatex <c-R>%<ENTER><ENTER> :! evince <c-R>%<BS><BS><BS>pdf<ENTER>
 
+" Automatic Surrounding in visual mode
 xmap " S"
 xmap ' S'
 xmap ( S)
@@ -110,3 +112,8 @@ xmap { S}
 " Prefrences
 set noswapfile
 set nohlsearch
+
+" Norwegian characters
+nmap <Leader>d iø
+nmap <Leader>a iæ
+nmap <leader>g iå
