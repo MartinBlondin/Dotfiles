@@ -22,6 +22,7 @@ Plugin 'lifepillar/vim-mucomplete'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'joonty/vdebug'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -36,6 +37,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " Opening terminal in a new tab
 nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
+
+" ALE
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '-'
 
 " Gitgutter
 let g:gitgutter_sign_removed_first_line = "^_"
@@ -114,6 +119,6 @@ set noswapfile
 set nohlsearch
 
 " Norwegian characters
-nmap <Leader>d iø
-nmap <Leader>a iæ
-nmap <leader>g iå
+nmap <Leader>d i<right>ø
+nmap <Leader>a i<right>æ
+nmap <leader>g i<right>å
