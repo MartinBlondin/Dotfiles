@@ -97,9 +97,9 @@ augroup END
 nmap <Leader>c $a =<ESC>:r ! echo "<c-R>0" \| bc<ENTER>kJ$
 
 " rendering with <leader>l
-autocmd FileType markdown nmap <Leader>l :!rm<c-R>%<BS><BS>pdf<ENTER>:w<ENTER>:! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>:! evince <c-R>%<BS><BS>pdf<ENTER>
+autocmd FileType markdown nmap <Leader>l :! rm<c-R>%<BS><BS>pdf<ENTER>:w<ENTER>:! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>:! evince <c-R>%<BS><BS>pdf<ENTER>
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
-autocmd FileType tex nmap <Leader>l :! rm <c-R>%<BS><BS><BS>pdf :w<ENTER> :! pdflatex <c-R>%<ENTER><ENTER> :! evince <c-R>%<BS><BS><BS>pdf<ENTER>
+autocmd FileType tex nmap <Leader>l :w<ENTER> :! rm <c-R>%<BS><BS><BS>pdf<ENTER> :! pdflatex <c-R>%<ENTER> :! evince <c-R>%<BS><BS><BS>pdf<ENTER>
 
 xmap " S"
 xmap ' S'
