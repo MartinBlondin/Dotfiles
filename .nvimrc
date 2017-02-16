@@ -13,6 +13,9 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-characterize'
 
+" Writing plugins
+"Plugin 'hysd/vim-grammarous'
+
 " Git plugins
 Plugin 'airblade/vim-gitgutter'
 
@@ -39,8 +42,9 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
 
 " ALE
-let g:ale_sign_error = '>'
-let g:ale_sign_warning = '-'
+let g:ale_sign_error = '|'
+let g:ale_sign_warning = '|'
+let g:ale_echo_msg_format = '[%linter%] %s'
 
 " Gitgutter
 let g:gitgutter_sign_removed_first_line = "^_"
@@ -68,6 +72,10 @@ set autochdir
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+autocmd FileType ruby set tabstop=2
+autocmd FileType ruby set shiftwidth=2
+autocmd FileType ruby set expandtab
 
 " line numbers
 set number
@@ -106,6 +114,7 @@ nmap <Leader>c $a =<ESC>:r ! echo "<c-R>0" \| bc<ENTER>kJ$
 autocmd FileType markdown nmap <Leader>l :! rm<c-R>%<BS><BS>pdf<ENTER>:w<ENTER>:! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>:! evince <c-R>%<BS><BS>pdf<ENTER>
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
 autocmd FileType tex nmap <Leader>l :w<ENTER> :! rm <c-R>%<BS><BS><BS>pdf<ENTER> :! pdflatex <c-R>%<ENTER> :! evince <c-R>%<BS><BS><BS>pdf<ENTER>
+autocmd FileType ruby nmap <Leader>l :w<ENTER> :! ruby <c-R>%<ENTER>
 
 " Automatic Surrounding in visual mode
 xmap " S"
