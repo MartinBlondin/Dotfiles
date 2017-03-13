@@ -75,7 +75,12 @@ set expandtab
 
 autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set shiftwidth=2
-autocmd FileType ruby set expandtab
+
+autocmd FileType javascript set tabstop=2
+autocmd FileType javascript set shiftwidth=2
+
+autocmd FileType css set tabstop=2
+autocmd FileType css set shiftwidth=2
 
 " line numbers
 set number
@@ -107,14 +112,15 @@ augroup vimrc_autocmds
     autocmd FileType python set nowrap
 augroup END
 
-" using bc to calculate
-nmap <Leader>c $a =<ESC>:r ! echo "<c-R>0" \| bc<ENTER>kJ$
-
 " rendering with <leader>l
 autocmd FileType markdown nmap <Leader>l :! rm<c-R>%<BS><BS>pdf<ENTER>:w<ENTER>:! pandoc -o <c-R>%<BS><BS>pdf --template assignment <c-R>%<ENTER><ENTER>:! evince <c-R>%<BS><BS>pdf<ENTER>
 autocmd FileType python nmap <Leader>l :w<ENTER> :! python3 <c-R>%<ENTER>
 autocmd FileType tex nmap <Leader>l :w<ENTER> :! rm <c-R>%<BS><BS><BS>pdf<ENTER> :! pdflatex <c-R>%<ENTER> :! evince <c-R>%<BS><BS><BS>pdf<ENTER>
 autocmd FileType ruby nmap <Leader>l :w<ENTER> :! ruby <c-R>%<ENTER>
+
+" Switch to style file with <leader>c
+autocmd FileType javascript nmap <Leader>c :w<ENTER> :e <c-R>%<BS><BS>css<ENTER>
+autocmd FileType css nmap <Leader>c :w<ENTER> :e <c-R>%<BS><BS><BS>js<ENTER>
 
 " Automatic Surrounding in visual mode
 xmap " S"
@@ -131,3 +137,9 @@ set nohlsearch
 nmap <Leader>d i<right>ø
 nmap <Leader>a i<right>æ
 nmap <leader>g i<right>å
+
+" Opening file at same location as i closed it
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <=line("$")
+        \| exe "normal! g'\"" | endif
+endif
