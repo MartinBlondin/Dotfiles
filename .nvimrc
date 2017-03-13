@@ -75,7 +75,9 @@ set expandtab
 
 autocmd FileType ruby set tabstop=2
 autocmd FileType ruby set shiftwidth=2
-autocmd FileType ruby set expandtab
+
+autocmd FileType javascript set tabstop=2
+autocmd FileType javascript set shiftwidth=2
 
 " line numbers
 set number
