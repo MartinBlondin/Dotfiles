@@ -78,9 +78,12 @@ autocmd FileType ruby set shiftwidth=2
 
 autocmd FileType javascript set tabstop=2
 autocmd FileType javascript set shiftwidth=2
+<<<<<<< HEAD
 
 autocmd FileType css set tabstop=2
 autocmd FileType css set shiftwidth=2
+=======
+>>>>>>> 799cc9e7fc0ba12c03ae2724ca1071dae1993993
 
 " line numbers
 set number
