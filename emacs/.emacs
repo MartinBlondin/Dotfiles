@@ -17,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (web-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -119,17 +119,25 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
+;; Javascript linting
+(require 'rjsx-mode)
+
+(with-eval-after-load 'rjsx
+  (define-key rjsx-mode-map "<" nil)
+  (define-key rjsx-mode-map (kbd "C-d") nil))
+
+(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+
+(setq js2-basic-offset 2)
+
 ;; linting
 (require 'flycheck)
 (global-flycheck-mode)
 
-;; Javascript linting
-(require 'web-mode)
-(require 'js2-mode)
-
-(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
-;; http://www.flycheck.org/manual/latest/index.html
-(require 'flycheck)
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
 
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -139,8 +147,12 @@
   (append flycheck-disabled-checkers
     '(javascript-jshint)))
 
-;; use eslint with web-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jscs)))
+
+;; use eslint with rsjx-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
@@ -203,15 +215,6 @@ scroll-conservatively 9999
 (setq vc-follow-symlinks t)
 
 
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    (setq web-mode-indent-style 2)
-)
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-
 (defun kill-other-buffers ()
     "Kill all other buffers."
     (interactive)
@@ -229,5 +232,10 @@ scroll-conservatively 9999
 
 (windmove-default-keybindings)
 
-(eval-after-load 'web-mode
-    '(evil-leader/set-key "c" '"! i3-msg split vertical && gnome-terminal --hide-menubar -e \'npm start\' >> /dev/null && i3-msg split horizontal"))
+(eval-after-load 'rjsx-mode
+    '(evil-leader/set-key "c" '"! i3-msg split vertical && gnome-terminal --hide-menubar -e \'npm start\'
+                                >> /dev/null && i3-msg split horizontal"))
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
