@@ -17,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -230,10 +230,23 @@ scroll-conservatively 9999
 
 (windmove-default-keybindings)
 
-(eval-after-load 'rjsx-mode
-    '(evil-leader/set-key "c" '"! i3-msg split vertical && gnome-terminal --hide-menubar -e \'npm start\'
-                                >> /dev/null && i3-msg split horizontal"))
-
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
+
+(defun xah-new-empty-buffer ()
+  "Create a new empty buffer.
+New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
+
+URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
+Version 2016-12-27"
+  (interactive)
+  (let ((-buf (generate-new-buffer "untitled")))
+    (switch-to-buffer -buf)
+    (funcall initial-major-mode)
+    (setq buffer-offer-save t)))
+
+(evil-leader/set-key "n" 'xah-new-empty-buffer)
+(evil-leader/set-key "k" 'kill-buffer)
+
+(require 'markdown-mode)
