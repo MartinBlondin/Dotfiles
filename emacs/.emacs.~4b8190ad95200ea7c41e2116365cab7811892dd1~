@@ -17,7 +17,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (web-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (helm-projectile git-gutter-fringe evil-magit magit diminish dtrt-indent smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree web-mode js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -92,13 +92,8 @@
 (require 'projectile)
 (require 'helm-projectile)
 
-(defun sr-open-file ()
-  "Open files."
-  (interactive)
-  (if (projectile-project-p)
-      (helm-projectile)
-  (helm-for-files)))
-(evil-leader/set-key "d" 'sr-open-file)
+(evil-leader/set-key "d" 'helm-projectile-find-file)
+(evil-leader/set-key "b" 'helm-bookmarks)
 
 ;; powerline
 (require 'powerline)
@@ -124,10 +119,12 @@
 (global-flycheck-mode)
 
 ;; Javascript linting
-(require 'web-mode)
 (require 'js2-mode)
+(require 'web-mode)
 
+;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
+
 ;; http://www.flycheck.org/manual/latest/index.html
 (require 'flycheck)
 
@@ -157,7 +154,7 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; exit to home directory with leader + q
-(evil-leader/set-key "q" 'kill-buffer)
+(evil-leader/set-key "q" '":e ~/")
 
 ;; scrolling
 (require 'smooth-scrolling)
@@ -166,6 +163,9 @@ scroll-conservatively 9999
 
 ;; disable backup files
 (setq make-backup-files nil)
+
+;; exiting insert mode keeps your cursor in the same place
+(setq evil-move-cursor-back nil)
 
 ;; adds line by line diff to files in git directories
 (require 'git-gutter-fringe)
@@ -201,33 +201,3 @@ scroll-conservatively 9999
   "........")
 
 (setq vc-follow-symlinks t)
-
-
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    (setq web-mode-indent-style 2)
-)
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-
-(defun kill-other-buffers ()
-    "Kill all other buffers."
-    (interactive)
-    (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
-
-(defun kill-all-buffers ()
-    "Kill all other buffers."
-    (interactive)
-    (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
-    (kill-buffer)
-    (setq default-directory "~/")
-    (kill-other-buffers))
-
-(evil-leader/set-key "q" 'kill-all-buffers)
-
-(windmove-default-keybindings)
-
-(eval-after-load 'web-mode
-    '(evil-leader/set-key "c" '"! i3-msg split vertical && gnome-terminal --hide-menubar -e \'npm start\' >> /dev/null && i3-msg split horizontal"))
