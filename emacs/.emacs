@@ -1,12 +1,15 @@
-;; package management
+;;; Package --- Summary
+;;; Commentary:
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
   (package-initialize)
+;;; Code:
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Tool-bar-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
@@ -14,9 +17,8 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (diminish dtrt-indent smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree web-mode js2-mode flycheck popup-complete auto-complete paredit autopair git-gutter airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (helm-projectile git-gutter-fringe evil-magit magit diminish dtrt-indent smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree web-mode js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -24,9 +26,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; projectile
-(require 'projectile)
 
 ;; evil-mode
 (require 'evil-surround)
@@ -37,18 +36,18 @@
 (evil-leader/set-leader ",")
 (evil-leader/set-key "a" 'projectile-add-known-project)
 (evil-leader/set-key "s" 'projectile-switch-project)
-(evil-leader/set-key "d" 'helm-find)
 (evil-leader/set-key "f" 'package-install)
+(evil-leader/set-key "RET" 'eshell)
 
 (require 'evil)
 (evil-mode 1)
 
 ;; font
-(add-to-list 'default-frame-alist '(font . "roboto mono light-12" ))
+(add-to-list 'default-frame-alist '( font . "roboto mono light 12" ))
 
 ;; colour scheme
 (require 'atom-one-dark-theme)
-(setq ns-auto-hide-menu-bar t)
+;;(setq ns-auto-hide-menu-bar t)
 (set-frame-position nil 0 -24)
 (tool-bar-mode 0)
 (set-frame-size nil 150 80)
@@ -88,6 +87,13 @@
 
 ;; helm
 (require 'helm-config)
+
+;; projectile
+(require 'projectile)
+(require 'helm-projectile)
+
+(evil-leader/set-key "d" 'helm-projectile-find-file)
+(evil-leader/set-key "b" 'helm-bookmarks)
 
 ;; powerline
 (require 'powerline)
@@ -147,7 +153,8 @@
 (require 'all-the-icons)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-(evil-leader/set-key "q" 'kill-buffer)
+;; exit to home directory with leader + q
+(evil-leader/set-key "q" '":e ~/")
 
 ;; scrolling
 (require 'smooth-scrolling)
@@ -159,3 +166,38 @@ scroll-conservatively 9999
 
 ;; exiting insert mode keeps your cursor in the same place
 (setq evil-move-cursor-back nil)
+
+;; adds line by line diff to files in git directories
+(require 'git-gutter-fringe)
+(evil-leader/set-key "v" 'git-gutter-mode)
+(setq-default left-fringe-width  10)
+(setq-default right-fringe-width 20)
+(fringe-helper-define 'git-gutter-fr:added nil
+  "........"
+  "........"
+  "........"
+  "..XXXX.."
+  "........"
+  "........"
+  "........"
+  "........")
+(fringe-helper-define 'git-gutter-fr:deleted nil
+  "........"
+  "........"
+  "........"
+  "..XXXX.."
+  "........"
+  "........"
+  "........"
+  "........")
+(fringe-helper-define 'git-gutter-fr:modified nil
+  "........"
+  "........"
+  "........"
+  "..XXXX.."
+  "........"
+  "........"
+  "........"
+  "........")
+
+(setq vc-follow-symlinks t)
