@@ -34,8 +34,6 @@
 (require 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
-(evil-leader/set-key "a" 'projectile-add-known-project)
-(evil-leader/set-key "s" 'projectile-switch-project)
 (evil-leader/set-key "f" 'package-install)
 (evil-leader/set-key "RET" 'eshell)
 
@@ -185,32 +183,32 @@ scroll-conservatively 9999
 (setq-default left-fringe-width  10)
 (setq-default right-fringe-width 20)
 (fringe-helper-define 'git-gutter-fr:added nil
-  "........"
-  "........"
-  "........"
-  "..XXXX.."
-  "........"
-  "........"
-  "........"
-  "........")
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX...")
 (fringe-helper-define 'git-gutter-fr:deleted nil
-  "........"
-  "........"
-  "........"
-  "..XXXX.."
-  "........"
-  "........"
-  "........"
-  "........")
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX...")
 (fringe-helper-define 'git-gutter-fr:modified nil
-  "........"
-  "........"
-  "........"
-  "..XXXX.."
-  "........"
-  "........"
-  "........"
-  "........")
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX..."
+  "...XX...")
 
 (setq vc-follow-symlinks t)
 
