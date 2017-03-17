@@ -14,10 +14,11 @@
  '(custom-safe-themes
    (quote
     ("f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
+;; '(helm-source-names-using-follow (quote ("Recentf" "Projectile files" "Imenu")))
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons neotree dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -97,6 +98,11 @@
       (helm-projectile)
   (helm-for-files)))
 (evil-leader/set-key "d" 'sr-open-file)
+(evil-leader/set-key "s" 'helm-imenu)
+
+;;(setq helm-follow-mode-persistent t)
+;;(add-hook 'helm-after-initialize-hook
+;;          #'(lambda () (helm-attrset 'follow 1 helm-source-buffers-list)))
 
 ;; powerline
 (require 'powerline)
@@ -112,6 +118,11 @@
 
 ;; auto-completion
 (require 'auto-complete)
+(global-auto-complete-mode)
+
+(defun auto-complete-mode-maybe ()
+  "Turn up the AC everywhere."
+  (auto-complete-mode 1))
 
 ;; async
 (autoload 'dired-async-mode "dired-async.el" nil t)
@@ -159,12 +170,6 @@
 (setq-default flycheck-disabled-checkers
   (append flycheck-disabled-checkers
     '(json-jsonlist)))
-
-;; navigation
-(require 'neotree)
-(evil-leader/set-key "w" 'neotree-toggle)
-(require 'all-the-icons)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; exit to home directory with leader + q
 (evil-leader/set-key "q" 'kill-buffer)
