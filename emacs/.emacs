@@ -253,5 +253,3 @@ Version 2016-12-27"
 
 (evil-leader/set-key "n" 'xah-new-empty-buffer)
 (evil-leader/set-key "k" 'kill-buffer)
-
-(require 'markdown-mode)
