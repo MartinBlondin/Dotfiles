@@ -15,6 +15,7 @@
    (quote
     ("f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(menu-bar-mode nil)
+ '(org-agenda-files (quote ("~/Dropbox/org-mode/life.org")))
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
@@ -285,3 +286,7 @@ version 2016-12-27"
 (evil-leader/set-key "," 'delete-window)
 
 (evil-leader/set-key "x" 'with-editor-finish)
+
+(evil-leader/set-key "g" 'org-archive-subtree-default)
+
+(require 'ox-pandoc)
