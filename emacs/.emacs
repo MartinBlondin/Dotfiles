@@ -281,6 +281,7 @@ version 2016-12-27"
 
 (require 'magit)
 (require 'evil-magit)
-
 (evil-leader/set-key "m" 'magit-status)
 (evil-leader/set-key "," 'delete-window)
+
+(evil-leader/set-key "x" 'with-editor-finish)
