@@ -14,11 +14,12 @@
  '(custom-safe-themes
    (quote
     ("f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
-;; '(helm-source-names-using-follow (quote ("Recentf" "Projectile files" "Imenu")))
  '(menu-bar-mode nil)
+ '(org-agenda-files (quote ("~/Dropbox/org-mode/life.org")))
+ '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -240,11 +241,11 @@ scroll-conservatively 9999
 (setq indent-line-function 'insert-tab)
 
 (defun xah-new-empty-buffer ()
-  "Create a new empty buffer.
-New buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
+  "create a new empty buffer.
+new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
 
-URL `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
-Version 2016-12-27"
+url `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
+version 2016-12-27"
   (interactive)
   (let ((-buf (generate-new-buffer "untitled")))
     (switch-to-buffer -buf)
@@ -253,3 +254,39 @@ Version 2016-12-27"
 
 (evil-leader/set-key "n" 'xah-new-empty-buffer)
 (evil-leader/set-key "k" 'kill-buffer)
+
+(require 'markdown-mode)
+
+(require 'org-bullets)
+
+(add-hook 'org-mode-hook
+          (lambda()
+            (org-bullets-mode t )))
+
+(setq org-hide-leading-stars t)
+
+(evil-leader/set-key "r" 'org-capture)
+(evil-leader/set-key "a" 'org-agenda)
+(evil-leader/set-key "p" 'artist-mode)
+
+(add-hook 'org-mode-hook
+      '(lambda ()
+         (delete '("\\.pdf\\'" . default) org-file-apps)
+         (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))
+         (delete '("\\.html\\'" . default) org-file-apps)
+         (add-to-list 'org-file-apps '("\\.html\\'" . "firefox %s"))))
+
+(require 'yasnippet)
+(yas-global-mode 1)
+(evil-leader/set-key "y" 'yas-new-snippet)
+
+(require 'magit)
+(require 'evil-magit)
+(evil-leader/set-key "m" 'magit-status)
+(evil-leader/set-key "," 'delete-window)
+
+(evil-leader/set-key "x" 'with-editor-finish)
+
+(evil-leader/set-key "g" 'org-archive-subtree-default)
+
+(require 'ox-pandoc)
