@@ -14,11 +14,10 @@
  '(custom-safe-themes
    (quote
     ("f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
-;; '(helm-source-names-using-follow (quote ("Recentf" "Projectile files" "Imenu")))
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -255,3 +254,15 @@ Version 2016-12-27"
 (evil-leader/set-key "k" 'kill-buffer)
 
 (require 'markdown-mode)
+
+(require 'org-bullets)
+
+(add-hook 'org-mode-hook
+          (lambda()
+            (org-bullets-mode t )))
+
+(setq org-hide-leading-stars t)
+
+(evil-leader/set-key "r" 'org-capture)
+(evil-leader/set-key "a" 'org-agenda)
+(evil-leader/set-key "p" 'artist-mode)
