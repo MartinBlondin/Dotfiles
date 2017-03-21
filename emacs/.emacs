@@ -273,7 +273,7 @@ version 2016-12-27"
          (delete '("\\.pdf\\'" . default) org-file-apps)
          (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))
          (delete '("\\.html\\'" . default) org-file-apps)
-         (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))))
+         (add-to-list 'org-file-apps '("\\.html\\'" . "firefox %s"))))
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -281,6 +281,5 @@ version 2016-12-27"
 
 (require 'magit)
 (require 'evil-magit)
-
 (evil-leader/set-key "m" 'magit-status)
 (evil-leader/set-key "," 'delete-window)
