@@ -272,6 +272,8 @@ version 2016-12-27"
 (yas-global-mode 1)
 (evil-leader/set-key "y" 'yas-new-snippet)
 
+(setq yas-snippet-dirs '("~/vimconfig/emacs/yasnippets/"))
+
 (require 'magit)
 (require 'evil-magit)
 (evil-leader/set-key "m" 'magit-status)
@@ -282,5 +284,3 @@ version 2016-12-27"
 (evil-leader/set-key "g" 'org-archive-subtree-default)
 
 (require 'ox-pandoc)
-
-(setq yas-snippet-dirs '("~/vimconfig/emacs/yasnippets"))
