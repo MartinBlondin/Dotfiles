@@ -125,7 +125,7 @@
 ;; Javascript linting
 (require 'rjsx-mode)
 
-(with-eval-after-load 'rjsx
+(with-eval-after-load 'rjsx-mode
   (define-key rjsx-mode-map "<" nil)
   (define-key rjsx-mode-map (kbd "C-d") nil))
 
