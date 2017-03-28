@@ -92,7 +92,9 @@
   (helm-for-files)))
 (evil-leader/set-key "d" 'sr-open-file)
 (evil-leader/set-key "e" 'helm-for-files)
-(evil-leader/set-key "s" 'helm-imenu)
+(evil-leader/set-key "c" 'helm-imenu)
+
+(evil-leader/set-key "s" 'save-buffer)
 
 ;;(setq helm-follow-mode-persistent t)
 ;;(add-hook 'helm-after-initialize-hook
