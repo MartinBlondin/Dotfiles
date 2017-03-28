@@ -15,7 +15,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile git-gutter-fringe evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -91,6 +91,7 @@
       (helm-projectile)
   (helm-for-files)))
 (evil-leader/set-key "d" 'sr-open-file)
+(evil-leader/set-key "e" 'helm-for-files)
 (evil-leader/set-key "s" 'helm-imenu)
 
 ;;(setq helm-follow-mode-persistent t)
@@ -175,39 +176,6 @@ scroll-conservatively 9999
 ;; disable backup files
 (setq make-backup-files nil)
 
-;; adds line by line diff to files in git directories
-(require 'git-gutter-fringe)
-(evil-leader/set-key "v" 'git-gutter-mode)
-(setq-default left-fringe-width  10)
-(setq-default right-fringe-width 20)
-(fringe-helper-define 'git-gutter-fr:added nil
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX...")
-(fringe-helper-define 'git-gutter-fr:deleted nil
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX...")
-(fringe-helper-define 'git-gutter-fr:modified nil
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX..."
-  "...XX...")
-
 (setq vc-follow-symlinks t)
 
 
@@ -233,15 +201,13 @@ scroll-conservatively 9999
 (setq indent-line-function 'insert-tab)
 
 (defun xah-new-empty-buffer ()
-  "create a new empty buffer.
-new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc.
-
-url `http://ergoemacs.org/emacs/emacs_new_empty_buffer.html'
-version 2016-12-27"
+  "Create a new empty buffer.
+new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”, etc."
   (interactive)
   (let ((-buf (generate-new-buffer "untitled")))
     (switch-to-buffer -buf)
     (funcall initial-major-mode)
+    (setq default-directory "~/")
     (setq buffer-offer-save t)))
 
 (evil-leader/set-key "n" 'xah-new-empty-buffer)
@@ -302,3 +268,5 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+(provide '.emacs)
+;;; .emacs ends here
