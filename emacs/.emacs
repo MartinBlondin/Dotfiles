@@ -5,6 +5,10 @@
   (package-initialize)
 ;;; Code:
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(Tool-bar-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
@@ -15,10 +19,14 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 ;; evil-mode
@@ -90,15 +98,13 @@
   (if (projectile-project-p)
       (helm-projectile)
   (helm-for-files)))
+
 (evil-leader/set-key "d" 'sr-open-file)
 (evil-leader/set-key "e" 'helm-for-files)
 (evil-leader/set-key "c" 'helm-imenu)
+(evil-leader/set-key "b" 'helm-projectile-ack)
 
 (evil-leader/set-key "s" 'save-buffer)
-
-;;(setq helm-follow-mode-persistent t)
-;;(add-hook 'helm-after-initialize-hook
-;;          #'(lambda () (helm-attrset 'follow 1 helm-source-buffers-list)))
 
 ;; powerline
 (require 'powerline)
@@ -270,5 +276,18 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+(evil-leader/set-key "z" 'indent-region)
+
+(evilnc-default-hotkeys t)
+(evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
+
+(add-hook 'latex-mode-hook 'preview-buffer)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+
 (provide '.emacs)
 ;;; .emacs ends here
