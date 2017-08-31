@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -281,7 +281,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "z" 'indent-region)
 
-(evil-leader/set-key "v" 'helm-gtags-find-pattern)
+(evil-leader/set-key "penis" 'helm-gtags-find-pattern)
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 
@@ -295,5 +295,23 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(require 'evil-goggles)
+(evil-goggles-mode)
+(setq evil-goggles-duration 0.100)
+;; list of all on/off variables, their default value is `t`:
+;;
+;; evil-goggles-enable-delete
+;; evil-goggles-enable-indent
+;; evil-goggles-enable-yank
+;; evil-goggles-enable-join
+;; evil-goggles-enable-fill-and-move
+;; evil-goggles-enable-paste
+;; evil-goggles-enable-shift
+;; evil-goggles-enable-surround
+;; evil-goggles-enable-commentary
+;; evil-goggles-enable-replace-with-register
+;; evil-goggles-enable-set-marker
+
 (provide '.emacs)
 ;;; .emacs ends here
