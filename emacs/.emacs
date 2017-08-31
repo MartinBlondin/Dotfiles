@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -118,14 +118,6 @@
 ;; silent bell
 (setq ring-bell-function 'ignore)
 
-;; auto-completion
-(require 'auto-complete)
-(global-auto-complete-mode)
-
-(defun auto-complete-mode-maybe ()
-  "Turn up the AC everywhere."
-  (auto-complete-mode 1))
-
 ;; async
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
@@ -205,6 +197,7 @@ scroll-conservatively 9999
 (windmove-default-keybindings)
 
 (setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 4 c-default-style "linux")
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
@@ -256,8 +249,6 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (evil-leader/set-key "x" 'with-editor-finish)
 
-(evil-leader/set-key "g" 'org-archive-subtree-default)
-
 (require 'ox-pandoc)
 
 (defun minibuffer-keyboard-quit ()
@@ -269,6 +260,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
       (setq deactivate-mark  t)
     (when (get-buffer "*Completions*") (delete-windows-on "*Completions*"))
     (abort-recursive-edit)))
+
 (define-key evil-normal-state-map [escape] 'keyboard-quit)
 (define-key evil-visual-state-map [escape] 'keyboard-quit)
 (define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
@@ -285,9 +277,23 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-hook 'latex-mode-hook 'preview-buffer)
 
 (add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
-(require 'golden-ratio)
-(golden-ratio-mode 1)
+(evil-leader/set-key "z" 'indent-region)
 
+(evil-leader/set-key "v" 'helm-gtags-find-pattern)
+(add-hook 'c-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-mode-hook 'helm-gtags-mode)
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'irony)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 (provide '.emacs)
 ;;; .emacs ends here
