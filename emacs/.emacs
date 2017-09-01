@@ -281,7 +281,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "z" 'indent-region)
 
-(evil-leader/set-key "penis" 'helm-gtags-find-pattern)
+(evil-leader/set-key "v" 'helm-gtags-find-pattern)
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 
@@ -298,7 +298,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'evil-goggles)
 (evil-goggles-mode)
-(setq evil-goggles-duration 0.100)
+(setq evil-goggles-duration 0.150)
 ;; list of all on/off variables, their default value is `t`:
 ;;
 ;; evil-goggles-enable-delete
