@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio jedi cdlatex auctex omnisharp csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete auto-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -276,7 +276,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-hook 'latex-mode-hook 'preview-buffer)
 
-(add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
 (evil-leader/set-key "z" 'indent-region)
@@ -295,6 +294,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(defun my/python-mode-hook ()
+  "Company-jedi."
+  (add-to-list 'company-backends 'company-jedi))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (require 'evil-goggles)
 (evil-goggles-mode)
