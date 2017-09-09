@@ -4,7 +4,7 @@ from time import sleep
 
 home = str(Path.home())
 numPics = 156
-interval = 0.13
+interval = 0.12
 picDir = home + '/bg'
 picName = 'bg_'
 fileType = '.png'

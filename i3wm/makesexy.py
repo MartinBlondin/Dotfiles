@@ -23,8 +23,8 @@ def killIfOpen(greparg):
     kp.wait()
 
 
-killIfOpen('compton')
-killIfOpen('bgscr')
+# killIfOpen('compton')
+# killIfOpen('bgscr')
 
 home = str(Path.home()) + '/'
 
