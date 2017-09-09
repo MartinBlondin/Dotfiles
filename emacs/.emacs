@@ -321,5 +321,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "t" 'helm-top)
 
+(add-to-list 'auto-mode-alist '("*[\\S]rc" . conf-unix-mode))
+
 (provide '.emacs)
 ;;; .emacs ends here
