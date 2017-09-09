@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (jedi-direx rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -300,6 +300,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (add-to-list 'company-backends 'company-jedi))
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
+(add-hook 'python-mode-hook 'jedi:setup)
 
 (require 'evil-goggles)
 (evil-goggles-mode)
@@ -317,6 +318,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; evil-goggles-enable-commentary
 ;; evil-goggles-enable-replace-with-register
 ;; evil-goggles-enable-set-marker
+
+(evil-leader/set-key "t" 'helm-top)
 
 (provide '.emacs)
 ;;; .emacs ends here
