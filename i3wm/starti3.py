@@ -50,7 +50,7 @@ def openMakesexy():
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
-    pag.typewrite('python makesexy.py')
+    pag.typewrite('python3 makesexy.py')
     pag.press('enter')
     return()
 

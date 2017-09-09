@@ -1,26 +1,24 @@
 import subprocess
 from pathlib import Path
 import threading
-import random
-import time
 
-def killIfOpen(greparg):
-    ps = subprocess.Popen(('ps', '-ax'), stdout=subprocess.PIPE)
-    pid = subprocess.check_output(('grep', greparg), stdin=ps.stdout)
-    pid = str(pid).split("\\n")
-    pid = [i for i in pid if "grep" not in i]
-    if not len(pid) > 1:
-        print(greparg + " not running")
-        return
-    if pid[0][0] == 'b':
-        pid = pid[0][2:]
-    else:
-        pid = pid[0]
-    pid = pid.split(' ')[0]
-    ps.wait()
-    print(pid)
-    kp = subprocess.Popen(('kill', pid))
-    kp.wait()
+# def killIfOpen(greparg):
+#     ps = subprocess.Popen(('ps', '-ax'), stdout=subprocess.PIPE)
+#     pid = subprocess.check_output(('grep', greparg), stdin=ps.stdout)
+#     pid = str(pid).split("\\n")
+#     pid = [i for i in pid if "grep" not in i]
+#     if not len(pid) > 1:
+#         print(greparg + " not running")
+#         return
+#     if pid[0][0] == 'b':
+#         pid = pid[0][2:]
+#     else:
+#         pid = pid[0]
+#     pid = pid.split(' ')[0]
+#     ps.wait()
+#     print(pid)
+#     kp = subprocess.Popen(('kill', pid))
+#     kp.wait()
 
 
 # killIfOpen('compton')
@@ -30,13 +28,11 @@ home = str(Path.home()) + '/'
 
 
 def startBgscript():
-    bgscript = subprocess.call(['python', home + 'bgscript.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    bgscript.wait()
+    bgscript = subprocess.call(['python3', home + 'bgscript.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
 
 def startCompton():
     compton = subprocess.call(['compton', '-f', '--config', home + '.config/compton.conf'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    compton.wait()
 
 
 thread_1 = threading.Thread(target=startCompton, args=())
