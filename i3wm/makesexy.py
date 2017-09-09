@@ -30,7 +30,7 @@ home = str(Path.home()) + '/'
 
 
 def startBgscript():
-    bgscript = subprocess.call(['bash', home + 'bgscript.sh'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    bgscript = subprocess.call(['python', home + 'bgscript.py'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     bgscript.wait()
 
 
