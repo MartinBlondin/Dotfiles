@@ -16,9 +16,6 @@ Plugin 'tpope/vim-characterize'
 " Writing plugins
 "Plugin 'hysd/vim-grammarous'
 
-" Git plugins
-Plugin 'airblade/vim-gitgutter'
-
 " Programming plugins
 Plugin 'sheerun/vim-polyglot'
 Plugin 'lifepillar/vim-mucomplete'
@@ -45,13 +42,6 @@ nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
 let g:ale_sign_error = '|'
 let g:ale_sign_warning = '|'
 let g:ale_echo_msg_format = '[%linter%] %s'
-
-" Gitgutter
-let g:gitgutter_sign_removed_first_line = "^_"
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Nerdtree setup
 map <F2> :NERDTreeToggle<CR>
@@ -133,10 +123,9 @@ xmap { S}
 set noswapfile
 set nohlsearch
 
-" Norwegian characters
-nmap <Leader>d i<right>ø
-nmap <Leader>a i<right>æ
-nmap <leader>g i<right>å
+" Emacs bins
+nmap <Leader>q :q!<ENTER>
+nmap <Leader>s :w<ENTER>
 
 " Opening file at same location as i closed it
 if has("autocmd")
