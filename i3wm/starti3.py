@@ -6,6 +6,7 @@ def openShell():
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
+    time.sleep(1)
     return()
 
 
@@ -51,6 +52,7 @@ def openMakesexy():
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
+    time.sleep(1)
     pag.typewrite('python3 makesexy.py')
     pag.press('enter')
     return()
@@ -72,7 +74,6 @@ def sendtoWorkspace(workspaceId):
     return()
 
 
-time.sleep(2)
 gotoWorkspace(1)
 openShell()
 setVertical()

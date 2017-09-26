@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (jedi-direx rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (nov jedi-direx rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -224,7 +224,6 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (setq org-hide-leading-stars t)
 
-(evil-leader/set-key "r" 'org-capture)
 (evil-leader/set-key "a" 'org-agenda)
 (evil-leader/set-key "p" 'artist-mode)
 
@@ -322,6 +321,15 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "t" 'helm-top)
 
 (add-to-list 'auto-mode-alist '("*[\\S]rc" . conf-unix-mode))
+
+(add-to-list 'load-path "~/.emacs.d/gdscript-mode")
+(require 'gdscript-mode)
+
+(defun revert-buffer-no-confirm ()
+    "Revert buffer without confirmation."
+    (interactive)
+    (revert-buffer :ignore-auto :noconfirm))
+(evil-leader/set-key "r" 'revert-buffer-no-confirm)
 
 (provide '.emacs)
 ;;; .emacs ends here
