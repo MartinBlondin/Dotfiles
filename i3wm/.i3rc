@@ -225,7 +225,7 @@ bar {
 # exec --no-startup-id bash ~/bgscript.sh
 # exec compton -f --config ~/.config/compton.conf
 # exec python ~/makesexy.py
-exec python ~/starti3.py
+exec python3 ~/starti3.py
 
 for_window [class="feh"] floating enable
 for_window [class="evince"] floating enable
