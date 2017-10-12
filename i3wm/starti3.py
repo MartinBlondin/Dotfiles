@@ -6,7 +6,7 @@ def openShell():
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
-    time.sleep(1)
+    time.sleep(2)
     return()
 
 
@@ -74,6 +74,7 @@ def sendtoWorkspace(workspaceId):
     return()
 
 
+time.sleep(25)
 gotoWorkspace(1)
 openShell()
 setVertical()

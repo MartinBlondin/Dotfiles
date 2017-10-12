@@ -35,6 +35,9 @@ bindsym $mod+Return exec gnome-terminal --hide-menubar
 # start Firefox
 bindsym $mod+p exec firefox
 
+# start Qutebrowser
+bindsym $mod+t exec qutebrowser
+
 # start Emacs
 bindsym $mod+z exec emacs
 
@@ -203,7 +206,6 @@ client.unfocused                $inactive-bg-colour $inactive-bg-colour $inactiv
 client.focused_inactive         $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
 client.urgent $urgent-bg-colour $urgent-bg-colour   $bg-colour          $text-colour             $preview-colour
 
-hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -230,8 +232,10 @@ exec python3 ~/starti3.py
 for_window [class="feh"] floating enable
 for_window [class="evince"] floating enable
 for_window [class="python3"] floating enable
+for_window [title="Network Connections"] floating enable
 
 for_window [class="^.*"] border pixel 1
+hide_edge_borders both
 
 assign [class="emacs"] →  Emacs
 assign [class="Steam"] →  Steam
