@@ -331,7 +331,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (revert-buffer :ignore-auto :noconfirm))
 (evil-leader/set-key "r" 'revert-buffer-no-confirm)
 
-(start-server)
+(server-start)
 
 (provide '.emacs)
 ;;; .emacs ends here
