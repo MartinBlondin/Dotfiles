@@ -193,6 +193,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# #282c34
+
 set $bg-colour              #2f343f 
 set $inactive-bg-colour     #2f343f
 set $text-colour            #f3f4f5
@@ -219,7 +221,8 @@ bar {
             urgent_workspace    $urgent-bg-colour       $urgent-bg-colour    $text-colour
         }
         position top
-        font pango:roboto 10
+        # font pango:roboto 10
+        font pango:roboto mono 11
 }
 
 # Background

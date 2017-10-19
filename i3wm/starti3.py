@@ -10,21 +10,6 @@ def openShell():
     return()
 
 
-def openDeluge():
-    pag.keyDown('winleft')
-    pag.press('d')
-    pag.keyUp('winleft')
-    pag.typewrite('deluge')
-    pag.press('enter')
-    pag.keyDown('winleft')
-    pag.keyDown('shift')
-    pag.press('l')
-    pag.keyUp('winleft')
-    pag.keyUp('shift')
-    time.sleep(2)
-    return()
-
-
 def setVertical():
     pag.keyDown('winleft')
     pag.press('v')
@@ -104,7 +89,6 @@ gotoWorkspace(4)
 setVertical()
 openSyncthing()
 openMakesexy()
-openDeluge()
 
 gotoWorkspace(2)
 openFirefox()
