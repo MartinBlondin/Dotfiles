@@ -34,7 +34,6 @@ def startBgscript():
 def startCompton():
     compton = subprocess.call(['compton', '-f', '--config', home + '.config/compton.conf'], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-
 thread_1 = threading.Thread(target=startCompton, args=())
 thread_2 = threading.Thread(target=startBgscript, args=())
 

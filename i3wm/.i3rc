@@ -38,6 +38,9 @@ bindsym $mod+p exec firefox
 # start Qutebrowser
 bindsym $mod+t exec qutebrowser
 
+# start Evince
+bindsym $mod+e exec evince
+
 # start Emacs
 bindsym $mod+z exec emacs
 
@@ -109,7 +112,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -193,7 +196,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# #282c34
+# unused colours: #272b33 #282c34 #383c4a
+
 
 set $bg-colour              #2f343f 
 set $inactive-bg-colour     #2f343f
@@ -222,7 +226,7 @@ bar {
         }
         position top
         # font pango:roboto 10
-        font pango:roboto mono 11
+        font pango:roboto mono medium 11
 }
 
 # Background
@@ -235,6 +239,7 @@ exec python3 ~/starti3.py
 for_window [class="feh"] floating enable
 for_window [class="evince"] floating enable
 for_window [class="python3"] floating enable
+for_window [class="tkinter"] floating enable
 for_window [title="Network Connections"] floating enable
 
 for_window [class="^.*"] border pixel 1

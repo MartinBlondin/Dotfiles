@@ -37,6 +37,7 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 (evil-leader/set-key "f" 'package-install)
+(evil-leader/set-key "F" 'package-refresh-contents)
 (evil-leader/set-key "RET" 'eshell)
 
 (require 'evil)
@@ -331,7 +332,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (revert-buffer :ignore-auto :noconfirm))
 (evil-leader/set-key "r" 'revert-buffer-no-confirm)
 
-(server-start)
+(require 'ein)
 
+(evil-leader/set-key "W" 'ein:notebooklist-login)
+(evil-leader/set-key "w" 'ein:notebooklist-open))
+
+(server-start)
 (provide '.emacs)
 ;;; .emacs ends here

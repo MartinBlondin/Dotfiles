@@ -29,7 +29,7 @@ c.completion.height = '20%'
 c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
-# c.content.user_stylesheets = 'userstyle.css'
+c.content.user_stylesheets = 'solarized-all-sites-dark.css'
 
 # behavior
 c.downloads.location.prompt = True
@@ -65,6 +65,11 @@ config.bind('dR', 'open -t reddit.com')
 config.bind('dM', 'open -t protonmail.com')
 config.bind('dG', 'open -t gmail.com')
 
+config.bind('dl', 'spawn mpv {url}')
+config.bind('dL', 'spawn youtube-dl {url}')
+# :bind ,n set ui user-stylesheet solarized-everything-css/css/solarized-all-sites-dark.css "" ;; reload
+
+
 
 # mustache templated from current theme
 theme = {
@@ -81,8 +86,8 @@ theme = {
     'colors': {
         'bg': {
             'normal': '#282c34',
-            'active': '#2f343f',
-            'inactive': '#282c34',
+            'active': '#383c4a',
+            'inactive': '#2f343f',
         },
 
         'fg': {
