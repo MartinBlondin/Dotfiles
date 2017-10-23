@@ -6,63 +6,84 @@ def openShell():
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
-    time.sleep(2)
-    return()
+    time.sleep(1)
+    pag.keyDown('ctrl')
+    pag.press('l')
+    pag.keyUp('ctrl')
 
 
 def setVertical():
     pag.keyDown('winleft')
     pag.press('v')
     pag.keyUp('winleft')
-    return()
 
 
 def setHorizontal():
     pag.keyDown('winleft')
     pag.press('g')
     pag.keyUp('winleft')
-    return()
 
 
 def openEmacs():
     pag.keyDown('winleft')
     pag.press('z')
     pag.keyUp('winleft')
-    return()
 
 
-def openFirefox():
+def openRanger():
     pag.keyDown('winleft')
-    pag.press('p')
+    pag.press('c')
     pag.keyUp('winleft')
-    return()
+
+
+def openQutebrowser():
+    pag.keyDown('winleft')
+    pag.press('t')
+    pag.keyUp('winleft')
 
 
 def openSyncthing():
-    pag.keyDown('winleft')
-    pag.press('enter')
-    pag.keyUp('winleft')
-    time.sleep(1)
+    openShell()
     pag.typewrite('syncthing -no-browser')
     pag.press('enter')
-    return()
 
 
 def openMakesexy():
-    pag.keyDown('winleft')
-    pag.press('enter')
-    pag.keyUp('winleft')
-    time.sleep(1)
+    openShell()
     pag.typewrite('python3 makesexy.py')
     pag.press('enter')
-    return()
+
+
+def openTransmission():
+    setHorizontal()
+    openShell()
+    pag.keyDown('winleft')
+    pag.keyDown('shift')
+    pag.press('l')
+    pag.keyUp('shift')
+    pag.keyUp('winleft')
+
+    pag.typewrite('transmission-daemon')
+    pag.press('enter')
+    time.sleep(1)
+    pag.typewrite('transmission-remote-cli')
+    pag.press('enter')
+    time.sleep(1)
+
+
+def resize(n, dir):
+    pag.keyDown('winleft')
+    pag.press('r')
+    pag.keyUp('winleft')
+    for i in range(n):
+        pag.press(dir)
+    pag.press('escape')
 
 
 def gotoWorkspace(workspaceId):
     pag.keyDown('winleft')
     pag.press(str(workspaceId))
     pag.keyUp('winleft')
-    return()
 
 
 def sendtoWorkspace(workspaceId):
@@ -71,13 +92,23 @@ def sendtoWorkspace(workspaceId):
     pag.press(str(workspaceId))
     pag.keyUp('shift')
     pag.keyUp('winleft')
-    return()
 
 
-time.sleep(25)
+def close():
+    pag.keyDown('winleft')
+    pag.press('q')
+    pag.keyUp('winleft')
+
+
+def hidemouse():
+    pag.keyDown('winleft')
+    pag.press('escape')
+    pag.keyUp('winleft')
+
+
+hidemouse()
 gotoWorkspace(1)
 openShell()
-time.sleep(3)
 setVertical()
 openShell()
 setHorizontal()
@@ -87,19 +118,29 @@ openShell()
 
 gotoWorkspace(4)
 setVertical()
-openSyncthing()
+openShell()
 openMakesexy()
+openTransmission()
+resize(3, 'l')
+setVertical()
+openSyncthing()
+resize(3, 'k')
+pag.keyDown('winleft')
+pag.press('k')
+pag.keyUp('winleft')
 
 gotoWorkspace(2)
-openFirefox()
+openShell()
 
 gotoWorkspace(3)
 openEmacs()
+time.sleep(20)
+pag.press(',')
+pag.press('q')
 
-time.sleep(2)
+gotoWorkspace(5)
+openRanger()
 
-gotoWorkspace(3)
-sendtoWorkspace(9)
-gotoWorkspace(9)
-sendtoWorkspace(3)
 gotoWorkspace(2)
+close()
+openQutebrowser()

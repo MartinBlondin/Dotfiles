@@ -44,7 +44,7 @@
 (evil-mode 1)
 
 ;; font
-(add-to-list 'default-frame-alist '( font . "roboto mono light 12" ))
+(add-to-list 'default-frame-alist '( font . "roboto mono medium 13" ))
 
 ;; colour scheme
 (require 'atom-one-dark-theme)

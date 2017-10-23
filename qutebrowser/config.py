@@ -9,6 +9,8 @@
 
 from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
+import keys
+
 
 config = config  # type: ConfigAPI # noqa: F821
 c = c  # type: ConfigContainer # noqa: F821
@@ -30,14 +32,21 @@ c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = 'solarized-all-sites-dark.css'
+c.downloads.open_dispatcher = 'nautilus'
 
 # behavior
+
+keys.bind(config)
+
 c.downloads.location.prompt = True
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'y': 'https://youtube.com/results?search_query={}',
                        'r': 'https://reddit.com/r/{}',
                        'rp': 'https://redditp.com/r/{}',
                        'k': 'https://kickass.cd/search.php?q={}',
+                       's': 'https://soundcloud.com/search?q={}',
+                       'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
+                       'a': 'https://wiki.archlinux.org/index.php?search={}',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False
@@ -45,47 +54,20 @@ c.tabs.background = True
 c.editor.command = ['emacsclient', '{}']
 c.auto_save.session = True
 
-# binds
-config.unbind('J', mode='normal')
-config.unbind('K', mode='normal')
-config.unbind('d', mode='normal')
-
-config.bind('<Shift-i>', 'config-source')
-config.bind('x', 'tab-close')
-config.bind('J', 'tab-prev')
-config.bind('K', 'tab-next')
-
-config.bind('dy', 'open youtube.com')
-config.bind('dr', 'open reddit.com')
-config.bind('dm', 'open protonmail.com')
-config.bind('dg', 'open gmail.com')
-
-config.bind('dY', 'open -t youtube.com')
-config.bind('dR', 'open -t reddit.com')
-config.bind('dM', 'open -t protonmail.com')
-config.bind('dG', 'open -t gmail.com')
-
-config.bind('dl', 'spawn mpv {url}')
-config.bind('dL', 'spawn youtube-dl {url}')
-# :bind ,n set ui user-stylesheet solarized-everything-css/css/solarized-all-sites-dark.css "" ;; reload
-
-
-
-# mustache templated from current theme
 theme = {
     'panel': {
-        'height': 22.5,
+        'height': 24,
     },
 
     'fonts': {
-        'main': 'bold Roboto Light',
-        'tab_bold': False,
+        'main': 'Roboto Mono Medium',
+        'tab_bold': True,
         'tab_size': 12,
     },
 
     'colors': {
         'bg': {
-            'normal': '#282c34',
+            'normal': '#272b33',
             'active': '#383c4a',
             'inactive': '#2f343f',
         },
@@ -104,11 +86,14 @@ theme = {
 # colors
 colors = theme['colors']
 
+
 def setToBG(colortype, target):
     config.set('colors.' + target, colors['bg'][colortype])
 
+
 def setToFG(colortype, target):
     config.set('colors.' + target, colors['fg'][colortype])
+
 
 def colorSync(colortype, setting):
     if setting.endswith('.fg'):
@@ -121,8 +106,9 @@ def colorSync(colortype, setting):
         setToFG(colortype, setting + '.fg')
         setToBG(colortype, setting + '.bg')
 
+
 targets = {
-    'normal' : [
+    'normal': [
         'statusbar.normal',
         'statusbar.command',
         'tabs.even',
@@ -131,7 +117,7 @@ targets = {
         'downloads.bar.bg',
         ],
 
-    'active' : [
+    'active': [
         'tabs.selected.even',
         'tabs.selected.odd',
         'statusbar.insert',
@@ -148,7 +134,7 @@ targets = {
         'completion.category',
     ],
 
-    'inactive' : [
+    'inactive': [
         'tabs.even',
         'tabs.odd',
         'completion.scrollbar',
@@ -164,7 +150,7 @@ targets = {
         'completion.item.selected.border.bottom',
     ],
 
-    'match' : [
+    'match': [
         'completion.match.fg',
         'hints.match.fg',
     ]
@@ -178,15 +164,17 @@ setToFG('active', 'statusbar.progress.bg')
 
 config.set('hints.border', '1px solid ' + colors['fg']['normal'])
 
+
 # tabbar
 def makePadding(top, bottom, left, right):
-    return { 'top': top, 'bottom': bottom, 'left': left , 'right': right }
+    return {'top': top, 'bottom': bottom, 'left': left, 'right': right}
+
 
 # TODO improve this logic
 # assume height of font is ~10px, pad top by half match panel height
 surround = round((theme['panel']['height'] - 10) / 2)
-c.tabs.padding = makePadding(surround,surround,8,8)
-c.tabs.indicator_padding = makePadding(0,0,0,0)
+c.tabs.padding = makePadding(surround, surround, 8, 8)
+c.tabs.indicator_padding = makePadding(0, 0, 0, 0)
 
 # fonts
 c.fonts.monospace = theme['fonts']['main']
@@ -204,6 +192,6 @@ c.fonts.statusbar = theme['fonts']['main']
 
 tabFont = str(theme['fonts']['tab_size']) + 'pt ' + theme['fonts']['main']
 if theme['fonts']['tab_bold']:
-    tabFont = 'bold '  + tabFont
+    tabFont = 'bold ' + tabFont
 
 c.fonts.tabs = tabFont
