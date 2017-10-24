@@ -1,7 +1,6 @@
 import pyautogui as pag
 import time
 
-
 def openShell():
     pag.keyDown('winleft')
     pag.press('enter')
@@ -106,15 +105,44 @@ def hidemouse():
     pag.keyUp('winleft')
 
 
+def openCalcurse():
+    openShell()
+    time.sleep(1)
+    pag.typewrite('calcurse')
+    time.sleep(1)
+    pag.press('enter')
+
+
+def openGlances():
+    openShell()
+    pag.typewrite('glances')
+    pag.press('enter')
+
+
+def openMusikcube():
+    openShell()
+    pag.typewrite('musikcube')
+    pag.press('enter')
+
+
+def focus(dir):
+    pag.keyDown('winleft')
+    pag.press(dir)
+    pag.keyUp('winleft')
+
+
 hidemouse()
 gotoWorkspace(1)
-openShell()
+openCalcurse()
 setVertical()
-openShell()
+openGlances()
+resize(1, 'j')
 setHorizontal()
-openShell()
+openMusikcube()
+focus('h')
 setVertical()
 openShell()
+resize(2, 'k')
 
 gotoWorkspace(4)
 setVertical()
@@ -125,9 +153,7 @@ resize(3, 'l')
 setVertical()
 openSyncthing()
 resize(3, 'k')
-pag.keyDown('winleft')
-pag.press('k')
-pag.keyUp('winleft')
+focus('k')
 
 gotoWorkspace(2)
 openShell()
@@ -135,8 +161,14 @@ openShell()
 gotoWorkspace(3)
 openEmacs()
 time.sleep(20)
+pag.press('y')
+time.sleep(1)
+pag.press('y')
+time.sleep(3)
 pag.press(',')
 pag.press('q')
+pag.press(',')
+pag.press(',')
 
 gotoWorkspace(5)
 openRanger()

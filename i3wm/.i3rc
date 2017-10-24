@@ -32,17 +32,20 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec termite
 
-# start Firefox
-bindsym $mod+p exec firefox
-
 # start Qutebrowser
 bindsym $mod+t exec qutebrowser
 
 # hide mouse
 bindsym $mod+Escape exec python3 ~/hide-mouse.py
 
+# dropdown terminal
+bindsym $mod+n exec python3 ~/spawn-terminal.py
+
 # start Evince
 bindsym $mod+e exec evince
+
+# start Krita
+bindsym $mod+p exec krita
 
 # start Emacs
 bindsym $mod+z exec emacs
@@ -54,16 +57,13 @@ bindsym $mod+y exec xbacklight -inc 10
 # Print screen
 bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 
-# start Nautilus
-bindsym $mod+n exec nautilus
-
 # start Ranger
 bindsym $mod+c exec termite -e ranger
 
 # kill focused window
 bindsym $mod+q kill
 
-# Lock fedora
+# Lock pc
 bindsym $mod+b exec bash ~/lock.sh
 
 # Change volume
@@ -71,11 +71,8 @@ bindsym $mod+i exec amixer -q sset Master 3%+
 bindsym $mod+o exec amixer -q sset Master 3%-
 bindsym $mod+m exec amixer -q sset Master toggle
 
-# Start Dropbox
-exec_always dropbox start
-
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'roboto mono bold medium 12' -nb '#2f343f' -nf '#f3f4f5'
+bindsym $mod+d exec dmenu_run -fn 'roboto mono medium 2' -nb '#2f343f' -nf '#f3f4f5'
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -133,7 +130,7 @@ bindsym $mod+space focus mode_toggle
 #bindsym $mod+d focus child
 
 set $workspace1 " Terminals"
-set $workspace2 " Firefox"
+set $workspace2 " Web"
 set $workspace3 " Emacs"
 set $workspace4 " VPN"
 set $workspace5 " Files"
@@ -204,6 +201,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# COLL
 # unused colours: #272b33 #282c34 #383c4a
 
 

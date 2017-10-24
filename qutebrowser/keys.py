@@ -6,6 +6,7 @@ def bind(config):
     config.unbind('tl', mode='normal')
     config.unbind('?', mode='normal')
     config.unbind(';t', mode='normal')
+    config.unbind(';t', mode='normal')
 
     config.bind('<Shift-i>', 'config-source')
     config.bind('x', 'tab-close')
@@ -15,20 +16,19 @@ def bind(config):
     config.bind('gl', 'forward -t')
     config.bind('t', 'tab-clone')
     config.bind('?', 'open -t qute://help/img/cheatsheet-big.png')
+
+    navbind('y', 'youtube.com', config)
+    navbind('r', 'reddit.com', config)
+    navbind('m', 'protonmail.com/login', config)
+    navbind('g', 'gmail.com', config)
+    navbind('f', 'facebook.com', config)
+    navbind('s', 'soundcloud.com', config)
+
     config.bind(',s', 'open -t qute://settings')
-    config.bind(';t', 'hint links spawn transmission-remote -a {hint-url}')
+    config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
+    config.bind(',d', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {url}')
+    config.bind(',m', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format vorbis --audio-quality 0 {url}')
 
-    config.bind('dy', 'open youtube.com')
-    config.bind('dr', 'open reddit.com')
-    config.bind('dm', 'open protonmail.com')
-    config.bind('dg', 'open gmail.com')
-    config.bind('df', 'open facebook.com')
-
-    config.bind('dY', 'open -t youtube.com')
-    config.bind('dR', 'open -t reddit.com')
-    config.bind('dM', 'open -t protonmail.com')
-    config.bind('dG', 'open -t gmail.com')
-    config.bind('dF', 'open -t facebook.com')
-
-    config.bind('dl', 'spawn smplayer {url}')
-    config.bind('dL', 'spawn youtube-dl {url}')
+def navbind(bind, link, config):
+    config.bind('d' + bind, 'open ' + link)
+    config.bind('d' + bind.upper(), 'open -t ' + link)

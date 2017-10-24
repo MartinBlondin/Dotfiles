@@ -338,5 +338,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evil-leader/set-key "w" 'ein:notebooklist-open))
 
 (server-start)
+
 (provide '.emacs)
 ;;; .emacs ends here

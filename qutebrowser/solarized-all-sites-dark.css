@@ -4,6 +4,24 @@
 a {
   color: #f3f4f5 !important;
 }
+.td {
+  color: #000000 !important;
+}
+.td.nobr.center {
+  color: #000000 !important;
+}
+.markeredBlock[class*="Type"] {
+  background-color: #272b33 !important;
+}
+.markeredBlock {
+  background-color: #272b33 !important;
+}
+.tbody {
+  background-color: #272b33 !important;
+}
+p {
+  color: #878E7D !important;
+}
 a:visited {
   color: #6c71c4 !important;
 }
@@ -96,7 +114,7 @@ pre {
   border-color: #272b33 !important;
 }
 .news .alert .pull-info {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .link-gray-dark,
 .text-gray-dark {
@@ -169,7 +187,7 @@ button.ajax-pagination-btn:hover {
   background-color: transparent !important;
 }
 .filter-bar {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 a.filter-item,
 .filter-item {
@@ -404,7 +422,7 @@ a.filter-item:hover,
   background-color: #272b33 !important;
 }
 .capped-list th {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
   color: #93a1a1 !important;
 }
 .capped-list tr:nth-child(2n) {
@@ -594,7 +612,7 @@ qul.branches-list * {
   color: #93a1a1 !important;
 }
 .btn:hover {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .btn-primary,
 .issues-listing .btn-primary {
@@ -607,7 +625,7 @@ qul.branches-list * {
   color: #f3f4f5 !important;
 }
 .Header {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
   border-bottom-color: #586e75 !important;
 }
 .Header a {
@@ -635,7 +653,7 @@ qul.branches-list * {
   color: #839496 !important;
 }
 .Box-row--focus-gray.navigation-focus {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
   color: #93a1a1 !important;
 }
 .js-directory-link {
@@ -742,7 +760,7 @@ a.label {
   background-color: #2f343f !important;
 }
 .merge-message {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .pr-toolbar {
   background-color: #272b33 !important;
@@ -797,13 +815,13 @@ a.label {
   background-color: #272b33 !important;
 }
 .compare-pr-placeholder {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 ul.comparison-list > li.title {
   background-color: #2f343f !important;
 }
 ul.comparison-list {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .repository-description {
   color: #839496 !important;
@@ -886,7 +904,7 @@ ul.comparison-list {
   color: #839496 !important;
 }
 .subnav-item:hover {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .subnav-item:visited {
   color: #839496 !important;
@@ -967,7 +985,7 @@ a.tabnav-tab.selected,
   color: #93a1a1 !important;
 }
 .viz {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .facebox-popup {
   color: #839496 !important;
@@ -1110,7 +1128,7 @@ tr.Even {
   background-color: #2f343f !important;
 }
 .Cat3HL {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .FeatureByline {
   background-color: #272b33 !important;
@@ -1223,7 +1241,7 @@ div#simpleSearch #searchInput {
 th.navbox-group,
 .navbox-subgroup,
 .navbox-title {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
 }
 .navbox-even {
   background-color: #272b33 !important;
@@ -1498,7 +1516,7 @@ pre code .typ {
   color: #b58900 !important;
 }
 #footer {
-  background-color: #083c4a !important;
+  background-color: #2f343f !important;
   color: #839496 !important;
 }
 #footer #footer-sites th {
@@ -1656,4 +1674,59 @@ a.comment-user.owner {
     height:18px!important;
     line-height:18px!important;
     padding:0!important;
+}
+.yt-card {
+  background-color: #272b33 !important;
+  color: #272b33 !important;
+}
+#watch7-content {
+  background-color: #272b33 !important;
+}
+.pm_toolbar.pm_toolbar_withSelector{
+  background-color: #272b33 !important;
+}
+body #conversation-list-rows .conversation{
+  background-color: #272b33 !important;
+}
+._2ltu ._4-u2 {
+  background-color: #272b33 !important;
+}
+._5vb_ ._52c6, ._5vb_ ._dcs:hover ._52c6{
+  background-color: #272b33 !important;
+}
+._5vsj._5vsj._5vsj{
+  background-color: #272b33 !important;
+}
+._64b{
+  background-color: #272b33 !important;
+}
+#sr-header-area{
+  background-color: #272b33 !important;
+}
+#facebook ._-kb div{
+  background-color: #272b33 !important;
+}
+.playControls__inner, .playControls__bg{
+  background-color: #2f343f !important;
+}
+.trackItemWithEdit.active, .trackItemWithEdit.active .trackItemWithEdit__additional, .tabs__tabs, .g-modal-section, .addToPlaylistItem__actions, .g-dark, .sc-background-light, .readMoreBadge__countWrapper{
+  background-color: #272b33 !important;
+}
+.sc-border-light, .sc-border-light-right, .sc-border-light-bottom{
+  background-color: #272b33 !important;
+}
+.l-footer, .sound__soundActions{
+  background-color: #272b33 !important;
+}
+.header__navMenu > li > a.selected, .header > li > a:focus{
+  background-color: #272b33 !important;
+}
+.dropbar__content{
+  background-color: #272b33 !important;
+}
+.commentForm.visible.m-small .commentForm__wrapper{
+  background-color: #272b33 !important;
+}
+.button{
+  background-color: #2f343f !important;
 }
