@@ -1730,3 +1730,21 @@ body #conversation-list-rows .conversation{
 .button{
   background-color: #2f343f !important;
 }
+#guide-content.ytd-app{
+  background-color: #272b33 !important;
+}
+#container.ytd-masthead{
+  background-color: #272b33 !important;
+}
+#container.ytd-watch{
+  background-color: #272b33 !important;
+}
+#pm_sidebar{
+  background-color: #272b33 !important;
+}
+.headerSecured-container{
+  background-color: #2f343f !important;
+}
+.headerSecuredDesktop-logo{
+  background-color: #2f343f !important;
+}

@@ -111,7 +111,7 @@
 (require 'powerline)
 (powerline-default-theme)
 (require 'airline-themes)
-(load-theme 'airline-dark)
+(load-theme 'airline-dark t)
 
 ;; auto close brackets
 (electric-pair-mode 1)

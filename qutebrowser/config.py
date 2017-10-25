@@ -33,6 +33,7 @@ c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = 'solarized-all-sites-dark.css'
 c.downloads.open_dispatcher = 'nautilus'
+c.hints.chars = 'asdfjkl;'
 
 # behavior
 
