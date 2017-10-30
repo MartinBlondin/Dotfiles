@@ -134,6 +134,8 @@
 
 (setq js2-basic-offset 2)
 
+(jedi:setup)
+
 ;; linting
 (require 'flycheck)
 (global-flycheck-mode)
@@ -166,7 +168,7 @@
   (append flycheck-disabled-checkers
     '(json-jsonlist)))
 
-;; exit to home directory with leader + q
+;; exit to home directory
 (evil-leader/set-key "q" 'kill-buffer)
 
 ;; scrolling
@@ -213,7 +215,7 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
     (setq buffer-offer-save t)))
 
 (evil-leader/set-key "n" 'xah-new-empty-buffer)
-(evil-leader/set-key "k" 'kill-buffer)
+(evil-leader/set-key "k" 'kill-this-buffer)
 
 (require 'markdown-mode)
 
@@ -278,6 +280,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (setq jedi:complete-on-dot t)
 
+
+
 (evil-leader/set-key "z" 'indent-region)
 
 (evil-leader/set-key "v" 'helm-gtags-find-pattern)
@@ -300,7 +304,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (add-to-list 'company-backends 'company-jedi))
 
 (add-hook 'python-mode-hook 'my/python-mode-hook)
-(add-hook 'python-mode-hook 'jedi:setup)
 
 (require 'evil-goggles)
 (evil-goggles-mode)
@@ -332,10 +335,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (revert-buffer :ignore-auto :noconfirm))
 (evil-leader/set-key "r" 'revert-buffer-no-confirm)
 
-(require 'ein)
+;; Mode specific binds
 
-(evil-leader/set-key "W" 'ein:notebooklist-login)
-(evil-leader/set-key "w" 'ein:notebooklist-open))
+(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
 
 (server-start)
 

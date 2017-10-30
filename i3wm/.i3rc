@@ -35,6 +35,9 @@ bindsym $mod+Return exec termite
 # start Qutebrowser
 bindsym $mod+t exec qutebrowser
 
+# toggle layout
+bindsym $mod+Tab exec python3 ~/toggle-keymap.py
+
 # hide mouse
 bindsym $mod+Escape exec python3 ~/hide-mouse.py
 

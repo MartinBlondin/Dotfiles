@@ -1,28 +1,9 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 import subprocess
 from pathlib import Path
 import threading
-
-# def killIfOpen(greparg):
-#     ps = subprocess.Popen(('ps', '-ax'), stdout=subprocess.PIPE)
-#     pid = subprocess.check_output(('grep', greparg), stdin=ps.stdout)
-#     pid = str(pid).split("\\n")
-#     pid = [i for i in pid if "grep" not in i]
-#     if not len(pid) > 1:
-#         print(greparg + " not running")
-#         return
-#     if pid[0][0] == 'b':
-#         pid = pid[0][2:]
-#     else:
-#         pid = pid[0]
-#     pid = pid.split(' ')[0]
-#     ps.wait()
-#     print(pid)
-#     kp = subprocess.Popen(('kill', pid))
-#     kp.wait()
-
-
-# killIfOpen('compton')
-# killIfOpen('bgscr')
 
 home = str(Path.home()) + '/'
 

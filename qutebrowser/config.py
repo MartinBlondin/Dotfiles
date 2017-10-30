@@ -32,18 +32,20 @@ c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = 'solarized-all-sites-dark.css'
-c.downloads.open_dispatcher = 'nautilus'
 c.hints.chars = 'asdfjkl;'
 
 # behavior
 
 keys.bind(config)
 
-c.downloads.location.prompt = True
+c.downloads.location.prompt = False
+c.downloads.location.directory = '~/Downloads/'
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'y': 'https://youtube.com/results?search_query={}',
                        'r': 'https://reddit.com/r/{}',
+                       'w': 'https://en.wikipedia.org/w/index.php?search={}',
                        'rp': 'https://redditp.com/r/{}',
+                       'rt': 'https://www.rottentomatoes.com/search/?search={}',
                        'k': 'https://kickass.cd/search.php?q={}',
                        's': 'https://soundcloud.com/search?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',

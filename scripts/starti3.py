@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 import pyautogui as pag
 import time
 
@@ -105,13 +108,8 @@ def hidemouse():
 
 def openGlances():
     openShell()
+    time.sleep(5)
     pag.typewrite('glances')
-    pag.press('enter')
-
-
-def openMusikcube():
-    openShell()
-    pag.typewrite('musikcube')
     pag.press('enter')
 
 
@@ -128,7 +126,7 @@ setVertical()
 openShell()
 resize(1, 'j')
 setHorizontal()
-openMusikcube()
+openShell()
 focus('h')
 setVertical()
 openShell()
@@ -152,8 +150,6 @@ openEmacs()
 time.sleep(20)
 pag.press(',')
 pag.press('q')
-pag.press(',')
-pag.press(',')
 
 gotoWorkspace(5)
 openRanger()

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 import subprocess
 from pathlib import Path
 from time import sleep

@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# coding=utf-8
+
 import pyautogui as pag
 
 width = pag.size()[0]

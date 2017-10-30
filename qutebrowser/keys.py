@@ -10,7 +10,7 @@ def bind(config):
     config.unbind(';t', mode='normal')
     config.unbind(';t', mode='normal')
 
-    config.bind('<Shift-i>', 'config-source')
+    config.bind('I', 'config-source')
     config.bind('x', 'tab-close')
     config.bind('J', 'tab-prev')
     config.bind('K', 'tab-next')
@@ -30,9 +30,11 @@ def bind(config):
     navbind('s', 'soundcloud.com', config)
 
     config.bind(',s', 'open -t qute://settings')
-    config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
-    config.bind(',d', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {url}')
-    config.bind(',m', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format vorbis --audio-quality 0 {url}')
+    config.bind(',dt', 'hint links spawn transmission-remote -a {hint-url}')
+    config.bind(',dd', 'hint links spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
+    config.bind(',dD', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {url}')
+    config.bind(',da', 'spawn youtube-dl -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
+    config.bind(',e', ':spawn --userscript emacspaste')
 
 def navbind(bind, link, config):
     config.bind('d' + bind, 'open ' + link)
