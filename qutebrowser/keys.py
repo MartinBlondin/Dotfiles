@@ -31,9 +31,10 @@ def bind(config):
 
     config.bind(',s', 'open -t qute://settings')
     config.bind(',dt', 'hint links spawn transmission-remote -a {hint-url}')
-    config.bind(',dd', 'hint links spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
-    config.bind(',dD', 'spawn youtube-dl -o "~/Downloads/%(title)s.%(ext)s" {url}')
-    config.bind(',da', 'spawn youtube-dl -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
+    config.bind(',dd', 'hint links spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
+    config.bind(',dD', 'spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {url}')
+    config.bind(',da', 'hint links spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {hint-url}')
+    config.bind(',dA', 'spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
     config.bind(',e', ':spawn --userscript emacspaste')
 
 def navbind(bind, link, config):

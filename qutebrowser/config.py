@@ -50,6 +50,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        's': 'https://soundcloud.com/search?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
+                       'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

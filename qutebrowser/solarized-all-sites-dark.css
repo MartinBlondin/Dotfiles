@@ -1802,3 +1802,6 @@ b{
 div #sidebar{
   background-color: #272b33 !important;
 }
+span #itemprop{
+  color: #839496 !important;
+}

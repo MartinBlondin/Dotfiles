@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (nov jedi-direx rjsx-mode direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree js2-mode flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -124,49 +124,38 @@
 (dired-async-mode 1)
 
 ;; Javascript linting
-(require 'rjsx-mode)
+;; (require 'rjsx-mode)
 
-(with-eval-after-load 'rjsx-mode
-  (define-key rjsx-mode-map "<" nil)
-  (define-key rjsx-mode-map (kbd "C-d") nil))
+;; (with-eval-after-load 'rjsx-mode
+;;   (define-key rjsx-mode-map "<" nil)
+;;   (define-key rjsx-mode-map (kbd "C-d") nil))
 
-(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 
-(setq js2-basic-offset 2)
+;; (setq js2-basic-offset 2)
 
 (jedi:setup)
+
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-jedi))
 
 ;; linting
 (require 'flycheck)
 (global-flycheck-mode)
 
-;; disable jshint since we prefer eslint checking
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(javascript-jshint)))
-
 ;; turn on flychecking globally
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; disable jshint since we prefer eslint checking
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(javascript-jshint)))
-
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(javascript-jscs)))
-
 ;; use eslint with rsjx-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
+;; (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
 
 ;; disable json-jsonlist checking for json files
-(setq-default flycheck-disabled-checkers
-  (append flycheck-disabled-checkers
-    '(json-jsonlist)))
+;; (setq-default flycheck-disabled-checkers
+;;   (append flycheck-disabled-checkers
+;;     '(json-jsonlist)))
 
 ;; exit to home directory
 (evil-leader/set-key "q" 'kill-buffer)
@@ -228,7 +217,7 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (setq org-hide-leading-stars t)
 
 (evil-leader/set-key "a" 'org-agenda)
-(evil-leader/set-key "p" 'artist-mode)
+;; (evil-leader/set-key "p" 'artist-mode)
 
 (add-hook 'org-mode-hook
       '(lambda ()
@@ -284,7 +273,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "z" 'indent-region)
 
-(evil-leader/set-key "v" 'helm-gtags-find-pattern)
+;; (evil-leader/set-key "v" 'helm-gtags-find-pattern)
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 
@@ -292,18 +281,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-hook 'after-init-hook 'global-company-mode)
 
 (require 'irony)
-(eval-after-load 'company
+(with-eval-after-load 'company
   '(add-to-list 'company-backends 'company-irony))
-(eval-after-load 'flycheck
+(with-eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-(defun my/python-mode-hook ()
-  "Company-jedi."
-  (add-to-list 'company-backends 'company-jedi))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 (require 'evil-goggles)
 (evil-goggles-mode)
@@ -337,7 +320,37 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 ;; Mode specific binds
 
+
+(defun my/python-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- d") 'jedi:goto-definition))
+
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+
+
+(defun my/tern-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- d") 'tern-find-definition)
+  (evil-local-set-key 'normal (kbd "- a") 'tern-rename-variable))
+
+(add-hook 'tern-mode-hook 'my/tern-mode-hook)
+
 (evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
+
+(require 'tern)
+
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(setq js-indent-level 2)
+
+(add-hook 'html-mode-hook
+ (lambda ()
+   (setq-local electric-pair-inhibit-predicate
+               `(lambda (c)
+                  (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
+
+(add-hook 'tern-mode
+  (lambda ()
+    (setq company-backends '(company-tern))))
 
 (server-start)
 
