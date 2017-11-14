@@ -8,8 +8,8 @@
     browser        = qutebrowser
 
 [colors]
-    foreground     = #969da9
-    background     = #272b33
+    foreground     = rgba(150, 157, 169, 1)
+    background     = rgba(39, 43, 51, 0.7)
     cursor         = #969da9
     highlight      = #272b33
     color0         = #61afef

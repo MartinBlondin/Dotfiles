@@ -1,18 +1,6 @@
 import pyautogui as pag
 from time import sleep
 
-pag.keyDown('winleft')
-
-
-def openTerminal():
-    pag.keyDown('winleft')
-    pag.press('return')
-    pag.keyDown('shift')
-    for i in range(5):
-        pag.press('l')
-    pag.keyUp('shift')
-    pag.keyUp('winleft')
-
 
 def openFirefox():
     pag.keyDown('winleft')
@@ -29,8 +17,6 @@ def openFirefox():
     pag.keyUp('shift')
 
 
-openTerminal()
-openQutebrowser()
 openFirefox()
 pag.keyDown('winleft')
 pag.press('l')

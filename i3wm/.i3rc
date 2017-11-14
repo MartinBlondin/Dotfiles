@@ -45,7 +45,7 @@ bindsym $mod+Escape exec python3 ~/hide-mouse.py
 bindsym $mod+n exec python3 ~/spawn-terminal.py
 
 # start Evince
-bindsym $mod+e exec evince
+bindsym $mod+e exec gnome-disks
 
 # start Krita
 bindsym $mod+p exec krita

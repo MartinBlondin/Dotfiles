@@ -30,7 +30,7 @@ body {
   color: #839496 !important;
 }
 html {
-  background-color: #272b33 !important;
+  background-color: #000000 !important;
 }
 input,
 textarea {
@@ -79,10 +79,10 @@ pre {
   background-color: #272b33 !important;
 }
 .tile--info__expand {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .tile--c {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #eee8d5 !important;
 }
 .module__text {
@@ -105,10 +105,10 @@ pre {
   color: #839496 !important;
 }
 .btn--top:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .result--sep--hr:before {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 * {
   border-color: #272b33 !important;
@@ -137,7 +137,7 @@ button.ajax-pagination-btn {
   color: #93a1a1 !important;
 }
 button.ajax-pagination-btn:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .comment-reactions .btn-link {
   color: #839496 !important;
@@ -169,7 +169,7 @@ button.ajax-pagination-btn:hover {
   color: #839496 !important;
 }
 .file-history-tease .participation a {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .file-history-tease .author a {
   color: #839496 !important;
@@ -178,7 +178,7 @@ button.ajax-pagination-btn:hover {
   background-color: #272b33 !important;
 }
 .file-info-divider {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .file-wrap {
   color: #839496 !important;
@@ -200,7 +200,7 @@ a.filter-item.selected,
 }
 a.filter-item:hover,
 .filter-item:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .flash {
@@ -208,14 +208,14 @@ a.filter-item:hover,
   color: #93a1a1 !important;
 }
 .gh-header-number {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .ellipsis-expander,
 .hidden-text-expander a {
   background-color: #272b33 !important;
 }
 .issue-meta {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .issues-listing a {
   color: #839496 !important;
@@ -225,28 +225,28 @@ a.filter-item:hover,
 }
 .new-user-avatar-cta {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .overall-summary {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .pinned-repo-item.border {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .progress-bar {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .simple-box {
   background-color: #272b33 !important;
 }
 .social-count {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .scope-badge {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .stats-switcher-wrapper {
@@ -256,7 +256,7 @@ a.filter-item:hover,
   color: #839496 !important;
 }
 .table-list-header-toggle .btn-link {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .table-list-header-toggle .btn-link.selected {
   color: #839496 !important;
@@ -294,24 +294,24 @@ a.filter-item:hover,
 }
 .blob-code-hunk {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .blob-code-inner {
   color: #839496 !important;
 }
 .blob-num {
   background-color: #272b33 !important;
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .file {
   color: #839496 !important;
 }
 .form-control {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .pl-c {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .pl-c1 {
   color: #f3f4f5 !important;
@@ -344,7 +344,7 @@ a.filter-item:hover,
   border-color: #272b33 !important;
 }
 .boxed-group * {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .boxed-group article {
   background-color: #272b33 !important;
@@ -356,17 +356,17 @@ a.filter-item:hover,
 }
 .more-repos {
   background-color: #2f343f !important;
-  box-shadow: inset 0 1px 0 #586e75 !important;
+  box-shadow: inset 0 1px 0 #272b33 !important;
 }
 .boxed-group-inner {
   background-color: #272b33 !important;
 }
 .branch-action-body {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .branch-action-body div {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .branch-action-state-clean .branch-action-icon {
   background-color: #859900 !important;
@@ -390,7 +390,7 @@ a.filter-item:hover,
 .branch-group-heading,
 .branch-infobar,
 .branch-name {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
   background-color: #272b33 !important;
 }
 .State,
@@ -438,7 +438,7 @@ a.filter-item:hover,
 .commit-meta *,
 .commit-icon .octicon *,
 .commit-group-title .octicon-git-commit * {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .commit-author {
   color: #839496 !important;
@@ -447,10 +447,10 @@ a.filter-item:hover,
   color: #839496 !important;
 }
 .commit-meta {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .commit-meta .sha-block {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .commit-meta .sha-block .sha {
   color: #839496 !important;
@@ -499,7 +499,7 @@ qul.branches-list * {
 }
 .full-commit {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .full-commit * {
   text-shadow: none !important;
@@ -544,7 +544,7 @@ qul.branches-list * {
   color: #93a1a1 !important;
 }
 .discussion-item-icon {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .discussion-item-icon.octicon {
@@ -565,7 +565,7 @@ qul.branches-list * {
 }
 .timeline-comment {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .timeline-comment-header {
   background-color: #272b33 !important;
@@ -583,7 +583,7 @@ qul.branches-list * {
   color: #839496 !important;
 }
 .dropdown-item:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .dropdown-menu {
@@ -607,8 +607,8 @@ qul.branches-list * {
   background-color: #2f343f !important;
 }
 .btn {
-  background-image: linear-gradient(to bottom, #586e75, #272b33) !important;
-  border-color: #586e75 !important;
+  background-image: linear-gradient(to bottom, #272b33, #272b33) !important;
+  border-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .btn:hover {
@@ -626,7 +626,7 @@ qul.branches-list * {
 }
 .Header {
   background-color: #2f343f !important;
-  border-bottom-color: #586e75 !important;
+  border-bottom-color: #272b33 !important;
 }
 .Header a {
   color: #93a1a1 !important;
@@ -662,7 +662,7 @@ qul.branches-list * {
 .js-site-search-form input,
 .js-chromeless-input-container {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 a.label {
   color: #000 !important;
@@ -710,7 +710,7 @@ a.label {
   color: #fff !important;
 }
 .octicon-markdown {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .orghead {
   background-color: #272b33 !important;
@@ -729,19 +729,19 @@ a.label {
   color: #93a1a1 !important;
 }
 .pagination .current {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .pagination .disabled {
   background-color: #272b33 !important;
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .pagination .disabled:hover {
   background-color: #272b33 !important;
 }
 .pagination .gap {
   background-color: #272b33 !important;
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .pagination a {
   background-color: #272b33 !important;
@@ -749,7 +749,7 @@ a.label {
   color: #839496 !important;
 }
 .pagination a:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #272b33 !important;
 }
 .empty-cell,
@@ -802,7 +802,7 @@ a.label {
 }
 .markdown-body hr,
 .markdown-body table * hr {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .markdown-body img,
 .markdown-body table * img {
@@ -858,7 +858,7 @@ ul.comparison-list {
 .select-menu-item.navigation-focus.selected,
 .select-menu-item.navigation-focus.select-menu-action,
 .select-menu-item-text.navigation-focus {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .repository-sidebar {
@@ -916,15 +916,15 @@ ul.comparison-list {
   background-color: #272b33 !important;
 }
 .subnav-search input {
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
 }
 .right .tabnav-extra {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 a.tabnav-tab,
 .tabnav-tab {
   border-color: transparent !important;
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 a.tabnav-tab.selected,
 .tabnav-tab.selected {
@@ -957,7 +957,7 @@ a.tabnav-tab.selected,
   background-color: #272b33 !important;
 }
 .timeline-commits .commit-meta .commit-id {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .topic-tag.topic-tag-link {
   background-color: #272b33 !important;
@@ -999,13 +999,13 @@ a.tabnav-tab.selected,
   background-color: #272b33 !important;
 }
 .facebox-popup .owner-select-target:hover {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .suggester {
   background-color: #2f343f !important;
 }
 .suggester li.navigation-focus {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
 }
 .sfbgg {
   background-color: #272b33 !important;
@@ -1076,9 +1076,6 @@ table {
 .title a {
   color: #839496 !important;
 }
-.title a:visited {
-  color: #586e75 !important;
-}
 a.storylink {
   color: #93a1a1 !important;
   font-weight: bold;
@@ -1099,13 +1096,13 @@ a.storylink {
   color: #b58900 !important;
 }
 #hnmain span.age a {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 .cdd {
   color: rgba(255,54,43,0.65) !important;
 }
 .comment i {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 #hnmain > tbody:nth-child(1) > tr:nth-child(4) {
   background-color: #272b33 !important;
@@ -1121,7 +1118,7 @@ tr.Even {
   color: #cb4b16 !important;
 }
 .Cat1HL {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .Cat2HL {
@@ -1308,7 +1305,7 @@ div#page div#header a {
 }
 .post div.entry kbd {
   background-color: #272b33 !important;
-  border-color: #586e75 !important;
+  border-color: #272b33 !important;
   box-shadow: none !important;
   color: #93a1a1 !important;
   text-shadow: 0px 1px 0px #000 !important;
@@ -1359,7 +1356,7 @@ body.comment {
   background-color: #272b33 !important;
 }
 .listing-chooser .intro {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #93a1a1 !important;
 }
 .listing-chooser .grippy {
@@ -1372,7 +1369,7 @@ body.comment {
   background-color: #272b33 !important;
 }
 .listing-chooser li.selected {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   box-shadow: none;
 }
 .listing-chooser li a {
@@ -1494,7 +1491,7 @@ pre code .atv {
   color: #2aa198 !important;
 }
 pre code .com {
-  color: #586e75 !important;
+  color: #272b33 !important;
 }
 pre code .kwd {
   color: #859900 !important;
@@ -1538,7 +1535,7 @@ pre code .typ {
 }
 .topbar-dialog {
   background-color: #272b33 !important;
-  box-shadow: #586e75 5px 5px 5px;
+  box-shadow: #272b33 5px 5px 5px;
 }
 .topbar-dialog .current-site-container {
   background-color: #272b33 !important;
@@ -1612,7 +1609,7 @@ div.answered-accepted .mini-counts {
 }
 .ad502-room {
   background-color: #272b33 !important;
-  box-shadow: #586e75 0px 1px 3px;
+  box-shadow: #272b33 0px 1px 3px;
   color: #93a1a1 !important;
 }
 #tabs a {
@@ -1625,7 +1622,7 @@ div.answered-accepted .mini-counts {
   color: #fdf6e3 !important;
 }
 .post-tag {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #272b33 !important;
 }
 .post-tag::before {
@@ -1662,7 +1659,7 @@ a.comment-user.owner {
   filter: opacity(50%);
 }
 .answer-votes {
-  background-color: #586e75 !important;
+  background-color: #272b33 !important;
   color: #272b33 !important;
 }
 #sr-header-area * {font-family:verdana,arial,helvetica,sans-serif!important;}
@@ -1804,4 +1801,7 @@ div #sidebar{
 }
 span #itemprop{
   color: #839496 !important;
+}
+.title a:visited {
+  color: #586e75 !important;
 }
