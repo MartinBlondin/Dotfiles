@@ -328,6 +328,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 
 
+(defun my/org-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- c") 'org-toggle-checkbox)
+  )
+
+(add-hook 'org-mode-hook 'my/org-mode-hook)
+
+
 (defun my/tern-mode-hook ()
   "Binds."
   (evil-local-set-key 'normal (kbd "- d") 'tern-find-definition)
