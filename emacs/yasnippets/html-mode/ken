@@ -2,6 +2,6 @@
 # name: kendo
 # key: ken
 # --
-@(Html.Kendo()
-$0
+@(Html.Kendo().$1
+    .$0
 )

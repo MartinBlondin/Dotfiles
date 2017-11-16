@@ -1805,3 +1805,24 @@ span #itemprop{
 .title a:visited {
   color: #586e75 !important;
 }
+#example-nav {
+  background-color: #272b33 !important;
+}
+#page-article{
+  background-color: #272b33 !important;
+}
+#markdown-toc{
+  background-color: #2f343f !important;
+}
+.TK-Hat{
+  background-color: #272b33 !important;
+}
+.action-buttons{
+  background-color: #272b33 !important;
+}
+.k-item{
+  background-color: #2f343f !important;
+}
+#markdown-toc li > ul{
+  background-color: #2f343f !important;
+}
