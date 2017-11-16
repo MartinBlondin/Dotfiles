@@ -5,10 +5,10 @@ a {
   color: #f3f4f5 !important;
 }
 .td {
-  color: #000000 !important;
+  color: #f3f4f5 !important;
 }
 .td.nobr.center {
-  color: #000000 !important;
+  color: #f3f4f5 !important;
 }
 .markeredBlock[class*="Type"] {
   background-color: #272b33 !important;
@@ -1825,4 +1825,25 @@ span #itemprop{
 }
 #markdown-toc li > ul{
   background-color: #2f343f !important;
+}
+.footer{
+  background-color: #2f343f !important;
+}
+.k-block, .k-draghandle, .k-grid-header, .k-grouping-header, .k-header, .k-pager-wrap, .k-toolbar, .k-treemap-tile, html .km-pane-wrapper .k-header{
+  background-color: #2f343f !important;
+}
+.k-separator{
+  background-color: #272b33 !important;
+}
+.k-widget{
+  background-color: #272b33 !important;
+}
+.top-bar{
+  background-color: #272b33 !important;
+}
+.module.community-bulletin{
+  background-color: #272b33 !important;
+}
+.middle{
+  background-color: #272b33 !important;
 }
