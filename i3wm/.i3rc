@@ -207,6 +207,7 @@ bindsym $mod+r mode "resize"
 
 # COLL
 # unused colours: #272b33 #282c34 #383c4a
+# bg color without transparency: #292d36
 
 
 set $bg-colour              #2f343f 
