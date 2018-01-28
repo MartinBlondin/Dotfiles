@@ -20,7 +20,7 @@ c.completion.scrollbar.width = 0
 c.tabs.position = 'top'
 c.tabs.show = 'always'
 c.tabs.favicons.show = True
-c.tabs.width.indicator = 0
+c.tabs.indicator.width = 0
 c.tabs.title.format = '{title}'
 c.tabs.title.alignment = 'center'
 c.downloads.position = 'bottom'
@@ -36,6 +36,7 @@ c.hints.chars = 'asdfjkl;'
 
 # behavior
 
+c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>", "<Ctrl-M>": "<Return>", "<Shift-Return>": "<Return>", "<Enter>": "<Return>", "<Shift-Enter>": "<Return>", "<Ctrl-Enter>": "<Ctrl-Return>"}
 keys.bind(config)
 
 c.downloads.location.prompt = False
@@ -51,6 +52,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
+                       'e': 'https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.Xshortshorts.TRS0&_nkw={}&_sacat=0',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False
@@ -60,7 +62,7 @@ c.auto_save.session = True
 
 theme = {
     'panel': {
-        'height': 24,
+        'height': 28,
     },
 
     'fonts': {
@@ -72,13 +74,13 @@ theme = {
     'colors': {
         'bg': {
             'normal': '#272b33',
-            'active': '#383c4a',
+            'active': '#2f343f',
             'inactive': '#2f343f',
         },
 
         'fg': {
             'normal': '#f3f4f5',
-            'active': '#f3f4f5',
+            'active': '#896cad',
             'inactive': '#878E7D',
 
             # completion and hints
@@ -113,8 +115,6 @@ def colorSync(colortype, setting):
 
 targets = {
     'normal': [
-        'statusbar.normal',
-        'statusbar.command',
         'tabs.even',
         'tabs.odd',
         'hints',
@@ -122,6 +122,8 @@ targets = {
         ],
 
     'active': [
+        'statusbar.normal',
+        'statusbar.command',
         'tabs.selected.even',
         'tabs.selected.odd',
         'statusbar.insert',
@@ -173,12 +175,9 @@ config.set('hints.border', '1px solid ' + colors['fg']['normal'])
 def makePadding(top, bottom, left, right):
     return {'top': top, 'bottom': bottom, 'left': left, 'right': right}
 
-
-# TODO improve this logic
-# assume height of font is ~10px, pad top by half match panel height
-surround = round((theme['panel']['height'] - 10) / 2)
-c.tabs.padding = makePadding(surround, surround, 8, 8)
-c.tabs.indicator_padding = makePadding(0, 0, 0, 0)
+surround = round((theme['panel']['height'] - 14) / 2)
+c.tabs.padding = makePadding(surround, surround, 4, 4)
+c.tabs.indicator.padding = makePadding(0, 0, 0, 0)
 
 # fonts
 c.fonts.monospace = theme['fonts']['main']

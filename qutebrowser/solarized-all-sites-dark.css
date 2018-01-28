@@ -26,6 +26,7 @@ a:visited {
   color: #6c71c4 !important;
 }
 body {
+  border-color: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
 }
@@ -1846,4 +1847,178 @@ span #itemprop{
 }
 .middle{
   background-color: #272b33 !important;
+}
+.navbar-default{
+  background-color: #272b33 !important;
+}
+.panel-body{
+  background-color: #272b33 !important;
+}
+.odd{
+  background-color: #272b33 !important;
+}
+.odd td{
+  background-color: #272b33 !important;
+}
+.odd th{
+  background-color: #272b33 !important;
+}
+.even{
+  background-color: #272b33 !important;
+}
+.even td{
+  background-color: #272b33 !important;
+}
+.even th{
+  background-color: #272b33 !important;
+}
+.table-striped{
+  background-color: #272b33 !important;
+}
+.BlueBar{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.Post{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.Post{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.ProfileTemplate.m-updated{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.ProfileSidebar__titleContainer{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.ProfileBanner{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.SubscriptionBar{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.BlueBar__account{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.friends-table{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.channels-3g2vYe{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.container-iksrDt{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.guilds-wrapper{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.container-RYiLUQ{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.messages-wrapper{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.channel-notices{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.channel-notices .channel-notice.quickswitcher-notice{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.title-qAcLxz{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.headerBar-cxbhPD{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.channel-members{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.channel-members{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.chat form{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.friends-table .scroller-wrap.polyfill .scrollbar{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.chat > .content{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.theme-light{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.articles{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.articles__summary{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.UserWallet__balance.UserWallet__balance.zebra{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+thead, tbody, tfoot, tbody tr:nth-child(2n){
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.c-sidebar__module{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+div.search-content{
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.nextprev a, .next-suggestions a{
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.morelink a, .goldvertisement a:hover, .goldvertisement a{
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.morelink .nub{
+  background-color: #272b33 !important;
+  background: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.infobar{
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.grippy, .grippy:hover{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.listing-chooser, .listing-chooser:hover{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #f3f4f5 !important;
 }

@@ -76,7 +76,7 @@ bindsym $mod+o exec amixer -q sset Master 3%-
 bindsym $mod+m exec amixer -q sset Master toggle
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'roboto mono medium 2' -nb '#2f343f' -nf '#f3f4f5'
+bindsym $mod+d exec dmenu_run -fn 'roboto bold 2' -nb '#2f343f' -nf '#f3f4f5'
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -133,16 +133,16 @@ bindsym $mod+space focus mode_toggle
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 " Terminals"
-set $workspace2 " Web"
-set $workspace3 " Emacs"
-set $workspace4 " VPN"
-set $workspace5 " Files"
-set $workspace6 " Art"
-set $workspace7 " Steam"
-set $workspace8 " Chats"
-set $workspace9 " Settings"
-set $workspace10 " Music"
+set $workspace1  ""
+set $workspace2  ""
+set $workspace3  ""
+set $workspace4  ""
+set $workspace5  ""
+set $workspace6  ""
+set $workspace7  ""
+set $workspace8  ""
+set $workspace9  ""
+set $workspace10 ""
 
 # switch to workspace
 bindsym $mod+a workspace prev
@@ -180,7 +180,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -203,51 +203,43 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode ""
 
 # COLL
 # unused colours: #272b33 #282c34 #383c4a
 # bg color without transparency: #292d36
 
 
-set $bg-colour              #2f343f 
-set $inactive-bg-colour     #2f343f
-set $text-colour            #f3f4f5
-set $inactive-text-colour   #878E7D
-set $urgent-bg-colour       #e06c75
-set $preview-colour         #2f343f
+# set $accent               #87ac70
+set $accent               #896cad
+set $bg-colour            #2f343f 
+set $inactive-bg-colour   #2f343f
+set $text-colour          #f3f4f5
+set $inactive-text-colour #878E7D
+set $urgent-bg-colour     #c678dd
+set $preview-colour       #2f343f
 
-# Window colours
-client.focused                  $bg-colour          $bg-colour          $text-colour             $preview-colour
-client.unfocused                $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
-client.focused_inactive         $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
-client.urgent $urgent-bg-colour $urgent-bg-colour   $bg-colour          $text-colour             $preview-colour
-
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command python3 ~/.i3pystatus.py
-        colors {
-            background $bg-colour
-            focused_workspace   $bg-colour              $bg-colour           $text-colour
-            inactive_workspace  $inactive-bg-colour     $inactive-bg-colour  $inactive-text-colour
-            urgent_workspace    $urgent-bg-colour       $urgent-bg-colour    $text-colour
-        }
-        position top
-        font pango:roboto mono medium 12
-}
+client.focused          $bg-colour          $bg-colour          $text-colour             $preview-colour
+client.unfocused        $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
+client.focused_inactive $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
+client.urgent           $urgent-bg-colour   $bg-colour          $text-colour             $preview-colour
 
 exec python3 ~/starti3.py
 
-for_window [class="feh"] floating enable
-for_window [class="evince"] floating enable
+for_window [class="feh"]     floating enable
+for_window [class="evince"]  floating enable
 for_window [class="python3"] floating enable
 for_window [class="tkinter"] floating enable
+for_window [class="godot"]   floating enable
+for_window [class="godot3"]  floating enable
 for_window [title="Network Connections"] floating enable
 
 for_window [class="^.*"] border pixel 1
 hide_edge_borders both
 
-assign [class="emacs"] →  Emacs
-assign [class="Steam"] →  Steam
+assign [class="Steam"] → ""
+
+gaps inner 10
+gaps outer 11
+# smart_gaps on
+# smart_borders on

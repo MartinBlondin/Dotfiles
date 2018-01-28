@@ -13,13 +13,13 @@
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
    (quote
-    ("f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(menu-bar-mode nil)
  '(org-agenda-files (quote ("~/Sync/org-mode/life.org")))
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -262,6 +262,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "z" 'indent-region)
 
+
 (evilnc-default-hotkeys t)
 (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
 
@@ -345,6 +346,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
 
+
 (require 'tern)
 
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
@@ -356,11 +358,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                `(lambda (c)
                   (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 
-(add-hook 'tern-mode
-  (lambda ()
-    (setq company-backends '(company-tern))))
+(add-hook 'gdscript-mode-hook (lambda () (evil-leader/set-key "z" 'gdscript-indent-line)))
+(add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
+
+(require 'kivy-mode)
+(add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 
 (server-start)
+
+(define-key evil-normal-state-map "\M-f" 'evil-visual-block)
+
+(evil-leader/set-key "g" 'helm-projectile-ack)
 
 (provide '.emacs)
 ;;; .emacs ends here

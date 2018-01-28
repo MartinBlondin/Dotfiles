@@ -12,6 +12,12 @@ def openShell():
     time.sleep(1)
 
 
+def openArchey3():
+    openShell()
+    pag.typewrite('archey3')
+    pag.press('enter')
+
+
 def setVertical():
     pag.keyDown('winleft')
     pag.press('v')
@@ -51,6 +57,12 @@ def openSyncthing():
 def openMakesexy():
     openShell()
     pag.typewrite('python3 makesexy.py')
+    pag.press('enter')
+
+
+def openPolybar():
+    openShell()
+    pag.typewrite('bash run_polybar.sh')
     pag.press('enter')
 
 
@@ -126,7 +138,7 @@ setVertical()
 openShell()
 resize(1, 'j')
 setHorizontal()
-openShell()
+openArchey3()
 focus('h')
 setVertical()
 openShell()
@@ -135,6 +147,7 @@ gotoWorkspace(4)
 setVertical()
 openShell()
 openMakesexy()
+openPolybar()
 openTransmission()
 resize(3, 'l')
 setVertical()
