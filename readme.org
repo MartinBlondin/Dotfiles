@@ -1,0 +1,7 @@
+* MY DOTFILES
+
+    1. Arch
+    2. i3-gaps
+    3. Polybar
+
+    [[./screenshot.png]]
