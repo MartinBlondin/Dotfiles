@@ -1,3 +1,10 @@
 test.*
 gtd
 bg/*
+*.rej
+__pycache__
+anim* 
+tmp* 
+#*
+*#
+*.pyc
