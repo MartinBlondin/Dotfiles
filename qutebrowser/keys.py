@@ -46,6 +46,7 @@ def bind(config):
     config.bind(',dA', 'spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
     config.bind(',e',  'spawn --userscript emacspaste')
 
+
 def navbind(bind, link, config):
     config.bind('d' + bind,         'open ' + link)
     config.bind('d' + bind.upper(), 'open -t ' + link)

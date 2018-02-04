@@ -36,7 +36,10 @@ c.hints.chars = 'asdfjkl;'
 
 # behavior
 
-c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>", "<Ctrl-M>": "<Return>", "<Shift-Return>": "<Return>", "<Enter>": "<Return>", "<Shift-Enter>": "<Return>", "<Ctrl-Enter>": "<Ctrl-Return>"}
+c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>",
+                           "<Ctrl-M>": "<Return>", "<Shift-Return>": "<Return>",
+                           "<Enter>": "<Return>", "<Shift-Enter>": "<Return>",
+                           "<Ctrl-Enter>": "<Ctrl-Return>"}
 keys.bind(config)
 
 c.downloads.location.prompt = False
@@ -52,7 +55,8 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
-                       'e': 'https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.Xshortshorts.TRS0&_nkw={}&_sacat=0',
+                       'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
+                       'm': 'https://www.openstreetmap.org/search?query={}',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

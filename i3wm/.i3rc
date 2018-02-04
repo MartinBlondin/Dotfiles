@@ -44,9 +44,6 @@ bindsym $mod+Escape exec python3 ~/hide-mouse.py
 # dropdown terminal
 bindsym $mod+n exec python3 ~/spawn-terminal.py
 
-# start Evince
-bindsym $mod+e exec gnome-disks
-
 # start Krita
 bindsym $mod+p exec krita
 
@@ -75,8 +72,10 @@ bindsym $mod+i exec amixer -q sset Master 3%+
 bindsym $mod+o exec amixer -q sset Master 3%-
 bindsym $mod+m exec amixer -q sset Master toggle
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'roboto bold 2' -nb '#2f343f' -nf '#f3f4f5'
+# start rofi
+bindsym $mod+d exec rofi -show run
+bindsym $mod+e exec rofi -show window
+
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that

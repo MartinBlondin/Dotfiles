@@ -1,7 +1,7 @@
 ;;; Package --- Summary
 ;;; Commentary:
   (require 'package)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+  (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
   (package-initialize)
 ;;; Code:
 (custom-set-variables
@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -44,7 +44,7 @@
 (evil-mode 1)
 
 ;; font
-(add-to-list 'default-frame-alist '( font . "roboto mono medium 13" ))
+(add-to-list 'default-frame-alist '( font . "roboto mono medium 12" ))
 
 ;; colour scheme
 (require 'atom-one-dark-theme)
@@ -364,9 +364,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'kivy-mode)
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 
+(require 'nim-mode)
+
 (server-start)
 
 (define-key evil-normal-state-map "\M-f" 'evil-visual-block)
+
+(define-key evil-visual-state-map "\"" (kbd "S\""))
+(define-key evil-visual-state-map "(" (kbd "S)"))
+(define-key evil-visual-state-map "[" (kbd "S]"))
+(define-key evil-visual-state-map "{" (kbd "S}"))
+(define-key evil-visual-state-map "<" (kbd "S<>"))
 
 (evil-leader/set-key "g" 'helm-projectile-ack)
 

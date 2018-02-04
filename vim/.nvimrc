@@ -7,9 +7,7 @@ call vundle#begin()
     
 " VIM plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
-Plugin 'joshdick/onedark.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'tpope/vim-characterize'
 
@@ -20,9 +18,7 @@ Plugin 'tpope/vim-characterize'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'ternjs/tern_for_vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'joonty/vdebug'
-Plugin 'w0rp/ale'
 
 call vundle#end()
 
@@ -38,22 +34,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 " Opening terminal in a new tab
 nmap <Leader>t :tabnew<ENTER>:terminal<ENTER>
 
-" ALE
-let g:ale_sign_error = '|'
-let g:ale_sign_warning = '|'
-let g:ale_echo_msg_format = '[%linter%] %s'
-
-" Nerdtree setup
-map <F2> :NERDTreeToggle<CR>
-
-" Python-mode setup
-let g:pymode_rope = 0
-
 " colourscheme
 syntax on
-colorscheme onedark
 set nofoldenable
-set t_Co=256
+set t_Co=16
 
 " set working directory to current file's directory
 set autochdir
