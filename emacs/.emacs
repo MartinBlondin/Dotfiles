@@ -30,16 +30,47 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; keybinds
+(evil-leader/set-leader ",")
+(evil-leader/set-key "f" 'package-install)
+(evil-leader/set-key "F" 'package-refresh-contents)
+(evil-leader/set-key "RET" 'eshell)
+(evil-leader/set-key "d" 'sr-open-file)
+(evil-leader/set-key "e" 'helm-for-files)
+(evil-leader/set-key "c" 'helm-imenu)
+(evil-leader/set-key "b" 'helm-projectile-ack)
+(evil-leader/set-key "s" 'save-buffer)
+(evil-leader/set-key "q" 'kill-all-buffers) ;; exit to home directory
+(evil-leader/set-key "n" 'xah-new-empty-buffer)
+(evil-leader/set-key "k" 'kill-this-buffer)
+(evil-leader/set-key "a" 'org-agenda)
+(evil-leader/set-key "y" 'yas-new-snippet)
+(evil-leader/set-key "u" 'yas-reload-all)
+(evil-leader/set-key "m" 'magit-status)
+(evil-leader/set-key "," 'delete-window)
+(evil-leader/set-key "x" 'with-editor-finish)
+(evil-leader/set-key "z" 'indent-region)
+(evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
+(evil-leader/set-key "z" 'indent-region)
+(evil-global-set-key 'normal (kbd "- z") 'zone)
+(evil-leader/set-key "r" 'replace-string)
+(evil-leader/set-key "D" 'ranger)
+(evil-leader/set-key "g" 'helm-projectile-ack)
+(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
+(evil-leader/set-key "t" 'helm-top)
+(define-key evil-normal-state-map "\M-f" 'evil-visual-block)
+(define-key evil-visual-state-map "\"" (kbd "S\""))
+(define-key evil-visual-state-map "(" (kbd "S)"))
+(define-key evil-visual-state-map "[" (kbd "S]"))
+(define-key evil-visual-state-map "{" (kbd "S}"))
+(evil-leader/set-key "R" 'revert-buffer-no-confirm)
+
 ;; evil-mode
 (require 'evil-surround)
 (global-evil-surround-mode 1)
 
 (require 'evil-leader)
 (global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(evil-leader/set-key "f" 'package-install)
-(evil-leader/set-key "F" 'package-refresh-contents)
-(evil-leader/set-key "RET" 'eshell)
 
 (require 'evil)
 (evil-mode 1)
@@ -103,12 +134,6 @@
       (helm-projectile)
   (helm-for-files)))
 
-(evil-leader/set-key "d" 'sr-open-file)
-(evil-leader/set-key "e" 'helm-for-files)
-(evil-leader/set-key "c" 'helm-imenu)
-(evil-leader/set-key "b" 'helm-projectile-ack)
-
-(evil-leader/set-key "s" 'save-buffer)
 
 ;; powerline
 (require 'powerline)
@@ -149,8 +174,6 @@
 ;;   (append flycheck-disabled-checkers
 ;;     '(json-jsonlist)))
 
-;; exit to home directory
-(evil-leader/set-key "q" 'kill-buffer)
 
 ;; scrolling
 (require 'smooth-scrolling)
@@ -175,7 +198,6 @@ scroll-conservatively 9999
     (setq default-directory "~/")
     (kill-other-buffers))
 
-(evil-leader/set-key "q" 'kill-all-buffers)
 
 (windmove-default-keybindings)
 
@@ -194,8 +216,6 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
     (setq default-directory "~/")
     (setq buffer-offer-save t)))
 
-(evil-leader/set-key "n" 'xah-new-empty-buffer)
-(evil-leader/set-key "k" 'kill-this-buffer)
 
 (require 'markdown-mode)
 
@@ -207,9 +227,6 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (setq org-hide-leading-stars t)
 
-(evil-leader/set-key "a" 'org-agenda)
-;; (evil-leader/set-key "p" 'artist-mode)
-
 (add-hook 'org-mode-hook
       '(lambda ()
          (delete '("\\.pdf\\'" . default) org-file-apps)
@@ -219,17 +236,11 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (require 'yasnippet)
 (yas-global-mode 1)
-(evil-leader/set-key "y" 'yas-new-snippet)
-(evil-leader/set-key "u" 'yas-reload-all)
 
 (setq yas-snippet-dirs '("~/vimconfig/emacs/yasnippets/"))
 
 (require 'magit)
 (require 'evil-magit)
-(evil-leader/set-key "m" 'magit-status)
-(evil-leader/set-key "," 'delete-window)
-
-(evil-leader/set-key "x" 'with-editor-finish)
 
 (require 'ox-pandoc)
 
@@ -251,16 +262,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-(evil-leader/set-key "z" 'indent-region)
 
 (evilnc-default-hotkeys t)
-(evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
 
 (add-hook 'latex-mode-hook 'preview-buffer)
 
 (setq jedi:complete-on-dot t)
 
-(evil-leader/set-key "z" 'indent-region)
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -290,7 +298,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; evil-goggles-enable-replace-with-register
 ;; evil-goggles-enable-set-marker
 
-(evil-leader/set-key "t" 'helm-top)
 
 (add-to-list 'auto-mode-alist '("*[\\S]rc" . conf-unix-mode))
 
@@ -301,7 +308,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     "Revert buffer without confirmation."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
-(evil-leader/set-key "R" 'revert-buffer-no-confirm)
 
 (defun my/python-mode-hook ()
   "Binds."
@@ -324,7 +330,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-hook 'tern-mode-hook 'my/tern-mode-hook)
 
-(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
 
 (require 'tern)
 
@@ -345,15 +350,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'nim-mode)
 
-(define-key evil-normal-state-map "\M-f" 'evil-visual-block)
-
-(define-key evil-visual-state-map "\"" (kbd "S\""))
-(define-key evil-visual-state-map "(" (kbd "S)"))
-(define-key evil-visual-state-map "[" (kbd "S]"))
-(define-key evil-visual-state-map "{" (kbd "S}"))
-
-(evil-leader/set-key "g" 'helm-projectile-ack)
-
 (require 'ranger)
 (setq ranger-show-hidden t)
 (setq ranger-cleanup-on-disable t)
@@ -361,7 +357,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq ranger-modify-header nil)
 (setq ranger-preview-file nil)
 (setq ranger-footer-delay 0.01)
-(evil-leader/set-key "D" 'ranger)
 
 (setq helm-projectile-window-style 'same-window)
 (setq helm-window-style 'same-window)
@@ -369,8 +364,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 (setq initial-major-mode 'org-mode)
-
-(evil-leader/set-key "r" 'replace-string)
 
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -380,7 +373,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (golden-ratio-mode 1)
 
-(evil-global-set-key 'normal (kbd "- z") 'zone)
 
 (server-start)
 

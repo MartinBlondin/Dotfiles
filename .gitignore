@@ -13,4 +13,5 @@ tmp*
 .emacs.d/.python-environments
 .emacs.d/eshell
 .emacs.d/request
+.emacs.d/recentf
 .flycheck*
