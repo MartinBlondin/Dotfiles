@@ -2,6 +2,7 @@
 ;;; Commentary:
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
+  (add-to-list 'package-archives '("gnu" . "https://melpa.gnu.net/packages/"))
   (package-initialize)
 ;;; Code:
 (custom-set-variables
@@ -19,7 +20,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete paredit autopair airline-themes linum-relative evil-leader evil-surround projectile atom-one-dark-theme evil)))
+    (highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -47,6 +48,8 @@
 (add-to-list 'default-frame-alist '( font . "roboto mono medium 12" ))
 
 ;; colour scheme
+
+(add-to-list 'load-path "~/.emacs.d/oneDark")
 (require 'atom-one-dark-theme)
 ;;(setq ns-auto-hide-menu-bar t)
 (set-frame-position nil 0 -24)
@@ -123,17 +126,6 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
-;; Javascript linting
-;; (require 'rjsx-mode)
-
-;; (with-eval-after-load 'rjsx-mode
-;;   (define-key rjsx-mode-map "<" nil)
-;;   (define-key rjsx-mode-map (kbd "C-d") nil))
-
-;; (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
-
-;; (setq js2-basic-offset 2)
-
 (jedi:setup)
 
 (with-eval-after-load 'company
@@ -169,7 +161,6 @@ scroll-conservatively 9999
 (setq make-backup-files nil)
 
 (setq vc-follow-symlinks t)
-
 
 (defun kill-other-buffers ()
     "Kill all other buffers."
@@ -262,7 +253,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (evil-leader/set-key "z" 'indent-region)
 
-
 (evilnc-default-hotkeys t)
 (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
 
@@ -270,13 +260,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (setq jedi:complete-on-dot t)
 
-
-
 (evil-leader/set-key "z" 'indent-region)
-
-;; (evil-leader/set-key "v" 'helm-gtags-find-pattern)
-(add-hook 'c-mode-hook 'helm-gtags-mode)
-(add-hook 'c++-mode-hook 'helm-gtags-mode)
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -317,10 +301,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     "Revert buffer without confirmation."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
-(evil-leader/set-key "r" 'revert-buffer-no-confirm)
-
-;; Mode specific binds
-
+(evil-leader/set-key "R" 'revert-buffer-no-confirm)
 
 (defun my/python-mode-hook ()
   "Binds."
@@ -336,7 +317,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-hook 'org-mode-hook 'my/org-mode-hook)
 
-
 (defun my/tern-mode-hook ()
   "Binds."
   (evil-local-set-key 'normal (kbd "- d") 'tern-find-definition)
@@ -345,7 +325,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-hook 'tern-mode-hook 'my/tern-mode-hook)
 
 (evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
-
 
 (require 'tern)
 
@@ -366,15 +345,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'nim-mode)
 
-(server-start)
-
 (define-key evil-normal-state-map "\M-f" 'evil-visual-block)
 
 (define-key evil-visual-state-map "\"" (kbd "S\""))
 (define-key evil-visual-state-map "(" (kbd "S)"))
 (define-key evil-visual-state-map "[" (kbd "S]"))
 (define-key evil-visual-state-map "{" (kbd "S}"))
-(define-key evil-visual-state-map "<" (kbd "S<>"))
 
 (evil-leader/set-key "g" 'helm-projectile-ack)
 
@@ -390,6 +366,23 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq helm-projectile-window-style 'same-window)
 (setq helm-window-style 'same-window)
 
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
+(setq initial-major-mode 'org-mode)
+
+(evil-leader/set-key "r" 'replace-string)
+
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(require 'paren)
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#f3f4f5")
+
+(golden-ratio-mode 1)
+
+(evil-global-set-key 'normal (kbd "- z") 'zone)
+
+(server-start)
 
 (provide '.emacs)
 ;;; .emacs ends here

@@ -1,0 +1,32 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".stackoverflow.com"
+  [url-cookie "prov" "6361dce5-6e69-8b7b-12c8-ada3a79d4b77" "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil]
+  [url-cookie "HttpOnly" nil "01-Jan-2055 00:00:00.00 GMT" "/" ".stackoverflow.com" nil])
+ (".twitter.com"
+  [url-cookie "personalization_id" "v1_JISqWt2UTogBmT5ualxgDQ==" "Wed, 11 Sep 2019 11:33:41 UTC" "/" ".twitter.com" nil]
+  [url-cookie "guest_id" "v1%3A150512962126340691" "Wed, 11 Sep 2019 11:33:41 UTC" "/" ".twitter.com" nil])
+ (".youtube.com"
+  [url-cookie "httponly" nil "11-May-2018 01:15:19.00 GMT" "/" ".youtube.com" nil]
+  [url-cookie "PREF" "f1=50000000" "11-May-2018 01:15:19.00 GMT" "/" ".youtube.com" nil]
+  [url-cookie "VISITOR_INFO1_LIVE" "nxBhzGBa7sQ" "11-May-2018 01:15:19.00 GMT" "/" ".youtube.com" nil]))
+)
+(setq url-cookie-secure-storage
+ '(("bitbucket.org"
+  [url-cookie "csrftoken" "O2uGqMjMU5USPvHyluDJvhtejBFV0zR3" "10-Sep-2018 11:30:52.00 GMT" "/" "bitbucket.org" t]
+  [url-cookie "Max-Age" "31449600" "10-Sep-2018 11:30:52.00 GMT" "/" "bitbucket.org" t])
+ (".twitter.com"
+  [url-cookie "_mobile_sess" "BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoQX2NzcmZfdG9rZW4iJWIzMTc5OWY4OTNhMjBlNDAyOTk5MjA3NGUyMmM4OGY3--d944629e1798f410aeda0c1aa2b67415cd2c4c8e" "Fri, 10 Nov 2017 11:33:44 GMT" "/" ".twitter.com" t]
+  [url-cookie "d" "32" "Tue, 11 Sep 2018 11:33:42 UTC" "/" ".twitter.com" t]
+  [url-cookie "mobile_metrics_token" "150512962276320915" "Wed, 11 Sep 2019 11:33:42 UTC" "/" ".twitter.com" t]
+  [url-cookie "zrca" "5" "Wed, 11 Oct 2017 11:33:42 UTC" "/" ".twitter.com" t])
+ ("reddit.com"
+  [url-cookie "loid" "00000000000d9van69.2.1504982408062.Z0FBQUFBQlp0RFdJeTBzVzVfazdNNWZrSE90cHNMcWNBVVAzTXNubVVMVGp3eTRnVUFPNWJSUEJOYkE2dk1JREdsRl9vNlBBRzc2bGZXQXh6TE9ud2I0WDZDUHNPSkNiU2lUWTAxN3cxWHB0WjlmSVdoeWxfbWQtbHZQNEFkUS00T2FteWQyNU9lYTg" "09-Sep-2019 18:40:08.00 GMT" "/" "reddit.com" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

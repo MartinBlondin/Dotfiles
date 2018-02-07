@@ -64,8 +64,7 @@ xmap { S}
 set noswapfile
 set nohlsearch
 
-vmap <C-c> "+y
-
 " Emacs binds
 nmap <Leader>q :q!<ENTER>
+nmap <Leader>k :q!<ENTER>
 nmap <Leader>s :w<ENTER>
