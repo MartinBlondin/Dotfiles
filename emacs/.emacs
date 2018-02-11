@@ -30,6 +30,16 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; evil-mode
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
+(require 'evil-leader)
+(global-evil-leader-mode)
+
+(require 'evil)
+(evil-mode 1)
+
 ;; keybinds
 (evil-leader/set-leader ",")
 (evil-leader/set-key "f" 'package-install)
@@ -63,17 +73,9 @@
 (define-key evil-visual-state-map "(" (kbd "S)"))
 (define-key evil-visual-state-map "[" (kbd "S]"))
 (define-key evil-visual-state-map "{" (kbd "S}"))
+(define-key evil-visual-state-map "'" (kbd "S'"))
+(define-key evil-visual-state-map "\"" (kbd "S\""))
 (evil-leader/set-key "R" 'revert-buffer-no-confirm)
-
-;; evil-mode
-(require 'evil-surround)
-(global-evil-surround-mode 1)
-
-(require 'evil-leader)
-(global-evil-leader-mode)
-
-(require 'evil)
-(evil-mode 1)
 
 ;; font
 (add-to-list 'default-frame-alist '( font . "roboto mono medium 12" ))

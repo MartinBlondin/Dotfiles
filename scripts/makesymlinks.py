@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-"""
+'''
 Removes old files and makes symlinks
-"""
+'''
 
 from subprocess import call
 from os import listdir
@@ -15,7 +15,7 @@ DEBUG   = False
 
 
 def link(source, dest):
-    remove = ['rm', HOME + dest]
+    remove = ['rm', '-rf', HOME + dest]
     link   = ['ln', '-s', HOME + REPODIR + source, HOME + dest]
 
     if DEBUG:
@@ -37,6 +37,8 @@ for script in listdir(HOME + REPODIR + 'scripts'):
 
 # emacs
 link('emacs/.emacs', '.emacs')
+link('.emacs.d/OneDark', '.emacs.d/OneDark')
+link('.emacs.d/gdscript-mode', '.emacs.d/gdscript-mode')
 
 # qutebrowser
 link('qutebrowser', '.config/qutebrowser')

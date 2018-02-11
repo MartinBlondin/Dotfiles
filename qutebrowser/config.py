@@ -70,7 +70,9 @@ theme = {
     },
 
     'fonts': {
-        'main': 'Roboto Mono Medium',
+        'main': '12pt Roboto Slab Mono',
+        'status': '10pt Roboto Slab Mono',
+        'entry': '11pt Roboto Slab Mono',
         'tab_bold': True,
         'tab_size': 12,
     },
@@ -185,17 +187,17 @@ c.tabs.indicator.padding = makePadding(0, 0, 0, 0)
 
 # fonts
 c.fonts.monospace = theme['fonts']['main']
-c.fonts.completion.entry = theme['fonts']['main']
-c.fonts.completion.category = theme['fonts']['main']
+c.fonts.completion.entry = theme['fonts']['status']
+c.fonts.completion.category = theme['fonts']['status']
 c.fonts.debug_console = theme['fonts']['main']
 c.fonts.downloads = theme['fonts']['main']
-c.fonts.hints = theme['fonts']['main']
+c.fonts.hints = theme['fonts']['status']
 c.fonts.keyhint = theme['fonts']['main']
 c.fonts.messages.error = theme['fonts']['main']
 c.fonts.messages.info = theme['fonts']['main']
 c.fonts.messages.warning = theme['fonts']['main']
 c.fonts.prompts = theme['fonts']['main']
-c.fonts.statusbar = theme['fonts']['main']
+c.fonts.statusbar = theme['fonts']['entry']
 
 tabFont = str(theme['fonts']['tab_size']) + 'pt ' + theme['fonts']['main']
 if theme['fonts']['tab_bold']:
