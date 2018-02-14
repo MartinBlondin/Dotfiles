@@ -12,19 +12,17 @@ compton = None
 
 def startBgscript():
     bgscript = subprocess.Popen(['python3', home + 'bgscript.py'])
-    pid = bgscript.pid
     with open('isSexy.tmp', 'a') as f:
-        f.write('\n' + str(pid))
+        f.write('\n' + str(bgscript.pid))
     bgscript.wait()
 
 
 def startCompton():
     compton = subprocess.Popen(['compton', '-f', '-c', '-C', '-z', '-G',
-                                '-o', '2', '--inactive-dim', '0.1',
+                                '-o', '4', '--inactive-dim', '0.1',
                                 '--config', home + '.config/compton.conf'])
-    pid = compton.pid
     with open('isSexy.tmp', 'a') as f:
-        f.write('\n' + str(pid))
+        f.write('\n' + str(compton.pid))
     compton.wait()
 
 

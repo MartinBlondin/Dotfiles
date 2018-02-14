@@ -167,6 +167,7 @@ pag.press('q')
 
 gotoWorkspace(5)
 openRanger()
+pag.typewrite('winleft', 'w')
 
 gotoWorkspace(2)
 close()

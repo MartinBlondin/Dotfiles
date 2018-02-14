@@ -4,12 +4,10 @@
 from pathlib import Path
 from sh import feh
 
-home = str(Path.home())
-numPics = 1438
-picDir = home + '/bg/'
+HOME     = str(Path.home())
+
+numPics  = range(1438)
+picDir   = HOME + '/bg/'
 fileType = '.png'
 
-while True:
-    for i in range(numPics):
-        imgPath = picDir + str(i) + fileType
-        feh("--bg-center", imgPath)
+while True: [feh("--bg-center", picDir + str(i) + fileType) for i in numPics]

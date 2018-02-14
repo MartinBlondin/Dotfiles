@@ -65,7 +65,7 @@ bindsym $mod+c exec termite -e ranger
 bindsym $mod+q kill
 
 # Lock pc
-bindsym $mod+b exec bash ~/lock.sh
+# bindsym $mod+b exec bash ~/lock.sh
 
 # Change volume
 bindsym $mod+i exec amixer -q sset Master 3%+
@@ -76,35 +76,17 @@ bindsym $mod+m exec amixer -q sset Master toggle
 bindsym $mod+d exec rofi -show run
 bindsym $mod+e exec rofi -show window
 
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+g split h
@@ -205,7 +187,7 @@ mode "" {
 bindsym $mod+r mode ""
 
 # COLL
-# unused colours: #272b33 #282c34 #383c4a
+# unused colours: #272b33 #282c34 #383c4a #f3f4f5 #878E7D #2f343f
 # bg color without transparency: #292d36
 # '(("atom-one-dark-accent"   . "#528BFF")
 #   ("atom-one-dark-fg"       . "#ABB2BF")
@@ -232,11 +214,11 @@ bindsym $mod+r mode ""
 
 # set $accent               #87ac70
 set $accent               #896cad
-set $bg-colour            #2f343f 
-set $inactive-bg-colour   #2f343f
-set $text-colour          #f3f4f5
+set $bg-colour            #00000000 
+set $inactive-bg-colour   #00000000
+set $text-colour          #896cad
 set $inactive-text-colour #878E7D
-set $urgent-bg-colour     #c678dd
+set $urgent-bg-colour     #00000000
 set $preview-colour       #2f343f
 
 client.focused          $bg-colour          $bg-colour          $text-colour             $preview-colour
@@ -246,7 +228,7 @@ client.urgent           $urgent-bg-colour   $bg-colour          $text-colour    
 
 exec python3 ~/starti3.py
 
-for_window [class="feh"]     floating enable
+# for_window [class="feh"]     floating enable
 for_window [class="evince"]  floating enable
 for_window [class="python3"] floating enable
 for_window [class="tkinter"] floating enable
@@ -254,7 +236,8 @@ for_window [class="godot"]   floating enable
 for_window [class="godot3"]  floating enable
 for_window [title="Network Connections"] floating enable
 
-for_window [class="^.*"] border pixel 1
+for_window [class=".*"] border none
+for_window [class=".*"] title_format "%title"
 hide_edge_borders both
 
 exec_always bash ~/run_polybar.sh

@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import subprocess as s
+from sh import setxkbmap
 
-ps = s.Popen(['setxkbmap', '-query'], stdout=s.PIPE)
-layout = str(s.check_output(('grep', 'layout'), stdin=ps.stdout))[-5:-3]
+layout = setxkbmap('-query').split()[5]
 
-if layout == 'us': s.run(['setxkbmap', '-layout', 'no'])
-elif layout == 'no': s.run(['setxkbmap', '-layout', 'us'])
+if layout == 'us': setxkbmap('-layout', 'no')
+elif layout == 'no': setxkbmap('-layout', 'us')
