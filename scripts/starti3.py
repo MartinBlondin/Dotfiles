@@ -5,17 +5,18 @@ import pyautogui as pag
 import time
 
 
-def openShell():
+def openShell(command=False):
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
+    if command:
+        pag.typewrite(command)
+        pag.press('enter')
     time.sleep(1)
 
 
 def openArchey3():
-    openShell()
-    pag.typewrite('archey3')
-    pag.press('enter')
+    openShell('archey3')
 
 
 def setVertical():
@@ -145,10 +146,7 @@ openShell()
 
 gotoWorkspace(4)
 setVertical()
-openShell()
-time.sleep(1)
-pag.typewrite('cowsay windows sucks')
-pag.press('enter')
+openShell('cowsay windows sucks')
 openTransmission()
 resize(3, 'l')
 setVertical()
@@ -158,17 +156,15 @@ focus('k')
 
 gotoWorkspace(2)
 openShell()
+openQutebrowser()
 
 gotoWorkspace(3)
+openShell('sleep 40 && exit')
 openEmacs()
-time.sleep(20)
-pag.press(',')
-pag.press('q')
 
 gotoWorkspace(5)
 openRanger()
-pag.typewrite('winleft', 'w')
+pag.hotkey('winleft', 'w')
 
 gotoWorkspace(2)
-close()
-openQutebrowser()
+pag.hotkey('winleft', 'q')

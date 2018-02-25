@@ -243,7 +243,9 @@ hide_edge_borders both
 exec_always bash ~/run_polybar.sh
 exec python3 ~/pydaemon.py
 
-assign [class="Steam"] → ""
+assign [class="Steam"]       → ""
+assign [class="emacs"]       → ""
+assign [class="qutebrowser"] → ""
 
 gaps inner 10
 gaps outer 11

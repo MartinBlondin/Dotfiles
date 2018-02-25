@@ -57,6 +57,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
                        'm': 'https://www.openstreetmap.org/search?query={}',
+                       'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

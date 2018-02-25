@@ -35,7 +35,7 @@ html {
 }
 input,
 textarea {
-  background-color: #272b33 !important;
+  background-color: #2F343D !important;
   color: #839496 !important;
 }
 blockquote,
@@ -2020,5 +2020,10 @@ div.search-content{
 .listing-chooser, .listing-chooser:hover{
   background: #272b33 !important;
   background-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+.jumbotron{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
   color: #f3f4f5 !important;
 }

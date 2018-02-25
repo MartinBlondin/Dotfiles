@@ -20,7 +20,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -61,14 +61,14 @@
 (evil-leader/set-key "x" 'with-editor-finish)
 (evil-leader/set-key "z" 'indent-region)
 (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
-(evil-leader/set-key "z" 'indent-region)
 (evil-leader/set-key "l" 'flycheck-next-error)
 (evil-leader/set-key "L" 'flycheck-previous-error)
-(evil-global-set-key 'normal (kbd "- z") 'zone)
 (evil-leader/set-key "r" 'replace-string)
+(evil-leader/set-key "R" 'revert-buffer-no-confirm)
 (evil-leader/set-key "D" 'ranger)
 (evil-leader/set-key "g" 'helm-projectile-ack)
-(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
+(evil-leader/set-key "p" (kbd "C-x 3"))
+(evil-leader/set-key "P" (kbd "C-x 2"))
 (evil-leader/set-key "t" 'helm-top)
 (define-key evil-normal-state-map "\M-f" 'evil-visual-block)
 (define-key evil-normal-state-map "\M-l" 'windmove-right)
@@ -81,7 +81,26 @@
 (define-key evil-visual-state-map "{" (kbd "S}"))
 (define-key evil-visual-state-map "'" (kbd "S'"))
 (define-key evil-visual-state-map "\"" (kbd "S\""))
-(evil-leader/set-key "R" 'revert-buffer-no-confirm)
+
+(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
+(evil-global-set-key 'normal (kbd "- z") 'zone)
+
+(defun my/python-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- d") 'jedi:goto-definition))
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+
+(defun my/org-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- c") 'org-toggle-checkbox)
+  (evil-global-set-key 'normal (kbd "- e") 'org-edit-src-code))
+(add-hook 'org-mode-hook 'my/org-mode-hook)
+
+(defun my/tern-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- d") 'tern-find-definition)
+  (evil-local-set-key 'normal (kbd "- a") 'tern-rename-variable))
+(add-hook 'tern-mode-hook 'my/tern-mode-hook)
 
 ;; font
 (add-to-list 'default-frame-alist '( font . "roboto mono medium 12" ))
@@ -317,26 +336,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (interactive)
     (revert-buffer :ignore-auto :noconfirm))
 
-(defun my/python-mode-hook ()
-  "Binds."
-  (evil-local-set-key 'normal (kbd "- d") 'jedi:goto-definition))
-
-(add-hook 'python-mode-hook 'my/python-mode-hook)
-
-
-(defun my/org-mode-hook ()
-  "Binds."
-  (evil-local-set-key 'normal (kbd "- c") 'org-toggle-checkbox)
-  )
-
-(add-hook 'org-mode-hook 'my/org-mode-hook)
-
-(defun my/tern-mode-hook ()
-  "Binds."
-  (evil-local-set-key 'normal (kbd "- d") 'tern-find-definition)
-  (evil-local-set-key 'normal (kbd "- a") 'tern-rename-variable))
-
-(add-hook 'tern-mode-hook 'my/tern-mode-hook)
 
 
 (require 'tern)
@@ -380,6 +379,18 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (set-face-foreground 'show-paren-match "#f3f4f5")
 
 (golden-ratio-mode 1)
+
+(require 'popwin)
+(push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
+(push '(t :dedicated t) popwin:special-display-config)
+(setq popwin:popup-window-height 1)
+(add-hook 'helm-after-initialize-hook (lambda ()
+                                          (popwin:display-buffer helm-buffer t)
+                                          (popwin-mode -1)))
+
+(add-hook 'helm-cleanup-hook (lambda () (popwin-mode 1)))
+(add-hook 'ranger-mode-hook (lambda () (popwin-mode -1)))
+(add-hook 'magit-mode-hook (lambda () (popwin-mode -1)))
 
 
 (server-start)

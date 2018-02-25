@@ -20,6 +20,7 @@ def bind(config):
     config.bind('L', 'forward -t')
     config.bind('t', 'open -t duckduckgo.com')
     config.bind('?', 'open -t qute://help/img/cheatsheet-big.png')
+
     config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
 
@@ -44,7 +45,9 @@ def bind(config):
     config.bind(',dD', 'spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {url}')
     config.bind(',da', 'hint links spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {hint-url}')
     config.bind(',dA', 'spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
+    config.bind(',D',  'download')
     config.bind(',e',  'spawn --userscript emacspaste')
+    config.bind(',p',  'tab-pin')
 
 
 def navbind(bind, link, config):
