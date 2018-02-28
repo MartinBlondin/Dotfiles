@@ -2,7 +2,6 @@
 ;;; Commentary:
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
-  (add-to-list 'package-archives '("gnu" . "https://melpa.gnu.net/packages/"))
   (package-initialize)
 ;;; Code:
 (custom-set-variables
@@ -20,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio cdlatex auctex csharp-mode evil-nerd-commenter yasnippet org-bullets ox-pandoc org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -268,8 +267,6 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (require 'magit)
 (require 'evil-magit)
-
-(require 'ox-pandoc)
 
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.

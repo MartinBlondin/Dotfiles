@@ -10,7 +10,7 @@ from os import listdir
 from pathlib import Path
 
 HOME    = str(Path.home()) + '/'
-REPODIR = 'vimconfig/'
+REPODIR = 'Dotfiles/'
 DEBUG   = False
 
 
