@@ -137,7 +137,7 @@ hidemouse()
 openQutebrowser()
 
 gotoWorkspace(1)
-openGlances()
+openShell('Glances')
 setVertical()
 openShell()
 resize(1, 'j')
