@@ -133,6 +133,9 @@ def focus(dir):
 
 
 hidemouse()
+
+openQutebrowser()
+
 gotoWorkspace(1)
 openGlances()
 setVertical()
@@ -156,11 +159,10 @@ focus('k')
 
 gotoWorkspace(2)
 openShell()
-openQutebrowser()
 
 gotoWorkspace(3)
-openShell('sleep 40 && exit')
 openEmacs()
+openShell('sleep 40 && exit')
 
 gotoWorkspace(5)
 openRanger()
