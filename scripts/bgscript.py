@@ -10,4 +10,4 @@ numPics  = range(1438)
 picDir   = HOME + '/bg/'
 fileType = '.png'
 
-while True: [feh("--bg-center", picDir + str(i) + fileType) for i in numPics]
+while True: [feh("--bg-scale", picDir + str(i) + fileType) for i in numPics]

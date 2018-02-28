@@ -43,8 +43,18 @@ link('.emacs.d/gdscript-mode', '.emacs.d/gdscript-mode')
 # qutebrowser
 link('qutebrowser', '.config/qutebrowser')
 
+# qutebrowser
+link('termite', '.config/termite')
+
 # transmission
 link('transmission/settings.json', '.config/transmission/settings.json')
+
+# ranger
+link('ranger', '.config/ranger')
+
+# polybar
+link('polybar/run_polybar.sh', 'run_polybar.sh')
+link('polybar/.polybar', '.polybar')
 
 # vim
 link('vim/.vimrc', '.vimrc')
