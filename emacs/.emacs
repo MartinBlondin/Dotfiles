@@ -325,7 +325,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-to-list 'auto-mode-alist '("*[\\S]rc" . conf-unix-mode))
 
-(add-to-list 'load-path "~/.emacs.d/gdscript-mode")
+(add-to-list 'load-path "~/.emacs.d/gdscriptMode")
 (require 'gdscript-mode)
 
 (defun revert-buffer-no-confirm ()
