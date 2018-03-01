@@ -2,7 +2,6 @@
 ;;; Commentary:
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
-  (add-to-list 'package-archives '("mmelpa" . "https://melpa.org/packages/"))
   (package-initialize)
 ;;; Code:
 (custom-set-variables
