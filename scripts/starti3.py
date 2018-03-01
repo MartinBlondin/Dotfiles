@@ -5,11 +5,12 @@ import pyautogui as pag
 import time
 
 
-def openShell(command=False):
+def openShell(command=False, commandWaitTime=0):
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
     if command:
+        time.sleep(commandWaitTime)
         pag.typewrite(command)
         pag.press('enter')
     time.sleep(1)
@@ -137,7 +138,7 @@ hidemouse()
 openQutebrowser()
 
 gotoWorkspace(1)
-openShell('Glances')
+openShell('Glances', 10)
 setVertical()
 openShell()
 resize(1, 'j')
