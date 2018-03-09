@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -389,32 +389,32 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; (add-hook 'ranger-mode-hook (lambda () (popwin-mode -1)))
 ;; (add-hook 'magit-mode-hook (lambda () (popwin-mode -1)))
 
-(add-to-list 'load-path "~/.emacs.d/omnisharp-emacs")
+;; (require 'omnisharp)
+;; (omnisharp-start-omnisharp-server "/home/martin/.emacs.d/.cache/omnisharp/server/v1.26.3/run")
 
-(eval-after-load
-  'company
-  '(add-to-list 'company-backends #'company-omnisharp))
+;; (eval-after-load
+;;   'company
+;;   '(add-to-list 'company-backends 'company-omnisharp))
 
-(defun my-csharp-mode-setup ()
-  (omnisharp-mode)
+;; (defun my-csharp-mode-setup ()
+;;   (omnisharp-mode)
 
-  (setq indent-tabs-mode nil)
-  (setq c-syntactic-indentation t)
-  (c-set-style "ellemtel")
-  (setq c-basic-offset 4)
-  (setq truncate-lines t)
-  (setq tab-width 4)
-  (setq evil-shift-width 4)
+;;   (setq indent-tabs-mode nil)
+;;   (setq c-syntactic-indentation t)
+;;   (c-set-style "ellemtel")
+;;   (setq c-basic-offset 4)
+;;   (setq truncate-lines t)
+;;   (setq tab-width 4)
+;;   (setq evil-shift-width 4)
 
-  ;csharp-mode README.md recommends this too
-  ;(electric-pair-mode 1)       ;; Emacs 24
-  ;(electric-pair-local-mode 1) ;; Emacs 25
+;;   ;csharp-mode README.md recommends this too
+;;   ;(electric-pair-mode 1)       ;; Emacs 24
+;;   ;(electric-pair-local-mode 1) ;; Emacs 25
 
-  (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
-  (local-set-key (kbd "C-c C-c") 'recompile))
+;;   (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
+;;   (local-set-key (kbd "C-c C-c") 'recompile))
 
-(add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
-
+;; (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
 
 (server-start)
 
