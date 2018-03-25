@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: $
-# key: $
+# name: v
+# key: v
 # --
-$("$1")$0
+{{ $0 }}

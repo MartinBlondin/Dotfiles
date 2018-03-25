@@ -9,3 +9,5 @@ tmp*
 *#
 *.pyc
 .flycheck*
+*recentf*
+*ac-comphist*

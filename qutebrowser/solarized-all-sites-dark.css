@@ -1624,7 +1624,7 @@ div.answered-accepted .mini-counts {
 }
 .post-tag {
   background-color: #272b33 !important;
-  color: #272b33 !important;
+  color: #f3f4f5 !important;
 }
 .post-tag::before {
   background-color: #272b33 !important;
@@ -2030,5 +2030,42 @@ div.search-content{
 .sc-button{
   background: #2f343f !important;
   background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.-item._highlighted{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.s-hero._white._no-pattern{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.-badge{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+#post-job{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+.-popout{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  color: #f3f4f5 !important;
+}
+select{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  border-color: #272b33 !important;
+  color: #f3f4f5 !important;
+}
+input{
+  background: #2f343f !important;
+  background-color: #2f343f !important;
+  border-color: #272b33 !important;
   color: #f3f4f5 !important;
 }

@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
-# name: comment
+# name: class
 # key: c
 # --
-  # $0
+class $1:
+    $0

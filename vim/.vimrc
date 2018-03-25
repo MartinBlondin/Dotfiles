@@ -60,6 +60,8 @@ xmap ( S)
 xmap [ S]
 xmap { S}
 
+nnoremap q: :q
+
 " Prefrences
 set noswapfile
 set nohlsearch

@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: $
-# key: $
+# name: j
+# key: j
 # --
-$("$1")$0
+{% $0 %}

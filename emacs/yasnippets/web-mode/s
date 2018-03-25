@@ -1,5 +1,7 @@
 # -*- mode: snippet -*-
-# name: dollar 
+# name: s
 # key: s
 # --
-$($0)
+<script type="text/javascript">
+ $0
+</script>

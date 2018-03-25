@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -102,7 +102,7 @@
 (add-hook 'tern-mode-hook 'my/tern-mode-hook)
 
 ;; font
-(add-to-list 'default-frame-alist '( font . "roboto mono medium 12" ))
+(add-to-list 'default-frame-alist '( font . "roboto mono medium 13" ))
 
 ;; colour scheme
 
@@ -263,7 +263,7 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (require 'yasnippet)
 (yas-global-mode 1)
 
-(setq yas-snippet-dirs '("~/vimconfig/emacs/yasnippets/"))
+(setq yas-snippet-dirs '("~/Dotfiles/emacs/yasnippets/"))
 
 (require 'magit)
 (require 'evil-magit)
@@ -347,7 +347,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                   (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))))
 
 (add-hook 'gdscript-mode-hook (lambda () (evil-leader/set-key "z" 'gdscript-indent-line)))
+
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
+(setq web-mode-enable-current-element-highlight t)
+(eval-after-load "web-mode"
+  '(set-face-background 'web-mode-current-element-highlight-face "#272b33"))
 
 (require 'kivy-mode)
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))

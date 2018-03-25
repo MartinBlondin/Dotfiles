@@ -29,7 +29,7 @@ def link(source, dest):
 # i3
 link('i3wm/.i3rc', '.config/i3/config')
 link('i3wm/compton.conf', '.config/compton.conf')
-link('bg', 'bg')
+link('.bashrc', '.bashrc')
 
 # scripts
 for script in listdir(HOME + REPODIR + 'scripts'):
@@ -37,8 +37,6 @@ for script in listdir(HOME + REPODIR + 'scripts'):
 
 # emacs
 link('emacs/.emacs', '.emacs')
-link('.emacs.d/OneDark', '.emacs.d/OneDark')
-link('.emacs.d/gdscript-mode', '.emacs.d/gdscript-mode')
 
 # qutebrowser
 link('qutebrowser', '.config/qutebrowser')

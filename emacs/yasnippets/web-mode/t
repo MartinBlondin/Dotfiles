@@ -2,4 +2,4 @@
 # name: t
 # key: t
 # --
-<${1:enumerate}> $0 </$1>
+<$1 />

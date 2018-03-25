@@ -5,7 +5,7 @@ import pyautogui as pag
 import time
 
 
-def openShell(command=False, commandWaitTime=0):
+def openShell(command=False, commandWaitTime=1):
     pag.keyDown('winleft')
     pag.press('enter')
     pag.keyUp('winleft')
@@ -16,8 +16,10 @@ def openShell(command=False, commandWaitTime=0):
     time.sleep(1)
 
 
-def openArchey3():
-    openShell('archey3')
+def openProgram(name):
+    pag.hotkey('winleft', 'd')
+    pag.typewrite(name)
+    pag.press('enter')
 
 
 def setVertical():
@@ -48,24 +50,6 @@ def openQutebrowser():
     pag.keyDown('winleft')
     pag.press('t')
     pag.keyUp('winleft')
-
-
-def openSyncthing():
-    openShell()
-    pag.typewrite('syncthing -no-browser')
-    pag.press('enter')
-
-
-def openMakesexy():
-    openShell()
-    pag.typewrite('python3 makesexy.py')
-    pag.press('enter')
-
-
-def openPolybar():
-    openShell()
-    pag.typewrite('bash run_polybar.sh')
-    pag.press('enter')
 
 
 def openTransmission():
@@ -120,13 +104,6 @@ def hidemouse():
     pag.keyUp('winleft')
 
 
-def openGlances():
-    openShell()
-    time.sleep(5)
-    pag.typewrite('glances')
-    pag.press('enter')
-
-
 def focus(dir):
     pag.keyDown('winleft')
     pag.press(dir)
@@ -143,7 +120,7 @@ setVertical()
 openShell()
 resize(1, 'k')
 setHorizontal()
-openArchey3()
+openShell('archey3')
 focus('h')
 setVertical()
 openShell()
@@ -154,7 +131,7 @@ openShell('cowsay windows sucks')
 openTransmission()
 resize(3, 'l')
 setVertical()
-openSyncthing()
+openShell('syncthing --no-browser')
 resize(3, 'k')
 focus('k')
 
