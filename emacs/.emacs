@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
