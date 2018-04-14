@@ -241,6 +241,7 @@ for_window [class=".*"] title_format "%title"
 hide_edge_borders both
 
 exec_always bash ~/run_polybar.sh
+exec feh --bg-scale ~/bg/0.png
 exec python3 ~/pydaemon.py
 
 assign [class="Steam"]       → ""
