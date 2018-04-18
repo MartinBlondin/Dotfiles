@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -107,7 +107,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/oneDark")
 (require 'atom-one-dark-theme)
-;;(setq ns-auto-hide-menu-bar t)
+(setq ns-auto-hide-menu-bar t)
 (set-frame-position nil 0 -24)
 (tool-bar-mode 0)
 (set-frame-size nil 150 80)
@@ -116,22 +116,22 @@
 (require 'linum-relative)
 
 (defun linum-relative-right-set-margin ()
-  "Make width of right margin the same as left margin"
+  "Make width of right margin the same as left margin."
   (let* ((win (get-buffer-window))
      (width (car (window-margins win))))
     (set-window-margins win width width)))
 
 (defadvice linum-update-current (after linum-left-right-update activate)
-  "Advice to run right margin update"
+  "Advice to run right margin update."
   (linum-relative-right-set-margin)
   (linum-relative-right-update (line-number-at-pos)))
 
 (defadvice linum-delete-overlays (after linum-relative-right-delete activate)
-  "Set margins width to 0"
+  "Set margins width to 0."
   (set-window-margins (get-buffer-window) 0 0))
 
 (defun linum-relative-right-update (line)
-  "Put relative numbers to the right margin"
+  "Put relative numbers to the right margin."
   (dolist (ov (overlays-in (window-start) (window-end)))
     (let ((str (overlay-get ov 'linum-str)))
       (if str
@@ -324,8 +324,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-to-list 'auto-mode-alist '("*[\\S]rc" . conf-unix-mode))
 
-;; (add-to-list 'load-path "~/.emacs.d/gdscriptMode")
-;; (require 'gdscript-mode)
+(require 'gdscript-mode)
 
 (defun revert-buffer-no-confirm ()
     "Revert buffer without confirmation."
@@ -419,6 +418,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;;   (local-set-key (kbd "C-c C-c") 'recompile))
 
 ;; (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
+
+(global-whitespace-mode t)
+(setq whitespace-style (quote (face empty trailing space-before-tab)))
 
 (server-start)
 
