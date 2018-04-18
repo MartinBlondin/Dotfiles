@@ -47,7 +47,6 @@
 (evil-leader/set-key "d" 'sr-open-file)
 (evil-leader/set-key "e" 'helm-for-files)
 (evil-leader/set-key "c" 'helm-imenu)
-(evil-leader/set-key "b" 'helm-projectile-ack)
 (evil-leader/set-key "s" 'save-buffer)
 (evil-leader/set-key "q" 'kill-all-buffers) ;; exit to home directory
 (evil-leader/set-key "n" 'xah-new-empty-buffer)
@@ -69,7 +68,7 @@
 (evil-leader/set-key "p" (kbd "C-x 3"))
 (evil-leader/set-key "P" (kbd "C-x 2"))
 (evil-leader/set-key "t" 'helm-top)
-(define-key evil-normal-state-map "\M-f" 'evil-visual-block)
+(evil-leader/set-key "v" 'evil-visual-block)
 (define-key evil-normal-state-map "\M-l" 'windmove-right)
 (define-key evil-normal-state-map "\M-h" 'windmove-left)
 (define-key evil-normal-state-map "\M-j" 'windmove-down)
