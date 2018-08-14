@@ -33,6 +33,7 @@ def bind(config):
     navbind('f', 'https://facebook.com',                config)
     navbind('s', 'https://soundcloud.com',              config)
     navbind('i', 'https://discordapp.com/channels/@me', config)
+    navbind('b', 'https://bitbucket.org', config)
 
     config.bind('dnm', 'open -t ' + 'https://moss-avis.no')
     config.bind('dna', 'open -t ' + 'https://www.aftenposten.no/')

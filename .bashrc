@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 PS1='[\u@\h] [\w]\n\$ '
 export visual='emacsclient'
 export EDITOR='vim'

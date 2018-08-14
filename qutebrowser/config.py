@@ -19,20 +19,21 @@ c = c  # type: ConfigContainer # noqa: F821
 c.completion.scrollbar.width = 0
 c.tabs.position = 'top'
 c.tabs.show = 'always'
-c.tabs.favicons.show = True
+c.tabs.favicons.show = 'always'
 c.tabs.indicator.width = 0
 c.tabs.title.format = '{title}'
 c.tabs.title.alignment = 'center'
 c.downloads.position = 'bottom'
-c.tabs.favicons.show = True
 c.scrolling.smooth = True
-c.colors.webpage.bg = '#282c34'
+c.colors.webpage.bg = '#AA1c2028'
+# c.colors.webpage.bg = '#282c34'
 c.completion.height = '20%'
 c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = 'solarized-all-sites-dark.css'
-c.hints.chars = 'asdfjkl;'
+# c.hints.chars = 'asdfjkl;'
+c.hints.chars = 'asdfjkl'
 
 # behavior
 
@@ -50,6 +51,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'w': 'https://en.wikipedia.org/w/index.php?search={}',
                        'rp': 'https://redditp.com/r/{}',
                        'rt': 'https://www.rottentomatoes.com/search/?search={}',
+                       'ra': 'https://proxyrarbg.org/torrents.php?search={}&category%5B%5D=14&category%5B%5D=48&category%5B%5D=17&category%5B%5D=44&category%5B%5D=45&category%5B%5D=47&category%5B%5D=50&category%5B%5D=51&category%5B%5D=52&category%5B%5D=42&category%5B%5D=46&category%5B%5D=18&category%5B%5D=41&category%5B%5D=49&category%5B%5D=23&category%5B%5D=25&category%5B%5D=27&category%5B%5D=28&category%5B%5D=40&category%5B%5D=32&category%5B%5D=33',
                        'k': 'https://kickass.cd/search.php?q={}',
                        's': 'https://soundcloud.com/search?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
@@ -57,6 +59,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
                        'm': 'https://www.openstreetmap.org/search?query={}',
+                       'pj': 'https://www.prisjakt.no/raw.php?query={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://libgen.io/search.php?req={}'}
 c.input.insert_mode.auto_load = False
@@ -81,8 +84,8 @@ theme = {
     'colors': {
         'bg': {
             'normal': '#272b33',
-            'active': '#2f343f',
-            'inactive': '#2f343f',
+            'active': '#BF2f343f',
+            'inactive': '#AA2f343f',
         },
 
         'fg': {

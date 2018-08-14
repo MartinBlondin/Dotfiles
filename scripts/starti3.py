@@ -127,7 +127,7 @@ openShell()
 
 gotoWorkspace(4)
 setVertical()
-openShell('cowsay windows sucks')
+openShell('clear && cowsay windows sucks')
 openTransmission()
 resize(3, 'l')
 setVertical()

@@ -350,7 +350,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
 (setq web-mode-enable-current-element-highlight t)
 (eval-after-load "web-mode"
-  '(set-face-background 'web-mode-current-element-highlight-face "#272b33"))
+  '(set-face-background 'web-mode-current-element-highlight-face "#00272b33"))
 
 (require 'kivy-mode)
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
@@ -420,9 +420,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
 
 (global-whitespace-mode t)
-(setq whitespace-style (quote (face empty trailing space-before-tab)))
+;; (setq whitespace-style (quote (face empty trailing space-before-tab)))
+(setq whitespace-style (quote (face trailing space-before-tab)))
 
 (server-start)
+
+(require 'realgud)
 
 (provide '.emacs)
 ;;; .emacs ends here
