@@ -50,6 +50,9 @@ link('transmission/settings.json', '.config/transmission/settings.json')
 # ranger
 link('ranger', '.config/ranger')
 
+# rofi
+link('rofi/config', '.config/rofi/config')
+
 # polybar
 link('polybar/run_polybar.sh', 'run_polybar.sh')
 link('polybar/.polybar', '.polybar')
