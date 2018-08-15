@@ -2,7 +2,8 @@
 # coding=utf-8
 
 from pathlib import Path
-from sh import feh
+from sh import feh, ErrorReturnCode_2
+from contextlib import suppress
 from time import sleep
 
 numPics  = range(1438)
@@ -11,5 +12,6 @@ fileType = '.png'
 
 while True:
     for i in numPics:
-        feh("--bg-center", picDir + str(i) + fileType)
+        with suppress(ErrorReturnCode_2):
+            feh("--bg-center", picDir + str(i) + fileType)
         sleep(0.2)
