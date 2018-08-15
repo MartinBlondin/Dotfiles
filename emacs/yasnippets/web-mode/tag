@@ -2,6 +2,6 @@
 # name: tag
 # key: ta
 # --
-<${1:enumerate}>
+<$1>
   $0
 </$1>
