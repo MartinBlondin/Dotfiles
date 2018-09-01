@@ -2,5 +2,6 @@
 # name: pp
 # key: pp
 # --
+import pprint
 pp = pprint.PrettyPrinter(indent=2)
 pp.pprint($0)

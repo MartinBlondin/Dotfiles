@@ -65,7 +65,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False
 c.tabs.background = True
-c.editor.command = ['emacsclient', '{}']
+c.editor.command = ['emacsclient', '-c', '{}']
 c.auto_save.session = True
 
 theme = {

@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -176,7 +176,10 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
-(jedi:setup)
+(setq jedi:environment-root "usr/bin")
+;; (require 'jedi)
+;; (jedi:setup)
+;; (setq jedi:complete-on-dot t)
 
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-jedi))
@@ -289,8 +292,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (evilnc-default-hotkeys t)
 
 (add-hook 'latex-mode-hook 'preview-buffer)
-
-(setq jedi:complete-on-dot t)
 
 
 (require 'company)
@@ -426,6 +427,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (server-start)
 
 (require 'realgud)
+(setq py-shell-local-path "/usr/bin/python" py-use-local-default t)
 
 (provide '.emacs)
 ;;; .emacs ends here

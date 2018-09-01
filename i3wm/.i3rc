@@ -215,6 +215,7 @@ for_window [class="python3"] floating enable
 for_window [class="tkinter"] floating enable
 for_window [class="godot"]   floating enable
 for_window [class="godot3"]  floating enable
+for_window [class="Emacs"]  floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="QTTestApp"] floating enable
 
