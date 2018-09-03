@@ -176,10 +176,8 @@
 (autoload 'dired-async-mode "dired-async.el" nil t)
 (dired-async-mode 1)
 
-(setq jedi:environment-root "usr/bin")
-;; (require 'jedi)
-;; (jedi:setup)
-;; (setq jedi:complete-on-dot t)
+(require 'jedi)
+(jedi:setup)
 
 (with-eval-after-load 'company
   (add-to-list 'company-backends 'company-jedi))
@@ -421,13 +419,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;; (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
 
 (global-whitespace-mode t)
-;; (setq whitespace-style (quote (face empty trailing space-before-tab)))
 (setq whitespace-style (quote (face trailing space-before-tab)))
 
-(server-start)
-
 (require 'realgud)
-(setq py-shell-local-path "/usr/bin/python" py-use-local-default t)
 
+(server-start)
 (provide '.emacs)
 ;;; .emacs ends here

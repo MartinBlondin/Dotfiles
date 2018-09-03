@@ -8,11 +8,11 @@ height = 25
 bottom = true
 
 background = #00000000
-foreground = #878E7D
+foreground = #B1c87fa1
 
-modules-left =
+modules-left = battery volume network
 modules-center = i3
-modules-right =
+modules-right = date
 
 font-0 = FontAwesome:pixelsize=16;1
 font-1 = Roboto Slab Mono:pixelsize=10;1
@@ -30,8 +30,8 @@ background = #00000000
 foreground = #B1c87fa1
 
 modules-left =
-modules-center = date
-modules-right = network volume battery
+modules-center = 
+modules-right =
 
 font-0 = Roboto Slab Mono:pixelsize=10;1
 font-1 = FontAwesome:pixelsize=16;1
