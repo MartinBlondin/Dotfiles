@@ -40,7 +40,7 @@ bindsym --release $mod+x exec --no-startup-id import /tmp/latest-screenshot.png
 bindsym --release $mod+shift+x exec scrot /tmp/latest-fullscreenshot.png
 
 # start Ranger
-bindsym $mod+c exec termite -e "ranger"
+bindsym $mod+c exec python3 ~/startRanger.py
 
 # kill focused window
 bindsym $mod+q kill
