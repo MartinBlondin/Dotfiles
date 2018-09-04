@@ -423,6 +423,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'realgud)
 
+;disable auto save
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+
 (server-start)
 (provide '.emacs)
 ;;; .emacs ends here
