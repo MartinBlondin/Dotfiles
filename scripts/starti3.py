@@ -41,9 +41,7 @@ def openEmacs():
 
 
 def openRanger():
-    pag.keyDown('winleft')
-    pag.press('c')
-    pag.keyUp('winleft')
+    openShell('source ranger')
 
 
 def openQutebrowser():
@@ -127,7 +125,7 @@ openShell()
 
 gotoWorkspace(4)
 setVertical()
-openShell('clear && cowsay windows sucks')
+openShell('clear && cowsay -f tux -p "Dont be a dick." | lolcat')
 openTransmission()
 resize(3, 'l')
 setVertical()
