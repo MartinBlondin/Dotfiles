@@ -30,7 +30,7 @@ background = #00000000
 foreground = #B1c87fa1
 
 modules-left =
-modules-center = 
+modules-center =
 modules-right =
 
 font-0 = Roboto Slab Mono:pixelsize=10;1
@@ -59,7 +59,7 @@ interval = 5
 date = "%d/%m/%y"
 date-alt = " %d"
 
-time = " %H:%M "
+time = " %H:%M"
 time-alt =  %H:%M
 
 label = %date% %time%
