@@ -24,6 +24,6 @@ alias nolay="setxkbmap -layout no"
 alias keylayout="evince /run/media/martin/PornBank/ergodox/layout.pdf"
 
 alias q="exit"
-alias r="ranger"
+alias r="source ranger"
 alias v="vim"
 alias y="youtube-dl"

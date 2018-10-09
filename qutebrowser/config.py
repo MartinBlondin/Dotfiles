@@ -7,13 +7,13 @@
 # config.load_autoconfig()
 # -*- mode: python -*-
 
-from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
-from qutebrowser.config.config import ConfigContainer  # noqa: F401
+from qutebrowser.config.configfiles import ConfigAPI
+from qutebrowser.config.config import ConfigContainer
 import keys
 
 
-config = config  # type: ConfigAPI # noqa: F821
-c = c  # type: ConfigContainer # noqa: F821
+config = config  # type: ConfigAPI
+c = c  # type: ConfigContainer
 
 # ui
 c.completion.scrollbar.width = 0
@@ -25,13 +25,13 @@ c.tabs.title.format = '{title}'
 c.tabs.title.alignment = 'center'
 c.downloads.position = 'bottom'
 c.scrolling.smooth = True
-c.colors.webpage.bg = '#AA1c2028'
-# c.colors.webpage.bg = '#282c34'
+# c.colors.webpage.bg = '#AA1c2028'
+c.colors.webpage.bg = '#282c34'
 c.completion.height = '20%'
 c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
-c.content.user_stylesheets = 'solarized-all-sites-dark.css'
+c.content.user_stylesheets = ['onedark-all-sites.css']
 # c.hints.chars = 'asdfjkl;'
 c.hints.chars = 'asdfjkl'
 
