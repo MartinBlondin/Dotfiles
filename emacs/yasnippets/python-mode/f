@@ -2,5 +2,5 @@
 # name: f
 # key: f
 # --
-def $1($2):
+def ${1:$$(s-replace " " "_" yas-text)}($2):
     $0

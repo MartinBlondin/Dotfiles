@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -80,7 +80,7 @@
 (define-key evil-visual-state-map "'" (kbd "S'"))
 (define-key evil-visual-state-map "\"" (kbd "S\""))
 
-(evil-global-set-key 'normal (kbd "- r") (kbd ":load-file <return>"))
+(evil-global-set-key 'normal (kbd "- r") 'projectile-replace)
 (evil-global-set-key 'normal (kbd "- z") 'zone)
 
 (defun my/python-mode-hook ()
@@ -162,7 +162,7 @@
 
 ;; powerline
 (require 'powerline)
-(powerline-default-theme)
+;; (powerline-default-theme)
 (require 'airline-themes)
 (load-theme 'airline-dark t)
 
@@ -177,6 +177,22 @@
 (dired-async-mode 1)
 
 (require 'jedi)
+(defun python-jedi-hook-f()
+  (let ((local-virtual-env (locate-dominating-file default-directory "virtualenv")))
+    (if (and local-virtual-env (file-exists-p local-virtual-env))
+         (progn
+           (setq jedi:environment-root (concat local-virtual-env "virtualenv"))
+        ))
+
+  ;; (run-python "/usr/bin/python3 -i")
+
+  (jedi:setup)
+    (setq jedi:environment-virtualenv
+        (append python-environment-virtualenv
+                '("--python" "/usr/bin/python3")))
+))
+
+;; (add-hook 'python-mode-hook 'python-jedi-hook-f)
 (jedi:setup)
 
 (with-eval-after-load 'company
@@ -265,6 +281,13 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 
 (setq yas-snippet-dirs '("~/Dotfiles/emacs/yasnippets/"))
 
+(defun my/capitalize-first-char (&optional string)
+  "Capitalize only the first character of the input STRING."
+  (when (and string (> (length string) 0))
+    (let ((first-char (substring string nil 1))
+          (rest-str   (substring string 1)))
+      (concat (capitalize first-char) rest-str))))
+
 (require 'magit)
 (require 'evil-magit)
 
@@ -294,6 +317,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.2)
 
 (require 'irony)
 (with-eval-after-load 'company
@@ -345,7 +369,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (add-hook 'gdscript-mode-hook (lambda () (evil-leader/set-key "z" 'gdscript-indent-line)))
 
+(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.dtl$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
 (setq web-mode-enable-current-element-highlight t)
 (eval-after-load "web-mode"
@@ -426,6 +453,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 ;disable auto save
 (setq backup-inhibited t)
 (setq auto-save-default nil)
+
+(require 's)
 
 (server-start)
 (provide '.emacs)

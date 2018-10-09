@@ -2,5 +2,9 @@
 # name: class
 # key: c
 # --
-class $1:
-    $0
+class ${1:$$(if (s-ends-with? " " yas-text)
+                (concat
+                    (s-replace " " "" (s-titleized-words yas-text))
+                     " ")
+                (s-replace " " ""(s-titleized-words yas-text)))}$2:
+    ${0:pass}
