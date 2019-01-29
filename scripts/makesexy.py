@@ -1,48 +1,53 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import subprocess
+import os
+import json
+
+from time import sleep
+from sh import kill, rm, ErrorReturnCode_1
 from pathlib import Path
-import threading
+from contextlib import suppress
+from threading import Thread
+from subprocess import Popen
+from sys import argv
 
 home = str(Path.home()) + '/'
-bgscript = None
-compton = None
+commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4',
+             '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
+            ['python3', home + 'bgscript.py']]
+pids = [None, None]
+pids_file = home + 'isSexy.json'
+already_sexy = False
+on_off = 'on'
 
+if os.path.isfile(pids_file):
+    with open(pids_file, 'r') as f:
+        pids = json.loads(f.read())
+        on_off = 'off'
+        already_sexy = True
 
-def startBgscript():
-    bgscript = subprocess.Popen(['python3', home + 'bgscript.py'])
-    with open('isSexy.tmp', 'a') as f:
-        f.write('\n' + str(bgscript.pid))
-    bgscript.wait()
+if len(argv) > 1:
+    on_off = argv[1]
 
+def run_command(command, callback, callback_args):
+    with open(os.devnull, 'r+b', 0) as DEVNULL:
+        p = Popen(command, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL, preexec_fn=os.setpgrp)
+    callback(callback_args, p.pid)
 
-def startCompton():
-    compton = subprocess.Popen(['compton', '-f', '-c', '-C', '-z', '-G',
-                                '-o', '4', '--inactive-dim', '0.1',
-                                '--config', home + '.config/compton.conf'])
-    with open('isSexy.tmp', 'a') as f:
-        f.write('\n' + str(compton.pid))
-    compton.wait()
+def set_pid(command, pid):
+    pids[command] = pid
 
+if on_off == 'off':
+    with suppress(ErrorReturnCode_1):
+        for pid in pids:
+                kill(pid)
+    rm(pids_file)
+elif not already_sexy:
+    for i, command in enumerate(commands):
+        Thread(target=run_command, args=[command, set_pid, i]).start()
 
-def start():
-    thread_1 = threading.Thread(target=startCompton, args=())
-    thread_2 = threading.Thread(target=startBgscript, args=())
-
-    # making a thread a `daemon` means that when the main process
-    # ends the thread will end too
-    thread_1.daemon = True
-    thread_2.daemon = True
-
-    # start the threads running
-    thread_1.start()
-    thread_2.start()
-
-    # wait for all the child threads to terminate before ending
-    thread_1.join()
-    thread_2.join()
-
-
-if __name__ == '__main__':
-    start()
+    sleep(0.1)
+    with open(pids_file, 'w+') as f:
+        pids = json.dumps(pids)
+        f.write(pids)

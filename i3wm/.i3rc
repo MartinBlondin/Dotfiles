@@ -26,7 +26,7 @@ bindsym $mod+Tab exec python3 ~/toggle-keymap.py
 bindsym $mod+n exec python3 ~/spawn-terminal.py
 
 # toggle sexy
-bindsym $mod+p exec python3 ~/pydaemon.py
+bindsym $mod+p exec python3 ~/makesexy.py
 
 # start Emacs
 bindsym $mod+z exec emacs
