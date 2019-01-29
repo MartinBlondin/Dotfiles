@@ -20,7 +20,7 @@ bindsym $mod+t exec qutebrowser
 bindsym $mod+Tab exec python3 ~/toggle-keymap.py
 
 # hide mouse
-bindsym $mod+Escape exec python3 ~/hide-mouse.py
+# bindsym $mod+Escape exec python3 ~/hide-mouse.py
 
 # dropdown terminal
 bindsym $mod+n exec python3 ~/spawn-terminal.py
@@ -215,13 +215,13 @@ for_window [class="python3"] floating enable
 for_window [class="tkinter"] floating enable
 for_window [class="godot"]   floating enable
 for_window [class="godot3"]  floating enable
-for_window [class="Emacs"]  floating enable
+# for_window [class="Emacs"]  floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="QTTestApp"] floating enable
 
-for_window [class=".*"] border none
-for_window [class=".*"] title_format "%title"
+default_border pixel 0
 hide_edge_borders both
+bindsym --release button2 kill
 
 exec_always bash ~/run_polybar.sh
 exec feh --bg-scale ~/bg/0.png
@@ -233,5 +233,3 @@ assign [class="qutebrowser"] → ""
 
 gaps inner 15
 gaps outer 10
-# smart_gaps on
-# smart_borders on
