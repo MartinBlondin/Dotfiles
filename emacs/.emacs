@@ -57,7 +57,7 @@
 (evil-leader/set-key "m" 'magit-status)
 (evil-leader/set-key "," 'delete-window)
 (evil-leader/set-key "x" 'with-editor-finish)
-(evil-leader/set-key "z" 'indent-region)
+(evil-leader/set-key "TAB" 'indent-region)
 (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
 (evil-leader/set-key "l" 'flycheck-next-error)
 (evil-leader/set-key "L" 'flycheck-previous-error)
