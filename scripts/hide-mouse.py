@@ -4,7 +4,7 @@
 import pyautogui as pag
 from time import sleep
 
-width  = pag.size()[0] - 1
+width  = pag.size()[0] - 3
 height = pag.size()[1]
 
 if pag.position()[0] == width:

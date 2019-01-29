@@ -3,5 +3,4 @@
 # key: pp
 # --
 import pprint
-pp = pprint.PrettyPrinter(indent=2)
-pp.pprint($0)
+pprint.PrettyPrinter(indent=2).pprint($0)

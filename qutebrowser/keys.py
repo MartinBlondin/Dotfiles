@@ -1,4 +1,9 @@
 def bind(config):
+
+    def navbind(bind, link):
+        config.bind('d' + bind,         'open ' + link)
+        config.bind('d' + bind.upper(), 'open -t ' + link)
+
     config.unbind('J',  mode='normal')
     config.unbind('K',  mode='normal')
     config.unbind('H',  mode='normal')
@@ -24,33 +29,29 @@ def bind(config):
     config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
 
-    navbind('y', 'https://youtube.com',                 config)
-    navbind('a', 'https://archlinux.org',               config)
-    navbind('e', 'https://ebay.com',                    config)
-    navbind('r', 'https://reddit.com',                  config)
-    navbind('m', 'https://protonmail.com/login',        config)
-    navbind('g', 'https://gmail.com',                   config)
-    navbind('f', 'https://facebook.com',                config)
-    navbind('s', 'https://soundcloud.com',              config)
-    navbind('i', 'https://discordapp.com/channels/@me', config)
-    navbind('b', 'https://bitbucket.org', config)
+    navbind('y', 'https://youtube.com')
+    navbind('a', 'https://archlinux.org')
+    navbind('e', 'https://ebay.com')
+    navbind('r', 'https://reddit.com')
+    navbind('m', 'https://protonmail.com/login')
+    navbind('g', 'https://gmail.com')
+    navbind('f', 'https://facebook.com')
+    navbind('s', 'https://soundcloud.com/stream')
+    navbind('i', 'https://discordapp.com/channels/@me')
+    navbind('b', 'https://bitbucket.org')
 
-    config.bind('dnm', 'open -t ' + 'https://moss-avis.no')
-    config.bind('dna', 'open -t ' + 'https://www.aftenposten.no/')
-    config.bind('dnv', 'open -t ' + 'https://www.vg.no/')
+    config.bind('dnm', 'open -t https://moss-avis.no')
+    config.bind('dna', 'open -t https://www.aftenposten.no/')
+    config.bind('dnv', 'open -t https://www.vg.no/')
 
     config.bind(',s',  'open -t qute://settings')
-    config.bind(',dm', 'hint links spawn mpv {hint-url} --no-video')
+    config.bind(',dm', 'hint links spawn mpv {hint-url}')
     config.bind(',dt', 'hint links spawn transmission-remote -a {hint-url}')
     config.bind(',dd', 'hint links spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
     config.bind(',dD', 'spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {url}')
     config.bind(',da', 'hint links spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {hint-url}')
     config.bind(',dA', 'spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
+    config.bind(',M',  'spawn mpv {url}')
     config.bind(',D',  'download')
     config.bind(',e',  'spawn --userscript emacspaste')
     config.bind(',p',  'tab-pin')
-
-
-def navbind(bind, link, config):
-    config.bind('d' + bind,         'open ' + link)
-    config.bind('d' + bind.upper(), 'open -t ' + link)

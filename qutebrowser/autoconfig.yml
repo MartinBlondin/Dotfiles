@@ -3,7 +3,10 @@
 
 config_version: 2
 settings:
-  downloads.open_dispatcher:
-    global: null
-  hints.mode:
-    global: letter
+  aliases:
+    global:
+      q: quit
+      w: session-save
+      wq: quit --save
+  content.user_stylesheets:
+    global: onedark-all-sites.css

@@ -32,6 +32,7 @@ c.statusbar.hide = True
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = ['onedark-all-sites.css']
+c.content.pdfjs = True
 # c.hints.chars = 'asdfjkl;'
 c.hints.chars = 'asdfjkl'
 

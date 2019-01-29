@@ -13,5 +13,5 @@ fileType = '.png'
 while True:
     for i in numPics:
         with suppress(ErrorReturnCode_2):
-            feh("--bg-center", picDir + str(i) + fileType)
+            feh("--bg-scale", picDir + str(i) + fileType)
         sleep(0.2)
