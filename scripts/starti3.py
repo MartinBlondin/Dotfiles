@@ -1,9 +1,14 @@
 #!/usr/bin/env python
 # coding=utf-8
 
+from os import path
 import pyautogui as pag
+from sh import python3
 from i3_pyautogui_bindings import (open_program, open_shell, set_vertical,  set_horizontal,
                                    goto_workspace, close, focus, resize, set_wait_time)
+
+if path.isfile('local_commands_for_startup.py'):
+    python3('local_commands_for_startup.py')
 
 set_wait_time(1)  # programs open slower during start up
 
@@ -19,8 +24,7 @@ open_shell('archey3')
 focus('h')
 set_vertical()
 open_shell()
-pag.typewrite('xrandr --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0 --rotate left')
-open_shell('xrandr --output DVI-D-0 --mode 1920x1080 --rate 144')
+open_shell()
 close()
 open_shell('setxkbmap -option caps:escape')
 close()
