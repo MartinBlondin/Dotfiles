@@ -4,19 +4,21 @@
 from os import path
 import pyautogui as pag
 from subprocess import call
+from time import sleep
 from i3_pyautogui_bindings import (open_program, open_shell, set_vertical,  set_horizontal,
                                    goto_workspace, close, focus, resize, set_wait_time)
 
 
+set_wait_time('program_open', 2)  # programs open slower during start up
+
+sleep(10)
+
+goto_workspace(1)
+
 if path.isfile('local_commands_before_startup.py'):
     call(['python3', 'local_commands_before_startup.py'])
 
-set_wait_time('program_open', 1)  # programs open slower during start up
-
-open_program('qutebrowser')
-
-goto_workspace(1)
-open_shell('glances', 10)
+open_shell('glances')
 set_vertical()
 open_shell()
 resize(1, 'k')
@@ -25,10 +27,6 @@ open_shell('archey3')
 focus('h')
 set_vertical()
 open_shell()
-open_shell()
-close()
-open_shell('setxkbmap -option caps:escape')
-close()
 
 goto_workspace(4)
 set_vertical()
@@ -46,9 +44,10 @@ focus('k')
 
 goto_workspace(2)
 open_shell()
+open_program('qutebrowser')
 
 goto_workspace(3)
-open_program('emacs')
+pag.hotkey('winleft', 'z')
 open_shell('sleep 40 && exit')
 
 goto_workspace(5)

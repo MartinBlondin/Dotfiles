@@ -17,7 +17,7 @@ commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4',
              '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
             ['python3', home + 'bgscript.py']]
 pids = [None, None]
-pids_file = home + 'isSexy.json'
+pids_file = '/tmp/isSexy.json'
 already_sexy = False
 on_off = 'on'
 

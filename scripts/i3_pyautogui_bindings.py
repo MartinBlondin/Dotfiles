@@ -23,7 +23,7 @@ def open_shell(command=False):
         sleep(delays['program_open'])
         if isinstance(command, list):
             for c in command:
-                pag.typewrite(command)
+                pag.typewrite(c)
                 pag.press('enter')
                 sleep(0.1)
         else:
@@ -35,10 +35,10 @@ def open_program(name):
     pag.keyDown('winleft')
     pag.press('d')
     pag.keyUp('winleft')
-    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
+    sleep(delays['program_open'])
     pag.typewrite(name)
     pag.press('enter')
-    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
+    sleep(delays['program_open'])
 
 def set_vertical():
     pag.keyDown('winleft')
@@ -57,6 +57,13 @@ def resize(n, dir):
     for i in range(n):
         pag.press(dir)
     pag.press('escape')
+
+def move(dir):
+    pag.keyDown('winleft')
+    pag.keyDown('shift')
+    pag.press(dir)
+    pag.keyUp('shift')
+    pag.keyUp('winleft')
 
 def goto_workspace(workspaceId):
     pag.keyDown('winleft')
