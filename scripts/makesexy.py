@@ -30,10 +30,10 @@ if os.path.isfile(pids_file):
 if len(argv) > 1:
     on_off = argv[1]
 
-def run_command(command, callback, callback_args):
+def run_command(command, command_index):
     with open(os.devnull, 'r+b', 0) as DEVNULL:
         p = Popen(command, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL, preexec_fn=os.setpgrp)
-    callback(callback_args, p.pid)
+    set_pid(command_index, p.pid)
 
 def set_pid(command, pid):
     pids[command] = pid
@@ -43,9 +43,10 @@ if on_off == 'off':
         for pid in pids:
                 kill(pid)
     rm(pids_file)
+
 elif not already_sexy:
     for i, command in enumerate(commands):
-        Thread(target=run_command, args=[command, set_pid, i]).start()
+        Thread(target=run_command, args=[command, i]).start()
 
     sleep(0.1)
     with open(pids_file, 'w+') as f:
