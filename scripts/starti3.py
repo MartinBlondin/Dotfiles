@@ -3,14 +3,15 @@
 
 from os import path
 import pyautogui as pag
-from sh import python3
+from subprocess import call
 from i3_pyautogui_bindings import (open_program, open_shell, set_vertical,  set_horizontal,
                                    goto_workspace, close, focus, resize, set_wait_time)
 
-if path.isfile('local_commands_for_startup.py'):
-    python3('local_commands_for_startup.py')
 
-set_wait_time(1)  # programs open slower during start up
+if path.isfile('local_commands_before_startup.py'):
+    call(['python3', 'local_commands_before_startup.py'])
+
+set_wait_time('program_open', 1)  # programs open slower during start up
 
 open_program('qutebrowser')
 
@@ -56,3 +57,6 @@ pag.hotkey('winleft', 'w')
 
 goto_workspace(2)
 pag.hotkey('winleft', 'q')
+
+if path.isfile('local_commands_after_startup.py'):
+    call(['python3', 'local_commands_after_startup.py'])

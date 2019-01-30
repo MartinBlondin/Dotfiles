@@ -4,15 +4,23 @@
 import pyautogui as pag
 from time import sleep
 
-WAIT_FOR_PROGRAM_OPEN_TIME = 0.3
+'''
+Various python bindings to interact with I3WM
 
-def set_wait_time(delay):
-    WAIT_FOR_PROGRAM_OPEN_TIME = delay
+not using pag.hotkey because it has a 50% chance to not work
+'''
+
+delays = {'program_open': 0.3}
+
+def set_wait_time(key, delay):
+    delays[key] = delay
 
 def open_shell(command=False):
-    pag.hotkey('winleft', 'enter')
+    pag.keyDown('winleft')
+    pag.press('enter')
+    pag.keyUp('winleft')
     if command:
-        sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
+        sleep(delays['program_open'])
         if isinstance(command, list):
             for c in command:
                 pag.typewrite(command)
@@ -21,35 +29,60 @@ def open_shell(command=False):
         else:
             pag.typewrite(command)
             pag.press('enter')
-    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
+    sleep(delays['program_open'])
 
 def open_program(name):
-    pag.hotkey('winleft', 'd')
+    pag.keyDown('winleft')
+    pag.press('d')
+    pag.keyUp('winleft')
     sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
     pag.typewrite(name)
     pag.press('enter')
     sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
 
 def set_vertical():
-    pag.hotkey('winleft', 'v')
+    pag.keyDown('winleft')
+    pag.press('v')
+    pag.keyUp('winleft')
 
 def set_horizontal():
-    pag.hotkey('winleft', 'g')
+    pag.keyDown('winleft')
+    pag.press('g')
+    pag.keyUp('winleft')
 
 def resize(n, dir):
-    pag.hotkey('winleft', 'r')
+    pag.keyDown('winleft')
+    pag.press('r')
+    pag.keyUp('winleft')
     for i in range(n):
         pag.press(dir)
     pag.press('escape')
 
 def goto_workspace(workspaceId):
-    pag.hotkey('winleft', str(workspaceId))
+    pag.keyDown('winleft')
+    pag.press(str(workspaceId))
+    pag.keyUp('winleft')
 
 def send_to_workspace(workspaceId):
-    pag.hotkey('winleft', 'shift', str(workspaceId))
+    pag.keyDown('winleft')
+    pag.keyDown('shift')
+    pag.press(str(workspaceId))
+    pag.keyUp('shift')
+    pag.keyUp('winleft')
 
 def close():
-    pag.hotkey('winleft', 'q')
+    pag.keyDown('winleft')
+    pag.press('q')
+    pag.keyUp('winleft')
 
 def focus(dir):
-    pag.hotkey('winleft', dir)
+    pag.keyDown('winleft')
+    pag.press(dir)
+    pag.keyUp('winleft')
+
+def toggle_floating():
+    pag.keyDown('winleft')
+    pag.keyDown('shift')
+    pag.press('space')
+    pag.keyUp('shift')
+    pag.keyUp('winleft')
