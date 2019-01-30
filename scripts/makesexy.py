@@ -40,9 +40,9 @@ def set_pid(command, pid):
 
 if on_off == 'off':
     with suppress(ErrorReturnCode_1):
+        rm(pids_file)
         for pid in pids:
-                kill(pid)
-    rm(pids_file)
+            kill(pid)
 
 elif not already_sexy:
     for i, command in enumerate(commands):
