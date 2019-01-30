@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from starti3 import open_shell
+from i3_pyautogui_bindings import open_shell
 
 
 open_shell('ranger')
