@@ -1,13 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import pyautogui as pag
-import time
+from starti3 import open_shell
 
 
-pag.keyDown('winleft')
-pag.press('enter')
-pag.keyUp('winleft')
-time.sleep(0.5)
-pag.typewrite('r') # assumes r is aliased to "source ranger && clear"
-pag.press('enter')
+open_shell('ranger')

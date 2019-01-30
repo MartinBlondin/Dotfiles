@@ -2,133 +2,100 @@
 # coding=utf-8
 
 import pyautogui as pag
-import time
+from time import sleep
 
-def openShell(command=False, commandWaitTime=1):
-    pag.keyDown('winleft')
-    pag.press('enter')
-    pag.keyUp('winleft')
+WAIT_FOR_PROGRAM_OPEN_TIME = 0.3
+
+def open_shell(command=False):
+    pag.hotkey('winleft', 'enter')
     if command:
-        time.sleep(commandWaitTime)
-        pag.typewrite(command)
-        pag.press('enter')
-    time.sleep(1)
+        sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
+        if isinstance(command, list):
+            for c in command:
+                pag.typewrite(command)
+                pag.press('enter')
+                sleep(0.1)
+        else:
+            pag.typewrite(command)
+            pag.press('enter')
+    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
 
-def openProgram(name):
+def open_program(name):
     pag.hotkey('winleft', 'd')
+    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
     pag.typewrite(name)
     pag.press('enter')
+    sleep(WAIT_FOR_PROGRAM_OPEN_TIME)
 
-def setVertical():
-    pag.keyDown('winleft')
-    pag.press('v')
-    pag.keyUp('winleft')
+def set_vertical():
+    pag.hotkey('winleft', 'v')
 
-def setHorizontal():
-    pag.keyDown('winleft')
-    pag.press('g')
-    pag.keyUp('winleft')
-
-def openEmacs():
-    pag.keyDown('winleft')
-    pag.press('z')
-    pag.keyUp('winleft')
-
-def openRanger():
-    openShell('source ranger')
-
-def openQutebrowser():
-    pag.keyDown('winleft')
-    pag.press('t')
-    pag.keyUp('winleft')
-
-def openTransmission():
-    setHorizontal()
-    openShell()
-    pag.keyDown('winleft')
-    pag.keyDown('shift')
-    pag.press('l')
-    pag.keyUp('shift')
-    pag.keyUp('winleft')
-
-    pag.typewrite('transmission-daemon')
-    pag.press('enter')
-    time.sleep(1)
-    pag.typewrite('transmission-remote-cli')
-    pag.press('enter')
-    time.sleep(1)
+def set_horizontal():
+    pag.hotkey('winleft', 'g')
 
 def resize(n, dir):
-    pag.keyDown('winleft')
-    pag.press('r')
-    pag.keyUp('winleft')
+    pag.hotkey('winleft', 'r')
     for i in range(n):
         pag.press(dir)
     pag.press('escape')
 
-def gotoWorkspace(workspaceId):
-    pag.keyDown('winleft')
-    pag.press(str(workspaceId))
-    pag.keyUp('winleft')
+def goto_workspace(workspaceId):
+    pag.hotkey('winleft', str(workspaceId))
 
-def sendtoWorkspace(workspaceId):
-    pag.keyDown('winleft')
-    pag.keyDown('shift')
-    pag.press(str(workspaceId))
-    pag.keyUp('shift')
-    pag.keyUp('winleft')
+def send_to_workspace(workspaceId):
+    pag.hotkey('winleft', 'shift', str(workspaceId))
 
 def close():
-    pag.keyDown('winleft')
-    pag.press('q')
-    pag.keyUp('winleft')
+    pag.hotkey('winleft', 'q')
 
 def focus(dir):
-    pag.keyDown('winleft')
-    pag.press(dir)
-    pag.keyUp('winleft')
+    pag.hotkey('winleft', dir)
 
 
-openQutebrowser()
+if __name__ == '__main__':
+    WAIT_FOR_PROGRAM_OPEN_TIME = 1  # bigger because script runs at startup
+    open_program('qutebrowser')
 
-gotoWorkspace(1)
-openShell('glances', 10)
-setVertical()
-openShell()
-resize(1, 'k')
-setHorizontal()
-openShell('archey3')
-focus('h')
-setVertical()
-openShell()
-pag.typewrite('xrandr --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0 --rotate left')
-openShell('xrandr --output DVI-D-0 --mode 1920x1080 --rate 144')
-close()
-openShell('setxkbmap -option caps:escape')
-close()
+    goto_workspace(1)
+    open_shell('glances', 10)
+    set_vertical()
+    open_shell()
+    resize(1, 'k')
+    set_horizontal()
+    open_shell('archey3')
+    focus('h')
+    set_vertical()
+    open_shell()
+    pag.typewrite('xrandr --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0 --rotate left')
+    open_shell('xrandr --output DVI-D-0 --mode 1920x1080 --rate 144')
+    close()
+    open_shell('setxkbmap -option caps:escape')
+    close()
 
-gotoWorkspace(4)
-setVertical()
-openShell('clear && cowsay -f tux -p "Dont be a dick." | lolcat')
-pag.typewrite('hhpc -i 4')
-pag.press('enter')
-openTransmission()
-resize(3, 'l')
-setVertical()
-openShell('syncthing --no-browser')
-resize(3, 'k')
-focus('k')
+    goto_workspace(4)
+    set_vertical()
+    open_shell('clear && cowsay -f tux -p "Dont be a dick." | lolcat')
+    pag.typewrite('hhpc -i 4')
+    pag.press('enter')
+    set_horizontal()
+    open_shell(['transmission-daemon', 'transmission-remote-cli'])
+    pag.hotkey('winleft', 'shift', 'l')
+    resize(3, 'l')
+    set_vertical()
+    open_shell('syncthing --no-browser')
+    resize(3, 'k')
+    focus('k')
 
-gotoWorkspace(2)
-openShell()
+    goto_workspace(2)
+    open_shell()
 
-gotoWorkspace(3)
-openEmacs()
-openShell('sleep 40 && exit')
+    goto_workspace(3)
+    open_program('emacs')
+    open_shell('sleep 40 && exit')
 
-gotoWorkspace(5)
-openRanger()
-pag.hotkey('winleft', 'w')
+    goto_workspace(5)
+    open_shell('ranger')
+    pag.hotkey('winleft', 'w')
 
-gotoWorkspace(2)
-pag.hotkey('winleft', 'q')
+    goto_workspace(2)
+    pag.hotkey('winleft', 'q')

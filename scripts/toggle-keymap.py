@@ -5,5 +5,5 @@ from sh import setxkbmap
 
 layout = setxkbmap('-query').split()[5]
 
-if layout == 'us': setxkbmap('-layout', 'no')
+if   layout == 'us': setxkbmap('-layout', 'no')
 elif layout == 'no': setxkbmap('-layout', 'us')
