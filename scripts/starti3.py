@@ -6,10 +6,11 @@ import pyautogui as pag
 from subprocess import call
 from time import sleep
 from i3_pyautogui_bindings import (open_program, open_shell, set_vertical,  set_horizontal,
-                                   goto_workspace, close, focus, resize, set_wait_time)
+                                   goto_workspace, close, focus, resize, set_wait_time, run_command)
 
 
 set_wait_time('program_open', 2)  # programs open slower during start up
+run_command('setxkbmap -layout us')
 
 sleep(10)
 
@@ -47,7 +48,7 @@ open_shell()
 open_program('qutebrowser')
 
 goto_workspace(3)
-pag.hotkey('winleft', 'z')
+open_program('emacs')
 open_shell('sleep 40 && exit')
 
 goto_workspace(5)

@@ -17,7 +17,6 @@ porn="/run/media/martin/PornBank"
 alias gotoporn="cd $porn"
 
 setxkbmap -layout us
-alias nolay="setxkbmap -layout no"
 alias keylayout="evince /run/media/martin/PornBank/ergodox/layout.pdf"
 
 alias s="sudo"

@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import pyautogui as pag
 from time import sleep
+import pyautogui as pag
+import i3
 
 '''
 Various python bindings to interact with I3WM
@@ -15,10 +16,11 @@ delays = {'program_open': 0.3}
 def set_wait_time(key, delay):
     delays[key] = delay
 
+def run_command(command):
+    i3.exec(command)
+
 def open_shell(command=False):
-    pag.keyDown('winleft')
-    pag.press('enter')
-    pag.keyUp('winleft')
+    run_command('termite')
     if command:
         sleep(delays['program_open'])
         if isinstance(command, list):
@@ -29,15 +31,10 @@ def open_shell(command=False):
         else:
             pag.typewrite(command)
             pag.press('enter')
-    sleep(delays['program_open'])
 
 def open_program(name):
-    pag.keyDown('winleft')
-    pag.press('d')
-    pag.keyUp('winleft')
-    sleep(delays['program_open'])
-    pag.typewrite(name)
-    pag.press('enter')
+    print('opening ', name)
+    run_command(name)
     sleep(delays['program_open'])
 
 def set_vertical():
