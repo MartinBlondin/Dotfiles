@@ -468,7 +468,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'htmlize)
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.7))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
 
 (defvar cw/org-last-fragment nil
   "Holds the type and position of last valid fragment we were on. Format: (FRAGMENT_TYPE FRAGMENT_POINT_BEGIN)"
@@ -575,6 +575,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
            (setq cw/org-last-fragment curr))
 
           ))))
+
+;; (add-to-list 'org-latex-packages-alist
+;;              '("" "tikz" t))
+
+;; (eval-after-load "preview"
+;;   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+
+;; (setq org-preview-latex-default-process 'imagemagick)
 
 (provide '.emacs)
 ;;; .emacs ends here
