@@ -39,6 +39,7 @@ def bind(config):
     navbind('s', 'https://soundcloud.com/stream')
     navbind('i', 'https://discordapp.com/channels/@me')
     navbind('b', 'https://bitbucket.org')
+    navbind('k', 'https://https://www.khanacademy.org/')
 
     config.bind('dnm', 'open -t https://moss-avis.no')
     config.bind('dna', 'open -t https://www.aftenposten.no/')

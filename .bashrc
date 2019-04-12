@@ -16,7 +16,7 @@ porn="/run/media/martin/PornBank"
 
 alias gotoporn="cd $porn"
 
-setxkbmap -layout us
+    # setxkbmap -layout us
 alias keylayout="evince /run/media/martin/PornBank/ergodox/layout.pdf"
 
 alias s="sudo"
@@ -25,6 +25,7 @@ alias q="exit"
 alias r="source ranger"
 alias v="vim"
 alias y="youtube-dl"
+alias e="emacsclient -cn"
 
 alias update="sudo pacman -Syu --noconfirm"
 alias please="sudo"
@@ -32,3 +33,5 @@ alias please="sudo"
 #TODO: make a python program that wraps rm and warns you
 #      if you try to call rm *, rm /, or rm .
 # alias rm="pyrm.py"
+
+set -o vi

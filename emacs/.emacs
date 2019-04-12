@@ -15,11 +15,11 @@
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/Sync/org-mode/life.org")))
+ '(org-agenda-files (quote ("~/org" "~/org/work")))
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -28,6 +28,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; (setq org-agenda-files '("~/org" ""))
 
 ;; evil-mode
 (require 'evil-surround)
@@ -91,7 +93,8 @@
 (defun my/org-mode-hook ()
   "Binds."
   (evil-local-set-key 'normal (kbd "- c") 'org-toggle-checkbox)
-  (evil-global-set-key 'normal (kbd "- e") 'org-edit-src-code))
+  (evil-local-set-key 'normal (kbd "- m") 'org-toggle-latex-fragment)
+  (evil-local-set-key 'normal (kbd "- e") 'org-edit-src-code))
 (add-hook 'org-mode-hook 'my/org-mode-hook)
 
 (defun my/tern-mode-hook ()
@@ -272,9 +275,9 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (add-hook 'org-mode-hook
       '(lambda ()
          (delete '("\\.pdf\\'" . default) org-file-apps)
-         (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))
+         (add-to-list 'org-file-apps '("\\.pdf\\'" . "mupdf %s"))
          (delete '("\\.html\\'" . default) org-file-apps)
-         (add-to-list 'org-file-apps '("\\.html\\'" . "firefox %s"))))
+         (add-to-list 'org-file-apps '("\\.html\\'" . "qutebrowser %s"))))
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -378,6 +381,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (eval-after-load "web-mode"
   '(set-face-background 'web-mode-current-element-highlight-face "#00272b33"))
 
+(add-to-list 'auto-mode-alist '("\\.qss$" . css-mode))
+
 (require 'kivy-mode)
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 
@@ -406,6 +411,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (golden-ratio-mode 1)
 
+;; C# stuff, keep disabled
 ;; (require 'popwin)
 ;; (push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
 ;; (push '(t :dedicated t) popwin:special-display-config)
@@ -456,6 +462,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 's)
 
-(server-start)
+(require 'adoc-mode)
+(setq tern-command (append tern-command '("--no-port-file")))
+
+(require 'htmlize)
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
 (provide '.emacs)
 ;;; .emacs ends here

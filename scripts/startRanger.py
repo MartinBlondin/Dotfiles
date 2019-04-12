@@ -4,4 +4,4 @@
 from i3_pyautogui_bindings import open_shell
 
 
-open_shell('ranger')
+open_shell('r')

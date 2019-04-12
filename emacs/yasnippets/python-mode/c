@@ -7,4 +7,5 @@ class ${1:$$(if (s-ends-with? " " yas-text)
                     (s-replace " " "" (s-titleized-words yas-text))
                      " ")
                 (s-replace " " ""(s-titleized-words yas-text)))}$2:
-    ${0:pass}
+    def __init__(self):
+        ${0:pass}
