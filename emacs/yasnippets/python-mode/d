@@ -3,4 +3,4 @@
 # key: d
 # --
 def ${1:$$(s-replace " " "_" yas-text)}($2):
-    $0
+    ${0:pass}

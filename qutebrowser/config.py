@@ -53,7 +53,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'rp': 'https://redditp.com/r/{}',
                        'rt': 'https://www.rottentomatoes.com/search/?search={}',
                        'ra': 'https://proxyrarbg.org/torrents.php?search={}&category%5B%5D=14&category%5B%5D=48&category%5B%5D=17&category%5B%5D=44&category%5B%5D=45&category%5B%5D=47&category%5B%5D=50&category%5B%5D=51&category%5B%5D=52&category%5B%5D=42&category%5B%5D=46&category%5B%5D=18&category%5B%5D=41&category%5B%5D=49&category%5B%5D=23&category%5B%5D=25&category%5B%5D=27&category%5B%5D=28&category%5B%5D=40&category%5B%5D=32&category%5B%5D=33',
-                       'k': 'https://kickass.cd/search.php?q={}',
+                       'k': 'https://kat.sx/search.php?q={}',
                        's': 'https://soundcloud.com/search?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
@@ -62,7 +62,9 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'm': 'https://www.openstreetmap.org/search?query={}',
                        'pj': 'https://www.prisjakt.no/raw.php?query={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
-                       'l': 'http://libgen.io/search.php?req={}'}
+                       'l': 'http://libgen.io/search.php?req={}',
+                       'p': 'https://www.protondb.com/search?q={}',
+}
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False
 c.tabs.background = True

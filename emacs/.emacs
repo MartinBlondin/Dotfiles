@@ -15,11 +15,11 @@
    (quote
     ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/Sync/org-mode/life.org")))
+ '(org-agenda-files (quote ("~/org" "~/org/work")))
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -28,6 +28,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; (setq org-agenda-files '("~/org" ""))
 
 ;; evil-mode
 (require 'evil-surround)
@@ -91,7 +93,9 @@
 (defun my/org-mode-hook ()
   "Binds."
   (evil-local-set-key 'normal (kbd "- c") 'org-toggle-checkbox)
-  (evil-global-set-key 'normal (kbd "- e") 'org-edit-src-code))
+  (evil-local-set-key 'normal (kbd "- m") 'org-toggle-latex-fragment)
+  (evil-local-set-key 'normal (kbd "- e") 'org-edit-src-code)
+  (add-hook 'post-command-hook 'cw/org-auto-toggle-fragment-display t))
 (add-hook 'org-mode-hook 'my/org-mode-hook)
 
 (defun my/tern-mode-hook ()
@@ -272,9 +276,9 @@ new buffer will be named “untitled” or “untitled<2>”, “untitled<3>”,
 (add-hook 'org-mode-hook
       '(lambda ()
          (delete '("\\.pdf\\'" . default) org-file-apps)
-         (add-to-list 'org-file-apps '("\\.pdf\\'" . "evince %s"))
+         (add-to-list 'org-file-apps '("\\.pdf\\'" . "mupdf %s"))
          (delete '("\\.html\\'" . default) org-file-apps)
-         (add-to-list 'org-file-apps '("\\.html\\'" . "firefox %s"))))
+         (add-to-list 'org-file-apps '("\\.html\\'" . "qutebrowser %s"))))
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -378,6 +382,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (eval-after-load "web-mode"
   '(set-face-background 'web-mode-current-element-highlight-face "#00272b33"))
 
+(add-to-list 'auto-mode-alist '("\\.qss$" . css-mode))
+
 (require 'kivy-mode)
 (add-to-list 'auto-mode-alist '("\\.kv$" . kivy-mode))
 
@@ -406,6 +412,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (golden-ratio-mode 1)
 
+;; C# stuff, keep disabled
 ;; (require 'popwin)
 ;; (push '("^\*helm.+\*$" :regexp t) popwin:special-display-config)
 ;; (push '(t :dedicated t) popwin:special-display-config)
@@ -456,6 +463,126 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 's)
 
-(server-start)
+(require 'adoc-mode)
+(setq tern-command (append tern-command '("--no-port-file")))
+
+(require 'htmlize)
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
+
+(defvar cw/org-last-fragment nil
+  "Holds the type and position of last valid fragment we were on. Format: (FRAGMENT_TYPE FRAGMENT_POINT_BEGIN)"
+  )
+
+(setq cw/org-valid-fragment-type
+      '(latex-fragment
+        latex-environment
+        link))
+
+(defun cw/org-curr-fragment ()
+  "Returns the type and position of the current fragment available for preview inside org-mode. Returns nil at non-displayable fragments"
+  (let* ((fr (org-element-context))
+         (fr-type (car fr)))
+    (when (memq fr-type cw/org-valid-fragment-type)
+      (list fr-type
+            (org-element-property :begin fr))))
+  )
+
+(defun cw/org-remove-fragment-overlay (fr)
+  "Remove fragment overlay at fr"
+  (let ((fr-type (nth 0 fr))
+        (fr-begin (nth 1 fr)))
+    (goto-char fr-begin)
+    (cond ((or (eq 'latex-fragment fr-type)
+               (eq 'latex-environment fr-type))
+           (let ((ov (loop for ov in (org--list-latex-overlays)
+                           if
+                           (and
+                            (<= (overlay-start ov) (point))
+                            (>= (overlay-end ov) (point)))
+                           return ov)))
+             (when ov
+               (delete-overlay ov))))
+          ((eq 'link fr-type)
+           nil;; delete image overlay here?
+           ))
+    ))
+
+(defun cw/org-preview-fragment (fr)
+  "Preview org fragment at fr"
+  (let ((fr-type (nth 0 fr))
+        (fr-begin (nth 1 fr)))
+    (goto-char fr-begin)
+    (cond ((or (eq 'latex-fragment fr-type) ;; latex stuffs
+               (eq 'latex-environment fr-type))
+           (when (cw/org-curr-fragment) (org-preview-latex-fragment))) ;; only toggle preview when we're in a valid region (for inserting in the front of a fragment)
+
+
+          ((eq 'link fr-type) ;; for images
+           (let ((fr-end (org-element-property :end (org-element-context))))
+             (org-display-inline-images nil t fr-begin fr-end))))
+    ))
+
+
+(defun cw/org-auto-toggle-fragment-display ()
+  "Automatically toggle a displayable org mode fragment"
+  (and (eq 'org-mode major-mode)
+       (let ((curr (cw/org-curr-fragment)))
+         (cond
+          ;; were on a fragment and now on a new fragment
+          ((and
+            ;; fragment we were on
+            cw/org-last-fragment
+            ;; and are on a fragment now
+            curr
+            ;; but not on the last one this is a little tricky. as you edit the
+            ;; fragment, it is not equal to the last one. We use the begin
+            ;; property which is less likely to change for the comparison.
+            (not (equal curr cw/org-last-fragment)))
+
+           ;; go back to last one and put image back, provided there is still a fragment there
+           (save-excursion
+             (cw/org-preview-fragment cw/org-last-fragment)
+             ;; now remove current image
+             (cw/org-remove-fragment-overlay curr)
+             ;; and save new fragment
+             )
+           (setq cw/org-last-fragment curr))
+
+          ;; were on a fragment and now are not on a fragment
+          ((and
+            ;; not on a fragment now
+            (not curr)
+            ;; but we were on one
+            cw/org-last-fragment)
+           ;; put image back on, provided that there is still a fragment here.
+           (save-excursion
+             (cw/org-preview-fragment cw/org-last-fragment))
+
+           ;; unset last fragment
+           (setq cw/org-last-fragment nil))
+
+          ;; were not on a fragment, and now are
+          ((and
+            ;; we were not one one
+            (not cw/org-last-fragment)
+            ;; but now we are
+            curr)
+           ;; remove image
+           (save-excursion
+             (cw/org-remove-fragment-overlay curr)
+             )
+           (setq cw/org-last-fragment curr))
+
+          ))))
+
+;; (add-to-list 'org-latex-packages-alist
+;;              '("" "tikz" t))
+
+;; (eval-after-load "preview"
+;;   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+
+;; (setq org-preview-latex-default-process 'imagemagick)
+
 (provide '.emacs)
 ;;; .emacs ends here
