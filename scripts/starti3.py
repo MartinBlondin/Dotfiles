@@ -39,17 +39,13 @@ set_horizontal()
 open_shell('transmission-remote-cli')
 pag.hotkey('winleft', 'shift', 'l')
 resize(3, 'l')
-set_vertical()
-open_shell('syncthing --no-browser')
-resize(3, 'k')
-focus('k')
 
 goto_workspace(2)
 open_shell()
 open_program('qutebrowser')
 
 goto_workspace(3)
-open_program('emacsclient -a "" -cn')
+open_program('emacs')
 open_shell('sleep 40 && exit')
 
 goto_workspace(5)
