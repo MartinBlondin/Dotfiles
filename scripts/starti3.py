@@ -16,8 +16,6 @@ sleep(100)
 
 goto_workspace(1)
 
-open_shell('')
-
 if path.isfile('local_commands_before_startup.py'): call(['python3', 'local_commands_before_startup.py'])
 
 open_shell('glances')
