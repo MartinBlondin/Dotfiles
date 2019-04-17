@@ -6,7 +6,6 @@ margin-bottom = 5
 width = 100%
 height = 25
 bottom = true
-monitor = DVI-D-0
 
 background = #00000000
 foreground = #B1c87fa1

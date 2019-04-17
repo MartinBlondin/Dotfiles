@@ -209,7 +209,6 @@ client.unfocused        $inactive-bg-colour $inactive-bg-colour $inactive-text-c
 client.focused_inactive $inactive-bg-colour $inactive-bg-colour $inactive-text-colour    $preview-colour
 client.urgent           $urgent-bg-colour   $bg-colour          $text-colour             $preview-colour
 
-exec start_jack
 exec python3 ~/starti3.py
 
 # for_window [class="feh"]     floating enable
