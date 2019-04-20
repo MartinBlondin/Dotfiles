@@ -2,4 +2,4 @@
 # name: sr
 # key: sr
 # --
-\sqrt{$1}$0
+\sqrt$1{$2}$0

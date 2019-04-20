@@ -12,14 +12,12 @@
  '(Tool-bar-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
-   (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
+   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default))
  '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/org" "~/org/work")))
- '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
+ '(org-agenda-files '("~/org" "~/org/work"))
+ '(org-export-backends '(ascii beamer html icalendar latex odt))
  '(package-selected-packages
-   (quote
-    (ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+   '(atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -109,7 +107,6 @@
 
 ;; colour scheme
 
-(add-to-list 'load-path "~/.emacs.d/oneDark")
 (require 'atom-one-dark-theme)
 (setq ns-auto-hide-menu-bar t)
 (set-frame-position nil 0 -24)
@@ -168,7 +165,8 @@
 (require 'powerline)
 ;; (powerline-default-theme)
 (require 'airline-themes)
-(load-theme 'airline-dark t)
+(load-theme 'atom-one-dark t)
+(load-theme 'airline-onedark t)
 
 ;; auto close brackets
 (electric-pair-mode 1)
@@ -468,8 +466,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (require 'htmlize)
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
-
 (defvar cw/org-last-fragment nil
   "Holds the type and position of last valid fragment we were on. Format: (FRAGMENT_TYPE FRAGMENT_POINT_BEGIN)"
   )
@@ -513,6 +509,21 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (let ((fr-type (nth 0 fr))
         (fr-begin (nth 1 fr)))
     (goto-char fr-begin)
+
+    ;; Setup rendering for tikzpicture when needed
+    ;; requires you to have \begin{tikzpicture} on the same line as the initial $$
+    (if (cl-search "tikzpicture" (thing-at-point 'line t))
+        (progn
+          (setq org-preview-latex-default-process 'imagemagick)
+          (setq org-format-latex-options (plist-put org-format-latex-options :scale 1))
+          (unless (member '("" "tikz" t) org-latex-packages-alist) (add-to-list 'org-latex-packages-alist '("" "tikz" t)))
+          (unless (member '("" "pgfplots" t) org-latex-packages-alist) (add-to-list 'org-latex-packages-alist '("" "pgfplots" t))))
+      (progn
+        (setq org-preview-latex-default-process 'dvipng)
+        (setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
+        (when (member '("" "pgfplots" t) org-latex-packages-alist) (pop org-latex-packages-alist))
+        (when (member '("" "tikz" t) org-latex-packages-alist) (pop org-latex-packages-alist))))
+
     (cond ((or (eq 'latex-fragment fr-type) ;; latex stuffs
                (eq 'latex-environment fr-type))
            (when (cw/org-curr-fragment) (org-preview-latex-fragment))) ;; only toggle preview when we're in a valid region (for inserting in the front of a fragment)
@@ -576,13 +587,11 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
           ))))
 
-;; (add-to-list 'org-latex-packages-alist
-;;              '("" "tikz" t))
+(add-to-list 'org-latex-packages-alist '("" "polynom" t))
+(add-to-list 'org-latex-packages-alist '("" "cancel" t))
+(setq org-preview-latex-default-process 'dvipng)
 
-;; (eval-after-load "preview"
-;;   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
-
-;; (setq org-preview-latex-default-process 'imagemagick)
+(yas-reload-all)
 
 (provide '.emacs)
 ;;; .emacs ends here
