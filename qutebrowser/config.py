@@ -87,8 +87,8 @@ theme = {
     'colors': {
         'bg': {
             'normal': '#272b33',
-            'active': '#BF2f343f',
-            'inactive': '#AA2f343f',
+            'active': '#272b33',
+            'inactive': '#272b33',
         },
 
         'fg': {

@@ -114,36 +114,36 @@
 (set-frame-size nil 150 80)
 
 ;; line numbers
-(require 'linum-relative)
+;; (require 'linum-relative)
 
-(defun linum-relative-right-set-margin ()
-  "Make width of right margin the same as left margin."
-  (let* ((win (get-buffer-window))
-     (width (car (window-margins win))))
-    (set-window-margins win width width)))
+;; (defun linum-relative-right-set-margin ()
+;;   "Make width of right margin the same as left margin."
+;;   (let* ((win (get-buffer-window))
+;;      (width (car (window-margins win))))
+;;     (set-window-margins win width width)))
 
-(defadvice linum-update-current (after linum-left-right-update activate)
-  "Advice to run right margin update."
-  (linum-relative-right-set-margin)
-  (linum-relative-right-update (line-number-at-pos)))
+;; (defadvice linum-update-current (after linum-left-right-update activate)
+;;   "Advice to run right margin update."
+;;   (linum-relative-right-set-margin)
+;;   (linum-relative-right-update (line-number-at-pos)))
 
-(defadvice linum-delete-overlays (after linum-relative-right-delete activate)
-  "Set margins width to 0."
-  (set-window-margins (get-buffer-window) 0 0))
+;; (defadvice linum-delete-overlays (after linum-relative-right-delete activate)
+;;   "Set margins width to 0."
+;;   (set-window-margins (get-buffer-window) 0 0))
 
-(defun linum-relative-right-update (line)
-  "Put relative numbers to the right margin."
-  (dolist (ov (overlays-in (window-start) (window-end)))
-    (let ((str (overlay-get ov 'linum-str)))
-      (if str
-      (let ((nstr (number-to-string
-               (abs (- (string-to-number str) line)))))
-        ;; copy string properties
-        (set-text-properties 0 (length nstr) (text-properties-at 0 str) nstr)
-        (overlay-put ov 'after-string
-             (propertize " " 'display `((margin right-margin) ,nstr))))))))
+;; (defun linum-relative-right-update (line)
+;;   "Put relative numbers to the right margin."
+;;   (dolist (ov (overlays-in (window-start) (window-end)))
+;;     (let ((str (overlay-get ov 'linum-str)))
+;;       (if str
+;;       (let ((nstr (number-to-string
+;;                (abs (- (string-to-number str) line)))))
+;;         ;; copy string properties
+;;         (set-text-properties 0 (length nstr) (text-properties-at 0 str) nstr)
+;;         (overlay-put ov 'after-string
+;;              (propertize " " 'display `((margin right-margin) ,nstr))))))))
 
-(linum-relative-global-mode 1)
+;; (linum-relative-global-mode 1)
 
 
 ;; helm
@@ -162,11 +162,12 @@
 
 
 ;; powerline
-(require 'powerline)
+;; (require 'powerline)
 ;; (powerline-default-theme)
 (require 'airline-themes)
 (load-theme 'atom-one-dark t)
 (load-theme 'airline-onedark t)
+(setq-default mode-line-format nil)
 
 ;; auto close brackets
 (electric-pair-mode 1)
@@ -590,6 +591,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (add-to-list 'org-latex-packages-alist '("" "polynom" t))
 (add-to-list 'org-latex-packages-alist '("" "cancel" t))
 (setq org-preview-latex-default-process 'dvipng)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
 
 (yas-reload-all)
 

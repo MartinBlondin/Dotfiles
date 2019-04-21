@@ -3,7 +3,7 @@
 # key: plt
 # --
 $$\begin{tikzpicture}\begin{axis}[
-        axis x line=middle, axis y line=middle,
-        ymax=10, ylabel=$y$, xlabel=$x$]
-    \addplot[domain=-10:10, orange, thick] {$0};
+        axis x line=middle, axis y line=middle]
+    \addplot[domain=-10:10, orange, thick] {$1};
 \end{axis}\end{tikzpicture}$$
+$0

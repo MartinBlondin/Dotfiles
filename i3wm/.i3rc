@@ -29,7 +29,7 @@ bindsym $mod+n exec python3 ~/spawn-terminal.py
 bindsym $mod+p exec python3 ~/makesexy.py
 
 # start Emacs
-bindsym $mod+z exec emacsclient -a "" -c -n
+bindsym $mod+z exec emacs
 
 # Change light level
 bindsym $mod+u exec xbacklight -dec 10
