@@ -12,8 +12,6 @@ from i3_pyautogui_bindings import (open_program, open_shell, set_vertical,  set_
 set_wait_time('program_open', 2)  # programs open slower during start up
 run_command('setxkbmap -layout us')
 
-#sleep(100)
-
 goto_workspace(1)
 
 if path.isfile('local_commands_before_startup.py'): call(['python3', 'local_commands_before_startup.py'])
