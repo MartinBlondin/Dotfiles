@@ -21,7 +21,7 @@ c.tabs.position = 'top'
 c.tabs.show = 'always'
 c.tabs.favicons.show = 'always'
 c.tabs.indicator.width = 0
-c.tabs.title.format = '{title}'
+c.tabs.title.format = '{current_title}'
 c.tabs.title.alignment = 'center'
 c.downloads.position = 'bottom'
 c.scrolling.smooth = True
@@ -64,6 +64,8 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://libgen.io/search.php?req={}',
                        'p': 'https://www.protondb.com/search?q={}',
+                       'z': 'https://www.zalando.no/dame/?q={}',
+                       'b': 'https://www.blush.no/search?q={}',
 }
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

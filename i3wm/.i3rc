@@ -11,7 +11,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+b exec blender
 
 # start Ardour
-bindsym $mod+. exec ardour5
+bindsym $mod+. exec ardour
 
 # start Qutebrowser
 bindsym $mod+t exec qutebrowser
@@ -236,6 +236,9 @@ assign [class="Steam"]       → ""
 assign [class="Lutris"]      → ""
 assign [class="emacs"]       → ""
 assign [class="qutebrowser"] → ""
+assign [class="Ardour"]      → ""
 
 gaps inner 15
 gaps outer 10
+
+border_radius 4

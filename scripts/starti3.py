@@ -30,11 +30,9 @@ open_shell()
 
 goto_workspace(4)
 set_vertical()
-open_shell('clear && cowsay -f tux -p "Dont be a dick." | lolcat')
-pag.typewrite('hhpc -i 4')
-pag.press('enter')
+open_shell(['clear && cowsay -f tux -p "Dont be a dick." | lolcat', 'hhpc -i 4'])
 set_horizontal()
-open_shell('transmission-remote-cli')
+open_shell(['transmission-daemon', 'transmission-remote-cli'])
 pag.hotkey('winleft', 'shift', 'l')
 resize(3, 'l')
 
@@ -44,7 +42,6 @@ open_program('qutebrowser')
 
 goto_workspace(3)
 open_program('emacs')
-open_shell('sleep 40 && exit')
 
 goto_workspace(5)
 open_shell('r')
@@ -52,5 +49,7 @@ pag.hotkey('winleft', 'w')
 
 goto_workspace(2)
 close()
+
+open_program('ardour')
 
 if path.isfile('local_commands_after_startup.py'): call(['python3', 'local_commands_after_startup.py'])
