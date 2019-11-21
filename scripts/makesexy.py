@@ -5,17 +5,15 @@ import os
 import json
 
 from time import sleep
-from sh import kill, rm, ErrorReturnCode_1
 from pathlib import Path
 from contextlib import suppress
 from threading import Thread
-from subprocess import Popen
+from subprocess import Popen, call
 from sys import argv
 
 home = str(Path.home()) + '/'
-commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4',
-             '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
-            ['python3', home + 'bgscript.py']]
+commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4', '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
+            ['xwinwrap', '-s', '-ov', '-fs', '-ni', '--', 'mpv', '-wid', 'WID', '/home/hodeb/bg/bg.mp4', '-loop']]
 pids = [None, None]
 pids_file = '/tmp/isSexy.json'
 already_sexy = False
@@ -39,10 +37,9 @@ def set_pid(command, pid):
     pids[command] = pid
 
 if on_off == 'off':
-    with suppress(ErrorReturnCode_1):
-        rm(pids_file)
-        for pid in pids:
-            kill(pid)
+    call(['rm', pids_file])
+    for pid in pids:
+        call(['kill', str(pid)])
 
 elif not already_sexy:
     for i, command in enumerate(commands):
