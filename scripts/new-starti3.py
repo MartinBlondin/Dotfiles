@@ -22,11 +22,13 @@ def start_program(command, workspace, extra_commands=[]):
                      'workspace':      workspace,
                      'extra_commands': extra_commands})
 
+subprocess.call(['emacs', '-daemon'])
+
 for i in range(4): start_program('termite', workspace[1])
 start_program('termite', workspace[4], ['clear && cowsay -f tux -p "Dont be a dick." | lolcat'])
 start_program('termite', workspace[4])
 start_program('qutebrowser', workspace[2])
-start_program('emacs', workspace[3])
+start_program('termite', workspace[3], ['emacsclient -nw'])
 start_program('termite', workspace[5], ['r'])
 
 if os.path.isfile('local_commands_before_startup.py'): subprocess.call(['python3', 'local_commands_before_startup.py'])
@@ -67,6 +69,7 @@ i3.workspace(workspace[2])
 
 subprocess.call(['setxkbmap', '-option', 'caps:escape'])
 subprocess.call(['setxkbmap', '-layout', 'us'])
+subprocess.call(['feh', '--bg-scale', '~/bg/bg.png'])
 
 if os.path.isfile('local_commands_after_startup.py'): subprocess.call(['python3', 'local_commands_after_startup.py'])
 

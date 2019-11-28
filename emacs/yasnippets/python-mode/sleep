@@ -2,4 +2,4 @@
 # name: sleep
 # key: sleep
 # --
-from time import sleep
+from time import sleep; sleep($0)

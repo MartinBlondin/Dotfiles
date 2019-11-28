@@ -12,12 +12,14 @@
  '(Tool-bar-mode nil)
  '(cua-mode t nil (cua-base))
  '(custom-safe-themes
-   '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default))
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "f0bc2876cbcf7cd1536d196ef270b4c4d4712232d6219d08dbf48c2bba524c9a" "bd81bac3569ee67f8b4397432dfcbadc09396996d13ca483d0d8440c7bf87170" "18e60b3301bb6c95a7af129ad7dac1ec0b318403c154c4ce10cf5e789a7f0670" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" "962dacd99e5a99801ca7257f25be7be0cebc333ad07be97efd6ff59755e6148f" default)))
  '(menu-bar-mode nil)
- '(org-agenda-files '("~/org" "~/org/work"))
- '(org-export-backends '(ascii beamer html icalendar latex odt))
+ '(org-agenda-files (quote ("~/org" "~/org/work")))
+ '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
-   '(atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil))
+   (quote
+    (slack atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -362,7 +364,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'tern)
 
 (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-(setq js-indent-level 2)
+(setq js-indent-level 4)
 
 (add-hook 'html-mode-hook
  (lambda ()
@@ -375,6 +377,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ts$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.dtl$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
 (setq web-mode-enable-current-element-highlight t)
@@ -594,6 +598,24 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
 
 (yas-reload-all)
+
+(set-background-color "#ffffff00")
+(add-to-list 'default-frame-alist '(background-color . "#ffffff00"))
+(set-face-attribute 'helm-selection-line nil :background "#ffffff00")
+(set-face-attribute 'helm-header nil :background "#ffffff00")
+(set-face-attribute 'helm-source-header nil :background "#ffffff00")
+(set-face-attribute 'helm-helper nil :background "#ffffff00")
+(set-face-attribute 'helm-separator nil :background "#ffffff00")
+(set-face-attribute 'helm-candidate-number nil :background "#ffffff00")
+(set-face-attribute 'helm-visible-mark nil :background "#ffffff00")
+(set-face-attribute 'helm-ff-file nil :background "#ffffff00")
+(set-face-attribute 'helm-ff-executable nil :background "#ffffff00")
+(set-face-attribute 'helm-ff-directory nil :background "#ffffff00")
+(set-face-attribute 'airline-emacs-center nil :background "#ffffff00")
+(set-face-attribute 'header-line nil :background "#ffffff00")
+(set-face-attribute 'mode-line nil :background "#ffffff00")
+(set-face-attribute 'powerline-active0 nil :background "#ffffff00")
+(set-face-attribute 'line-number nil :background "#ffffff00")
 
 (provide '.emacs)
 ;;; .emacs ends here

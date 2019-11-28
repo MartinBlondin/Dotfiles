@@ -1,5 +1,9 @@
 # -*- mode: snippet -*-
-# name: comment
+# name:c
 # key: c
 # --
- // $0
+class $1 {
+    ${2:constructor}($3){
+        $0
+    }
+}
