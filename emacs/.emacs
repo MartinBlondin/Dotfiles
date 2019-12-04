@@ -616,6 +616,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (set-face-attribute 'mode-line nil :background "#ffffff00")
 (set-face-attribute 'powerline-active0 nil :background "#ffffff00")
 (set-face-attribute 'line-number nil :background "#ffffff00")
+(set-face-attribute 'magit-refname nil :background "#ffffff00")
+(set-face-attribute 'company-preview nil :background "#ffffff00")
+(set-face-attribute 'company-preview-common nil :background "#ffffff00")
+(set-face-attribute 'company-tooltip-common nil :background "#ffffff00")
+(set-face-attribute 'company-tooltip-annotation nil :background "#ffffff00")
+(set-face-attribute 'company-tooltip nil :background "#ffffff00")
+(set-face-attribute 'company-scrollbar-bg nil :background "#ffffff00")
+(set-face-attribute 'evil-ex-substitute-matches nil :background "#ffffff00")
+(set-face-attribute 'evil-ex-lazy-highlight nil :background "#ffffff00")
+(set-face-attribute 'lazy-highlight nil :background "#ffffff00")
+(set-face-background 'show-paren-match "ffffff00")
 
 (provide '.emacs)
 ;;; .emacs ends here

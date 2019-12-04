@@ -22,13 +22,12 @@ def start_program(command, workspace, extra_commands=[]):
                      'workspace':      workspace,
                      'extra_commands': extra_commands})
 
-subprocess.call(['emacs', '-daemon'])
 
 for i in range(4): start_program('termite', workspace[1])
 start_program('termite', workspace[4], ['clear && cowsay -f tux -p "Dont be a dick." | lolcat'])
 start_program('termite', workspace[4])
 start_program('qutebrowser', workspace[2])
-start_program('termite', workspace[3], ['emacsclient -nw'])
+start_program('termite', workspace[3], ['emacs -nw'])
 start_program('termite', workspace[5], ['r'])
 
 if os.path.isfile('local_commands_before_startup.py'): subprocess.call(['python3', 'local_commands_before_startup.py'])
@@ -62,7 +61,7 @@ subprocess.call(['i3-msg', 'focus left'])
 subprocess.call(['i3-msg', 'move up'])
 subprocess.call(['i3-msg', 'move up'])
 subprocess.call(['i3-msg', 'resize grow height 20px or 20ppt'])
-pag.typewrite('glances'); pag.press('enter')
+pag.typewrite('glances --disable-plugin diskio'); pag.press('enter')
 i3.workspace(workspace[4])
 subprocess.call(['i3-msg', 'resize shrink width 30px or 30ppt'])
 i3.workspace(workspace[2])
