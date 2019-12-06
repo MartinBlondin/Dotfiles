@@ -2390,3 +2390,73 @@ tr td{
   border-color: #272b33 !important;
   color: #878E7D !important;
 }
+.theme--light.application,  .theme--light.v-sheet, .secondary{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+.detail-layout-background-colour{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+.summary .summary_signature, .box_info {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+
+#right-column, #left-column {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+
+.sidebar-toc ul li.current > a, .sidebar-toc ul li.current > a:hover {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+
+.awsui, .awsui-util-container, .awsui-util-container-header, .home-content, .itemCard, .item-title {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  color: #878E7D !important;
+}
+
+.cwdb-dashboard-content, .awsui-alert-type-info, .cwdb-text-container, .cwdb-toolbar, .Select-control, .cwdb-copilot-empty-message, .cwdb-text-container {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  border: 0 !important;
+  color: #878E7D !important;
+}
+.Pane1, .Pane2, .cwdb-metrics-search-container, .cwdb-metrics-search-schema-container, .cwdb-metrics-search-grid-container {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  border: 0 !important;
+  color: #878E7D !important;
+}
+
+.cwdb-metrics-search-card-container, .search-input-tagsinput, .awsui-tabs-tab-active, .awsui-tabs-tab-active:hover, .awsui-tabs-tab-active:focus {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  border: 0 !important;
+  color: #878E7D !important;
+}
+
+.cwdb-chart-container-background, .cwdb-chart svg, .FlexTable, .awsui-tabs-tab-link, #f {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-color: #272b33 !important;
+  border: 0 !important;
+  color: #878E7D !important;
+}
