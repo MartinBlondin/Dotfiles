@@ -48,6 +48,4 @@ pag.hotkey('winleft', 'w')
 goto_workspace(2)
 close()
 
-open_program('ardour')
-
 if path.isfile('local_commands_after_startup.py'): call(['python3', 'local_commands_after_startup.py'])

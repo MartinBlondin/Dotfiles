@@ -12,4 +12,4 @@ fileType = '.png'
 while True:
     for i in numPics:
         call(['feh', '--bg-scale', f'{picDir}{i}{fileType}'])
-        sleep(0.3)
+        sleep(0.1)

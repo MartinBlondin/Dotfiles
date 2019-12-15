@@ -15,7 +15,7 @@ modules-center = i3
 modules-right = date
 
 font-0 = FontAwesome:pixelsize=16;1
-font-1 = Roboto Slab Mono:pixelsize=10;1
+font-1 = Roboto Slab Mono:pixelsize=12;1
 font-2 = siji:pixelsize=10;0
 
 [bar/topbar]
@@ -35,7 +35,7 @@ modules-right =
 
 font-0 = Roboto Slab Mono:pixelsize=10;1
 font-1 = FontAwesome:pixelsize=16;1
-font-2 = siji:pixelsize=10;0
+# font-2 = siji:pixelsize=10;0
 
 [module/battery]
 type = internal/battery

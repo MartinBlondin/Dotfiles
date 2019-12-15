@@ -26,9 +26,13 @@ alias r="source ranger"
 alias v="vim"
 alias y="youtube-dl"
 alias e="emacsclient -cn"
+alias k="killall"
 
 alias update="sudo pacman -Syu --noconfirm"
 alias please="sudo"
+
+alias hdmiOn="xrandr --output HDMI-0 --mode 1920x1080 --right-of DVI-D-0 --rotate left"
+alias hdmiOff="xrandr --output HDMI-0 --off"
 
 #TODO: make a python program that wraps rm and warns you
 #      if you try to call rm *, rm /, or rm .
