@@ -56,3 +56,4 @@ def bind(config):
     config.bind(',D',  'download')
     config.bind(',e',  'spawn --userscript emacspaste')
     config.bind(',p',  'tab-pin')
+    config.bind(',f', 'spawn --userscript qute-pass --password-only')

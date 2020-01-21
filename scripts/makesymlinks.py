@@ -33,7 +33,8 @@ link('.bashrc', '.bashrc')
 
 # scripts
 for script in listdir(HOME + REPODIR + 'scripts'):
-    link('scripts/' + script, script)
+    if script != '__init__.py':
+        link('scripts/' + script, script)
 
 # emacs
 link('emacs/.emacs', '.emacs')

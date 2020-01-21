@@ -3,5 +3,5 @@ from subprocess import run
 
 nonet = True
 while nonet:
-    run(['ping', 'archlinux.com'])
+    run(['ping', '8.8.8.8'])
     sleep(5)
