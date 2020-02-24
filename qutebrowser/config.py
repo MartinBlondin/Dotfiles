@@ -195,7 +195,7 @@ c.tabs.padding = makePadding(surround, surround, 4, 4)
 c.tabs.indicator.padding = makePadding(0, 0, 0, 0)
 
 # fonts
-c.fonts.monospace = theme['fonts']['main']
+c.fonts.default_family = theme['fonts']['main'].split(' ')
 c.fonts.completion.entry = theme['fonts']['status']
 c.fonts.completion.category = theme['fonts']['status']
 c.fonts.debug_console = theme['fonts']['main']

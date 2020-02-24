@@ -271,10 +271,6 @@ a.filter-item:hover,
 .text-diff-deleted {
   color: #dc322f !important;
 }
-.avatar,
-.timeline-comment-avatar {
-  filter: opacity(50%);
-}
 .blob-code {
   background-color: #272b33 !important;
   color: #839496 !important;
@@ -620,7 +616,6 @@ qul.branches-list * {
   background-color: #859900 !important;
   background-image: linear-gradient(#859900, #424d00) !important;
   color: #000 !important;
-  filter: opacity(62.5%);
 }
 .entry-title a {
   color: #f3f4f5 !important;
@@ -667,7 +662,6 @@ qul.branches-list * {
 }
 a.label {
   color: #000 !important;
-  filter: opacity(75%);
 }
 .notifications-list a {
   color: #839496 !important;
@@ -1205,9 +1199,6 @@ div.vectorTabs li.selected span {
   background-color: transparent !important;
   background-image: linear-gradient(to bottom, #272b33, #272b33) !important;
 }
-.mw-wiki-logo {
-  filter: opacity(50%);
-}
 div#simpleSearch #searchInput {
   background-color: #272b33 !important;
   padding: 0.05em 0px 0.2em 0.2em !important;
@@ -1262,14 +1253,8 @@ div.thumbinner {
   background-color: #272b33 !important;
   border-color: #2f343f !important;
 }
-img {
-  filter: opacity(75%);
-}
 img.thumbimage {
   border-color: #2f343f !important;
-}
-.mw-body .external {
-  opacity: 0.5 !important;
 }
 table.wikitable {
   background-color: #272b33 !important;
@@ -1556,9 +1541,6 @@ pre code .typ {
 #question-header .question-hyperlink {
   color: #93a1a1 !important;
 }
-#hlogo a {
-  filter: opacity(75%);
-}
 .new-post-activity {
   background-color: #272b33 !important;
 }
@@ -1648,16 +1630,6 @@ a.comment-user.owner {
 }
 .vote {
   background-color: #272b33 !important;
-}
-.vote .star-off {
-  filter: opacity(75%);
-}
-.vote .star-on {
-  filter: opacity(50%) !important;
-}
-.vote .vote-down-off,
-.vote .vote-up-off {
-  filter: opacity(50%);
 }
 .answer-votes {
   background-color: #272b33 !important;
@@ -2459,4 +2431,57 @@ tr td{
   border-color: #272b33 !important;
   border: 0 !important;
   color: #878E7D !important;
+}
+.o64aR, ._3Laht, ._lz6s, .Di7vw, ._lz6s aUCRo, .DPiy6, ._3MPWk, ._8Rm4L, .zMhqu, .KQA-S, .AcVnq, ._1MzIy, ._4TVuL, .-vDIg, .g47SY{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  border-bottom: #272b33 !important;
+  color: #878E7D !important;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track:vertical {
+  background: #272b33 !important;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  background: #2F343D !important;
+  border-radius: 8px;
+  border-right: 1px solid #272b33;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background: #272b33 !important;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background: #2F343D !important;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #2F343D !important;
+  color: #839496 !important;
+}
+
+.l-container {
+    padding: 0 0 !important;
+    margin: 0 0 !important;
+    width: auto !important;
+}
+
+.profileHeaderBackground, .profileHeaderBackground__visual {
+  background-color: #272b33 !important;
+}
+
+.profileHeader {
+    margin-left: 16% !important;
+}
+
+#content {
+    margin-top: 20px;
 }

@@ -47,6 +47,7 @@ def bind(config):
 
     config.bind(',s',  'open -t qute://settings')
     config.bind(',dm', 'hint links spawn mpv {hint-url}')
+    config.bind(',dM', 'spawn mpv {url}')
     config.bind(',dt', 'hint links spawn transmission-remote -a {hint-url}')
     config.bind(',dd', 'hint links spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
     config.bind(',dD', 'spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {url}')
