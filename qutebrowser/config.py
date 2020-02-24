@@ -66,6 +66,8 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'p': 'https://www.protondb.com/search?q={}',
                        'z': 'https://www.zalando.no/dame/?q={}',
                        'b': 'https://www.blush.no/search?q={}',
+                       'vcv': 'https://vcvrack.com/plugins#{}'
+
 }
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

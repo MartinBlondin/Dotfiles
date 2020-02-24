@@ -1263,7 +1263,7 @@ div.thumbinner {
   border-color: #2f343f !important;
 }
 img {
-  filter: opacity(75%);
+  filter: opacity(100%);
 }
 img.thumbimage {
   border-color: #2f343f !important;

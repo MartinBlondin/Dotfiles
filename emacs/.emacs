@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (slack atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (vue-mode slack atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -598,6 +598,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2))
 
 (yas-reload-all)
+
+(setq mmm-submode-decoration-level 0)
 
 (set-background-color "#ffffff00")
 (add-to-list 'default-frame-alist '(background-color . "#ffffff00"))
