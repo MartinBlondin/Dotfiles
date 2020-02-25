@@ -239,6 +239,7 @@ assign [class="Lutris"]      → $workspace7
 assign [class="emacs"]       → $workspace3
 assign [class="qutebrowser"] → $workspace2
 assign [class="Ardour"]      → $workspace10
+assign [class="Zrythm"]      → $workspace10
 assign [class="Rack"]        → $workspace10
 assign [class="cadence"]     → $workspace9
 assign [class="discord"]     → $workspace8
