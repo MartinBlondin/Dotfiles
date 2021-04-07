@@ -11,3 +11,4 @@ tmp*
 .flycheck*
 *recentf*
 *ac-comphist*
+scripts/local_commands*

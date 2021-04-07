@@ -14,7 +14,7 @@ from sys import argv
 home = str(Path.home()) + '/'
 commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4', '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
             ['xwinwrap', '-s', '-ov', '-fs', '-ni', '--',
-             'nice', '-n', '19', 'mpv', '-wid', 'WID', '/home/martin/bg/bg.mp4', '-loop']]
+             'nice', '-n', '19', 'mpv', '-wid', 'WID', '/home/zoo/bg/bg.mp4', '-loop']]
 pids = [None, None]
 pids_file = '/tmp/isSexy.json'
 already_sexy = False
@@ -31,7 +31,8 @@ if len(argv) > 1:
 
 def run_command(command, command_index):
     with open(os.devnull, 'r+b', 0) as DEVNULL:
-        p = Popen(command, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL, preexec_fn=os.setpgrp)
+        # p = Popen(command, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL, preexec_fn=os.setpgrp)
+        p = Popen(command, stdin=DEVNULL, preexec_fn=os.setpgrp)
     set_pid(command_index, p.pid)
 
 def set_pid(command, pid):

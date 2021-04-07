@@ -14,6 +14,7 @@ import keys
 
 config = config  # type: ConfigAPI
 c = c  # type: ConfigContainer
+config.load_autoconfig(False)
 
 # ui
 c.completion.scrollbar.width = 0
@@ -28,7 +29,7 @@ c.scrolling.smooth = True
 # c.colors.webpage.bg = '#AA1c2028'
 c.colors.webpage.bg = '#272b33'
 c.completion.height = '20%'
-c.statusbar.hide = True
+c.statusbar.show = 'never'
 c.hints.uppercase = True
 c.downloads.remove_finished = 1
 c.content.user_stylesheets = ['onedark-all-sites.css']
@@ -59,12 +60,12 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
-                       'm': 'https://www.openstreetmap.org/search?query={}',
                        'pj': 'https://www.prisjakt.no/raw.php?query={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://gen.lib.rus.ec/search.php?req={}&open=0&res=25&view=simple&phrase=1&column=title',
                        'p': 'https://www.protondb.com/search?q={}',
                        'z': 'https://www.zalando.no/dame/?q={}',
+                       'm': 'https://www.med24.no/soek?query={}',
                        'b': 'https://www.blush.no/search?q={}',
                        'vcv': 'https://vcvrack.com/plugins#{}'
 
@@ -214,4 +215,5 @@ tabFont = str(theme['fonts']['tab_size']) + 'pt ' + theme['fonts']['main']
 if theme['fonts']['tab_bold']:
     tabFont = 'bold ' + tabFont
 
-c.fonts.tabs = tabFont
+c.fonts.tabs.selected = tabFont
+c.fonts.tabs.unselected = tabFont

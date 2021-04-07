@@ -12,7 +12,7 @@ export LD_LIBRARY_PATH='/lib/openssl-1.0'
 
 # archey3
 alias nvim="nvim -u ~/.nvimrc"
-porn="/run/media/martin/PornBank"
+porn="/run/media/zoey/PornBank"
 
 alias gotoporn="cd $porn"
 
