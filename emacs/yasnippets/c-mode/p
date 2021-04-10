@@ -2,4 +2,4 @@
 # name: p
 # key: p
 # --
-printf($0);
+printf("$1"$0);

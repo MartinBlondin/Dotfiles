@@ -19,7 +19,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (xclip vue-mode slack atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
+    (ggtags company-irony-c-headers meson-mode company-ctags company-c-headers xclip vue-mode slack atom-one-dark-theme ack multiple-cursors htmlize org-preview-html json-mode adoc-mode s jedi gdscript-mode doom-themes realgud web-mode Omnisharp shackle ivy sass-mode highlight-parentheses ranger nim-mode kivy-mode company-tern tern nov jedi-direx direx company-jedi evil-goggles helm-make flycheck-irony company-irony irony company auto-complete-clang golden-ratio csharp-mode evil-nerd-commenter yasnippet org-bullets org-beautify-theme helm-gtags markdown-mode helm-projectile evil-magit magit diminish smooth-scrolling smooth-scroll relative-line-numbers all-the-icons dirtree flycheck popup-complete autopair airline-themes linum-relative evil-leader evil-surround projectile evil)))
  '(scroll-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -89,6 +89,11 @@
   "Binds."
   (evil-local-set-key 'normal (kbd "- d") 'jedi:goto-definition))
 (add-hook 'python-mode-hook 'my/python-mode-hook)
+
+(defun my/irony-mode-hook ()
+  "Binds."
+  (evil-local-set-key 'normal (kbd "- c") 'eshell-queue-input("make")))
+(add-hook 'irony-mode-hook 'my/irony-mode-hook)
 
 (defun my/org-mode-hook ()
   "Binds."
@@ -201,7 +206,9 @@
 (jedi:setup)
 
 (with-eval-after-load 'company
-  (add-to-list 'company-backends 'company-jedi))
+  (add-to-list 'company-backends 'company-jedi)
+  (add-to-list 'company-backends 'company-c-headers)
+  (add-to-list 'company-backends 'company-ctags))
 
 ;; linting
 (require 'flycheck)
@@ -250,7 +257,7 @@ scroll-conservatively 9999
 
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4 c-default-style "linux")
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
 (defun xah-new-empty-buffer ()
@@ -325,11 +332,12 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (setq company-idle-delay 0.2)
 
 (require 'irony)
-(with-eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-(with-eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+(require 'company-irony)
+(add-to-list 'company-backends '(company-irony-c-headers company-irony))
+(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+
 (add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
 (require 'evil-goggles)
@@ -629,9 +637,16 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (set-face-attribute 'evil-ex-lazy-highlight nil :background "#ffffff00")
 (set-face-attribute 'lazy-highlight nil :background "#ffffff00")
 (set-face-background 'show-paren-match "ffffff00")
+(set-face-background 'vertical-border "ffffff00")
+(set-face-attribute 'org-block nil :foreground "unspecified")
 
 (require 'xclip)
 (xclip-mode 1)
+
+(setq-default c-basic-offset 2)
+(setq yas-indent-line (quote none))
+
+(setq org-startup-with-inline-images 't)
 
 (provide '.emacs)
 ;;; .emacs ends here

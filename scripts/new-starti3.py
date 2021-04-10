@@ -22,6 +22,9 @@ def start_program(command, workspace, extra_commands=[]):
                      'workspace':      workspace,
                      'extra_commands': extra_commands})
 
+subprocess.call(['setxkbmap', '-option', 'caps:escape'])
+subprocess.call(['setxkbmap', '-layout', 'us'])
+subprocess.call(['feh', '--bg-scale', '~/bg/bg.png'])
 
 for i in range(4): start_program('termite', workspace[1])
 start_program('termite', workspace[4], ['clear && cowsay -f tux -p "Dont be a dick." | lolcat'])
@@ -66,10 +69,6 @@ pag.typewrite('glances --disable-plugin diskio'); pag.press('enter')
 i3.workspace(workspace[4])
 subprocess.call(['i3-msg', 'resize shrink width 30px or 30ppt'])
 i3.workspace(workspace[2])
-
-subprocess.call(['setxkbmap', '-option', 'caps:escape'])
-subprocess.call(['setxkbmap', '-layout', 'us'])
-subprocess.call(['feh', '--bg-scale', '~/bg/bg.png'])
 
 if os.path.isfile('local_commands_after_startup.py'): subprocess.call(['python3', 'local_commands_after_startup.py'])
 

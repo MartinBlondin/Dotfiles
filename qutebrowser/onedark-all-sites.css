@@ -1,3 +1,10 @@
+/* pre.prettyprint, pre.result { */
+/*   -webkit-filter: invert(100%); */
+/*   filter: invert(100%); */
+/*   background-color: #d8d4cc !important; */
+/* } */
+/* for code with white backround */
+
 * {
   border-color: #657b83 !important;
 }
@@ -1253,12 +1260,11 @@ div.thumbinner {
   background-color: #272b33 !important;
   border-color: #2f343f !important;
 }
-<<<<<<< HEAD
+
 img {
   filter: opacity(100%);
 }
-=======
->>>>>>> 86268ef565db2c7d996603d2ee0b16924832f399
+
 img.thumbimage {
   border-color: #2f343f !important;
 }
@@ -2516,4 +2522,23 @@ tr td{
   background: None !important;
   background-color: #272b33 !important;
   color: #878E7D !important;
+
+.tutorial-content, .mui-appbar, .categories {
+  border-color: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+
+/* linuxmusicians.com */
+.wrap, .content, .button, .navbar, .headerbar, .forumbg, .bg1, .bg2, .forabg, ul.forums {
+  background-color: #272b33 !important;
+  color: #839496 !important;
+  background-image: none !important;
+}
+
+/* Yoins.com */
+.fd-page-container .flash-list-div .com-header .top-nav .tab-top-nav {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
 }

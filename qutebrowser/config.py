@@ -9,6 +9,7 @@ import keys
 
 config = config  # type: ConfigAPI
 c = c  # type: ConfigContainer
+config.load_autoconfig(False)
 
 # ui
 config.load_autoconfig(False)
@@ -56,12 +57,12 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
-                       'm': 'https://www.openstreetmap.org/search?query={}',
                        'pj': 'https://www.prisjakt.no/raw.php?query={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://gen.lib.rus.ec/search.php?req={}&open=0&res=25&view=simple&phrase=1&column=title',
                        'p': 'https://www.protondb.com/search?q={}',
                        'z': 'https://www.zalando.no/dame/?q={}',
+                       'm': 'https://www.med24.no/soek?query={}',
                        'b': 'https://www.blush.no/search?q={}',
                        'vcv': 'https://vcvrack.com/plugins#{}',
                        's': 'https://sortere.no/privat/sok/{}'
