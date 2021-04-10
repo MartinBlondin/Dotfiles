@@ -42,8 +42,10 @@ def bind(config):
     navbind('k', 'https://www.khanacademy.org/')
 
     config.bind('dnm', 'open -t https://moss-avis.no')
-    config.bind('dna', 'open -t https://www.aftenposten.no/')
+    config.bind('dnn', 'open -t https://www.nrk.no/')
     config.bind('dnv', 'open -t https://www.vg.no/')
+    config.bind('dns', 'open -t https://mastodon.social/web/timelines/home')
+    config.bind('dnk', 'open -t https://klassekampen.no/')
 
     config.bind(',s',  'open -t qute://settings')
     config.bind(',dm', 'hint links spawn mpv {hint-url}')
