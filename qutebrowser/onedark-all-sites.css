@@ -2512,7 +2512,48 @@ tr td{
 }
 
 /* Yoins.com */
-.fd-page-container .flash-list-div .com-header .top-nav .tab-top-nav {
+.fd-page-container, .flash-list-div, .com-header, .top-nav, .tab-top-nav, .mask, .top-panel {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+
+/* Zalando.no */
+.z-navicat-header_navContent, .cat_tag-20vv5, .cat_head-3QSpK, .cat_box-61TrD, .reVeb9, .pVrzNP {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+
+/* elfadistrelec.no */
+.skin-productlist-products-plp, .skin-layout-product-list, .plp-content, .mod-stickyheader,
+.sticky-level-1, .mod-metahd, .breadcrumb .skin-breadcrumb-product__main,
+.selectboxit-container, .selectboxit, .selectboxit-option, .selectboxit-selected,
+.skin-productlist-pagination-plp .plp-pagination-wrapper__product-action-bar,
+.plp-content__categorynav-facets, .plp-content__filters, .skin-facets-plp-filter-search,
+.xmod-facets__more-scroll-wrapper, .xmod-facets__more-scroll-link .fa-chevron-circle-right,
+.skin-facets-plp-filter-view .facet-view__more-scroll-wrapper
+{
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+
+/* ebay.com */
+.tabs, .fake-tabs {
+  background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+
+/* digikey.no */
+.linked-index-list, .layout-twocolumn, .homepage-featured__content div,
+homepage-featured__content-title, .homepage-featured__content-desc,
+.ks-search-results, .filters-group-chkbxs, #header__storage,
+.flymenu #header-search-type, .flymenu .searchbox-inner,
+.chosen-container-single .chosen-single, #filters-panel,
+.product-details-headline, .product-details-section table th,
+.product-details-section table td, .associations, .cart-errors div{
   background: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
