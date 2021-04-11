@@ -39,15 +39,16 @@ for program in programs:
     moved = False
     wids = []
     index = 0
+    print("moving " + str(program['process'].pid))
     while not moved:
         try:
             wids = subprocess.check_output(['xdotool', 'search', '--pid', str(program['process'].pid)]).decode('utf-8').split('\n')[:-1]
             index += 1;
             if index == len(wids): index = 0
             try: subprocess.check_output(['i3-msg', f'[id={wids[index]}] move container to workspace {program["workspace"]}'])
-            except: continue
+            except: sleep(1)
             else: moved = True
-        except: sleep(0.01)
+        except: sleep(1)
     for command in program['extra_commands']:
         i3.workspace(str(program['workspace']))
         pag.typewrite(command, 0)

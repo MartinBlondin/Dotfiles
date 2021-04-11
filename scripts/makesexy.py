@@ -14,7 +14,7 @@ from sys import argv
 home = str(Path.home()) + '/'
 commands = [['compton', '-f', '-c', '-C', '-z', '-G', '-o', '4', '--inactive-dim', '0.1', '--config', home + '.config/compton.conf'],
             ['xwinwrap', '-s', '-ov', '-fs', '-ni', '--',
-             'nice', '-n', '19', 'mpv', '-wid', 'WID', '/home/zoo/bg/bg.mp4', '-loop']]
+             'nice', '-n', '19', 'mpv', '-wid', 'WID', f'{home}bg/bg.mp4', '-loop']]
 pids = [None, None]
 pids_file = '/tmp/isSexy.json'
 already_sexy = False

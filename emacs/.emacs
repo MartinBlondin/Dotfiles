@@ -115,6 +115,7 @@
 ;; colour scheme
 
 (require 'atom-one-dark-theme)
+(load-theme 'atom-one-dark t)
 (setq ns-auto-hide-menu-bar t)
 (set-frame-position nil 0 -24)
 (tool-bar-mode 0)
@@ -172,7 +173,6 @@
 ;; (require 'powerline)
 ;; (powerline-default-theme)
 (require 'airline-themes)
-(load-theme 'atom-one-dark t)
 (load-theme 'airline-onedark t)
 (setq-default mode-line-format nil)
 
