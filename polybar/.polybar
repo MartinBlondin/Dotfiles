@@ -37,8 +37,8 @@ font-0 = Roboto Slab Mono:pixelsize=10;1
 font-1 = FontAwesome:pixelsize=16;1
 # font-2 = siji:pixelsize=10;0
 
-# [module/battery]
-# type = internal/battery
+[module/battery]
+type = internal/battery
 
 # #  time-format = %H:%M
 # #  format-charging = "%time"

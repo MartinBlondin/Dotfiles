@@ -65,8 +65,8 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'm': 'https://www.med24.no/soek?query={}',
                        'b': 'https://www.blush.no/search?q={}',
                        'vcv': 'https://vcvrack.com/plugins#{}',
-                       's': 'https://sortere.no/privat/sok/{}'
-
+                       's': 'https://sortere.no/privat/sok/{}',
+                       'd': 'https://www.digikey.no/products/en?keywords={}'
 }
 c.input.insert_mode.auto_load = False
 c.input.insert_mode.auto_leave = False

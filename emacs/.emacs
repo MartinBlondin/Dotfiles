@@ -648,5 +648,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (setq org-startup-with-inline-images 't)
 
+(add-to-list 'auto-mode-alist '("\\.ino$" . c++-mode))
+
 (provide '.emacs)
 ;;; .emacs ends here

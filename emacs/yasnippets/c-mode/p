@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: p
-# key: p
+# name:p
+# key:p
 # --
-printf("$1"$0);
+printf("$0");

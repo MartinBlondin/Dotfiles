@@ -12,8 +12,8 @@
     background     = rgba(39, 43, 51, 0.7)
     cursor         = #969da9
     highlight      = #272b33
-    color0         = #61afef
-    color1         = #e06c75
+    color0         = #61afef //blue
+    color1         = #e06c75 //red
     color2         = #e5c07b
     color3         = #e5c07b
     color4         = #1c3c40
@@ -22,7 +22,7 @@
     color7         = #eee8d5
     color8         = #002b36
     color9         = #d19a66
-    color10        = #586e75
+    color10        = #586e75 / winner
     color11        = #657b83
     color12        = #839496
     color13        = #6c71c4
