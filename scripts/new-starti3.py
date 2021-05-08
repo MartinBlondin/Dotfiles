@@ -26,12 +26,12 @@ subprocess.call(['setxkbmap', '-option', 'caps:escape'])
 subprocess.call(['setxkbmap', '-layout', 'us'])
 subprocess.call(['feh', '--bg-scale', '~/bg/bg.png'])
 
-for i in range(4): start_program('termite', workspace[1])
-start_program('termite', workspace[4], ['clear && cowsay -f tux -p "Dont be a dick." | lolcat'])
-start_program('termite', workspace[4])
+for i in range(4): start_program('alacritty', workspace[1])
+start_program('alacritty', workspace[4], ['clear && cowsay -f tux -p "Dont be a dick." | lolcat'])
+start_program('alacritty', workspace[4])
 start_program('qutebrowser', workspace[2])
-start_program('termite', workspace[3], ['emacs -nw'])
-start_program('termite', workspace[5], ['r'])
+start_program('alacritty', workspace[3], ['emacs -nw'])
+start_program('alacritty', workspace[5], ['r'])
 
 if os.path.isfile('local_commands_before_startup.py'): subprocess.call(['python3', 'local_commands_before_startup.py'])
 
