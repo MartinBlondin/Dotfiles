@@ -1,5 +1,11 @@
 background_opacity: 0.7
 
+key_bindings:
+  - { key: Left,     mods: Alt,     chars: "\x1b[1;3D"               }
+  - { key: Right,    mods: Alt,     chars: "\x1b[1;3C"               }
+
+
+
 font:
   normal:
     family: Roboto Mono Medium
@@ -25,14 +31,14 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#000000'
+    black:   '#444444'
     red:     '#d75f87'
     green:   '#e5c07b'
     yellow:  '#87af87'
     blue:    '#005f5f'
     magenta: '#c678dd'
     cyan:    '#61afef'
-    white:   '#444444'
+    white:   '#eee8d5'
 
   # Bright colors
   bright:

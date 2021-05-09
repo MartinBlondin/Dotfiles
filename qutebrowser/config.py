@@ -4,15 +4,34 @@
 
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
-import keys
+from javascript_whitelist import javascript_whitelist
+import random
+
+# privacy
+invidious_mirrors = ['invidious.snopyta.org',
+                     'invidious.exonip.de',
+                     'invidious.namazso.eu',
+                     'invidious.reallyancient.tech']
+def getInvidious():
+    return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
+c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+c.content.headers.accept_language ='en-US,en;q=0.5'
+c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
+c.content.canvas_reading = False
+c.content.webgl = False
+c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
+c.content.proxy = 'system'
+c.content.javascript.enabled = False
+
+javascript_whitelist.extend(invidious_mirrors)
+for url in javascript_whitelist: config.set('content.javascript.enabled', True, url)
 
 
 config = config  # type: ConfigAPI
 c = c  # type: ConfigContainer
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 # ui
-config.load_autoconfig(False)
 c.completion.scrollbar.width = 0
 c.tabs.position = 'top'
 c.tabs.show = 'always'
@@ -33,6 +52,7 @@ c.content.user_stylesheets = ['onedark-all-sites.css']
 c.content.pdfjs = True
 # c.hints.chars = 'asdfjkl;'
 c.hints.chars = 'asdfjkl'
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 # behavior
 
@@ -40,12 +60,11 @@ c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>",
                            "<Ctrl-M>": "<Return>", "<Shift-Return>": "<Return>",
                            "<Enter>": "<Return>", "<Shift-Enter>": "<Return>",
                            "<Ctrl-Enter>": "<Ctrl-Return>"}
-keys.bind(config)
-
 c.downloads.location.prompt = False
 c.downloads.location.directory = '~/Downloads/'
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
-                       'y': 'https://youtube.com/results?search_query={}',
+                       # 'y': 'https://youtube.com/results?search_query={}',
+                       'y': getInvidious()+'/search?q={}',
                        'r': 'https://reddit.com/r/{}',
                        'w': 'https://en.wikipedia.org/w/index.php?search={}',
                        'rp': 'https://redditp.com/r/{}',
@@ -213,5 +232,70 @@ tabFont = str(theme['fonts']['tab_size']) + 'pt ' + theme['fonts']['main']
 if theme['fonts']['tab_bold']:
     tabFont = 'bold ' + tabFont
 
+def bind():
+    def navbind(bind, link):
+        config.bind('d' + bind,         'open ' + link)
+        config.bind('d' + bind.upper(), 'open -t ' + link)
+
+    config.unbind('J',  mode='normal')
+    config.unbind('K',  mode='normal')
+    config.unbind('H',  mode='normal')
+    config.unbind('L',  mode='normal')
+    config.unbind('d',  mode='normal')
+    config.unbind('th', mode='normal')
+    config.unbind('tl', mode='normal')
+    config.unbind('?',  mode='normal')
+    config.unbind(';t', mode='normal')
+    config.unbind(';t', mode='normal')
+
+    config.bind('I', 'config-source')
+    config.bind('x', 'tab-close')
+    config.bind('J', 'tab-prev')
+    config.bind('K', 'tab-next')
+    config.bind('h', 'back')
+    config.bind('l', 'forward')
+    config.bind('H', 'back -t')
+    config.bind('L', 'forward -t')
+    config.bind('t', 'open -t duckduckgo.com')
+    config.bind('?', 'open -t qute://help/img/cheatsheet-big.png')
+
+    config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
+    config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
+
+    # navbind('y', 'https://youtube.com')
+    navbind('y', getInvidious())
+    navbind('a', 'https://archlinux.org')
+    navbind('e', 'https://ebay.com')
+    navbind('r', 'https://reddit.com')
+    navbind('m', 'https://protonmail.com/login')
+    navbind('g', 'https://gmail.com')
+    navbind('f', 'https://facebook.com')
+    navbind('s', 'https://soundcloud.com/stream')
+    navbind('i', 'https://discordapp.com/channels/@me')
+    navbind('b', 'https://bitbucket.org')
+    navbind('k', 'https://www.khanacademy.org/')
+
+    config.bind('dnm', 'open -t https://moss-avis.no')
+    config.bind('dnn', 'open -t https://www.nrk.no/')
+    config.bind('dnv', 'open -t https://www.vg.no/')
+    config.bind('dns', 'open -t https://mastodon.social/web/timelines/home')
+    config.bind('dnk', 'open -t https://klassekampen.no/')
+
+    config.bind(',s',  'open -t qute://settings')
+    config.bind(',S',  'spawn --userscript add_js_entry.py')
+    config.bind(',dm', 'hint links spawn mpv {hint-url}')
+    config.bind(',dt', 'hint links spawn transmission-remote -a {hint-url}')
+    config.bind(',dd', 'hint links spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {hint-url}')
+    config.bind(',dD', 'spawn youtube-dl -r 800k -o "~/Downloads/%(title)s.%(ext)s" {url}')
+    config.bind(',da', 'hint links spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {hint-url}')
+    config.bind(',dA', 'spawn youtube-dl -r 800k -f bestaudio -o "~/Downloads/%(title)s.%(ext)s" -x --audio-format opus --audio-quality 0 {url}')
+    config.bind(',M',  'spawn mpv {url}')
+    config.bind(',D',  'download')
+    config.bind(',e',  'spawn --userscript emacspaste')
+    config.bind(',p',  'tab-pin')
+    config.bind(',f', 'spawn --userscript qute-pass --password-only')
+
+
+bind()
 c.fonts.tabs.selected = tabFont
 c.fonts.tabs.unselected = tabFont

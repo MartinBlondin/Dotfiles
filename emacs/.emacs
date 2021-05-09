@@ -1,7 +1,7 @@
 ;;; Package --- Summary
 ;;; Commentary:
   (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.milkbox.net/packages/"))
+  (add-to-list 'package-archives '("melpa" . "https://stable.melpa.org/packages/"))
   (package-initialize)
 ;;; Code:
 (custom-set-variables
@@ -639,7 +639,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (set-face-background 'show-paren-match "ffffff00")
 (set-face-background 'vertical-border "ffffff00")
 (set-face-attribute 'org-block nil :foreground "unspecified")
-(set-face-background 'region "#a4a4a4")
+;; (set-face-background 'region "#a4a4a4")
+(set-face-background 'region "#000000")
 
 (require 'xclip)
 (xclip-mode 1)

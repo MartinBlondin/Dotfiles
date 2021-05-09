@@ -29,7 +29,8 @@ def bind(config):
     config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
 
-    navbind('y', 'https://youtube.com')
+    # navbind('y', 'https://youtube.com')
+    navbind('y', 'https://invidious.snopyta.org/')
     navbind('a', 'https://archlinux.org')
     navbind('e', 'https://ebay.com')
     navbind('r', 'https://reddit.com')
