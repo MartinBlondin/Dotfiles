@@ -639,7 +639,7 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (set-face-background 'show-paren-match "ffffff00")
 (set-face-background 'vertical-border "ffffff00")
 (set-face-attribute 'org-block nil :foreground "unspecified")
-(set-face-background 'region "#444444")
+(set-face-background 'region "#a4a4a4")
 
 (require 'xclip)
 (xclip-mode 1)
