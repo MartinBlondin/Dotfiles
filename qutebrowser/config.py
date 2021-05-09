@@ -11,7 +11,9 @@ import random
 invidious_mirrors = ['invidious.snopyta.org',
                      'invidious.exonip.de',
                      'invidious.namazso.eu',
-                     'invidious.reallyancient.tech']
+                     'invidious.tube',
+                     'vid.puffyan.us',
+                     'inv.skyn3t.in']
 def getInvidious():
     return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
 c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
