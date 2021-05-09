@@ -16,6 +16,7 @@ font:
   size: 15
 
 # Colors (Material Theme)
+color-237: #ffffff
 colors:
   # Default colors
   primary:
@@ -31,7 +32,7 @@ colors:
     blue:    '#005f5f'
     magenta: '#c678dd'
     cyan:    '#61afef'
-    white:   '#a0a0a0'
+    white:   '#444444'
 
   # Bright colors
   bright:
@@ -39,7 +40,7 @@ colors:
     red:     '#ff5370'
     green:   '#c3e88d'
     yellow:  '#ffcb6b'
-    blue:    '#82aaff'
+    blue:    '#839496'
     magenta: '#f07178'
     cyan:    '#89ddff'
     white:   '#ffffff'
