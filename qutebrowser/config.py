@@ -10,8 +10,6 @@ import random
 # privacy
 invidious_mirrors = ['invidious.snopyta.org',
                      'invidious.exonip.de',
-                     'invidious.namazso.eu',
-                     'invidious.tube',
                      'vid.puffyan.us',
                      'inv.skyn3t.in']
 def getInvidious():
@@ -25,7 +23,7 @@ c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.proxy = 'system'
 c.content.javascript.enabled = False
 
-javascript_whitelist.extend(invidious_mirrors)
+# javascript_whitelist.extend(invidious_mirrors)
 for url in javascript_whitelist: config.set('content.javascript.enabled', True, url)
 
 
@@ -79,6 +77,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'am': 'https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords={}',
                        'e': 'https://www.ebay.com/sch/i.html?_from=R40&_nkw={}&_sacat=0',
                        'pj': 'https://www.prisjakt.no/raw.php?query={}',
+                       'pt': 'https://peer.tube/search?search={}',
                        'g': 'https://github.com/search?utf8=%E2%9C%93&q={}&type=',
                        'l': 'http://gen.lib.rus.ec/search.php?req={}&open=0&res=25&view=simple&phrase=1&column=title',
                        'p': 'https://www.protondb.com/search?q={}',
@@ -265,7 +264,8 @@ def bind():
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
 
     # navbind('y', 'https://youtube.com')
-    navbind('y', getInvidious())
+    navbind('y', getInvidious()+'/feed/subscriptions')
+    navbind('p', 'https://peer.tube')
     navbind('a', 'https://archlinux.org')
     navbind('e', 'https://ebay.com')
     navbind('r', 'https://reddit.com')

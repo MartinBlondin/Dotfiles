@@ -2583,3 +2583,11 @@ homepage-featured__content-title, .homepage-featured__content-desc,
   background-color: #272b33 !important;
   color: #839496 !important;
 }
+
+/* invidious */
+.pure-u-md-1-12, .pure-u-md-2-24{
+    width: 0% !important;
+}
+.pure-u-md-20-24, .pure-u-md-5-6{
+    width: 100% !important;
+}
