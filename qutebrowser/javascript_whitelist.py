@@ -13,4 +13,7 @@ javascript_whitelist = [
     'https://mail.protonmail.com',
     'https://mastodon.social',
     'https://www.redditp.com',
+    'https://redirect.invidious.io',
+    'https://www.instagram.com',
+    'https://github.com',
 ]

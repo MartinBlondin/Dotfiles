@@ -5,16 +5,15 @@
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
 from javascript_whitelist import javascript_whitelist
+from user_agents import user_agents
 import random
 
 # privacy
-invidious_mirrors = ['invidious.snopyta.org',
-                     'invidious.exonip.de',
-                     'vid.puffyan.us',
-                     'inv.skyn3t.in']
-def getInvidious():
-    return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
-c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36'
+invidious_mirrors = ['vid.puffyan.us', #'invidious.snopyta.org', # 'invidious.exonip.de', # 'inv.skyn3t.in',
+]
+def getInvidious(): return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
+def randomize_user_agent(c): return c.format(rua='spawn --userscript randomize_user_agent.py -c')
+c.content.headers.user_agent = user_agents[random.randint(0, len(user_agents)-1)]
 c.content.headers.accept_language ='en-US,en;q=0.5'
 c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
 c.content.canvas_reading = False
@@ -23,7 +22,7 @@ c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.proxy = 'system'
 c.content.javascript.enabled = False
 
-# javascript_whitelist.extend(invidious_mirrors)
+javascript_whitelist.extend(invidious_mirrors)
 for url in javascript_whitelist: config.set('content.javascript.enabled', True, url)
 
 
@@ -55,7 +54,6 @@ c.hints.chars = 'asdfjkl'
 c.colors.webpage.preferred_color_scheme = 'dark'
 
 # behavior
-
 c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>",
                            "<Ctrl-M>": "<Return>", "<Shift-Return>": "<Return>",
                            "<Enter>": "<Return>", "<Shift-Enter>": "<Return>",
@@ -70,7 +68,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'rp': 'https://redditp.com/r/{}',
                        'rt': 'https://www.rottentomatoes.com/search/?search={}',
                        'ra': 'https://proxyrarbg.org/torrents.php?search={}&category%5B%5D=14&category%5B%5D=48&category%5B%5D=17&category%5B%5D=44&category%5B%5D=45&category%5B%5D=47&category%5B%5D=50&category%5B%5D=51&category%5B%5D=52&category%5B%5D=42&category%5B%5D=46&category%5B%5D=18&category%5B%5D=41&category%5B%5D=49&category%5B%5D=23&category%5B%5D=25&category%5B%5D=27&category%5B%5D=28&category%5B%5D=40&category%5B%5D=32&category%5B%5D=33',
-                       'k': 'https://kat.sx/usearch/{}',
                        'sound': 'https://soundcloud.com/search?q={}',
                        'i': 'http://www.imdb.com/find?ref_=nv_sr_fn&q=+{}&s=all',
                        'a': 'https://wiki.archlinux.org/index.php?search={}',
@@ -232,11 +229,13 @@ c.fonts.statusbar = theme['fonts']['entry']
 tabFont = str(theme['fonts']['tab_size']) + 'pt ' + theme['fonts']['main']
 if theme['fonts']['tab_bold']:
     tabFont = 'bold ' + tabFont
+c.fonts.tabs.selected = tabFont
+c.fonts.tabs.unselected = tabFont
 
 def bind():
     def navbind(bind, link):
-        config.bind('d' + bind,         'open ' + link)
-        config.bind('d' + bind.upper(), 'open -t ' + link)
+        config.bind('d' + bind,         randomize_user_agent('{rua} \'open ' + link + '\''))
+        config.bind('d' + bind.upper(), randomize_user_agent('{rua} \'open -t ' + link + '\''))
 
     config.unbind('J',  mode='normal')
     config.unbind('K',  mode='normal')
@@ -257,8 +256,9 @@ def bind():
     config.bind('l', 'forward')
     config.bind('H', 'back -t')
     config.bind('L', 'forward -t')
-    config.bind('t', 'open -t duckduckgo.com')
     config.bind('?', 'open -t qute://help/img/cheatsheet-big.png')
+    config.bind('f', randomize_user_agent('hint links {rua} \'open ') + '{hint-url}\'')
+    config.bind('F', randomize_user_agent('hint links {rua} \'open -t ') + '{hint-url}\'')
 
     config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
@@ -295,9 +295,6 @@ def bind():
     config.bind(',D',  'download')
     config.bind(',e',  'spawn --userscript emacspaste')
     config.bind(',p',  'tab-pin')
-    config.bind(',f', 'spawn --userscript qute-pass --password-only')
-
+    config.bind(',f',  'spawn --userscript qute-pass --password-only')
 
 bind()
-c.fonts.tabs.selected = tabFont
-c.fonts.tabs.unselected = tabFont
