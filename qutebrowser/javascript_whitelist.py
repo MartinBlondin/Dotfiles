@@ -16,4 +16,8 @@ javascript_whitelist = [
     'https://redirect.invidious.io',
     'https://www.instagram.com',
     'https://github.com',
+    'https://www.facebook.com',
+    'https://www.digikey.no',
+    'https://auth.digikey.com',
+    'https://wwwapps.ups.com',
 ]

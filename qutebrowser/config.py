@@ -5,17 +5,18 @@
 from qutebrowser.config.configfiles import ConfigAPI
 from qutebrowser.config.config import ConfigContainer
 from javascript_whitelist import javascript_whitelist
-from user_agents import user_agents
+from user_agents import user_agents, http_accepts
 import random
 
 # privacy
 invidious_mirrors = ['vid.puffyan.us', #'invidious.snopyta.org', # 'invidious.exonip.de', # 'inv.skyn3t.in',
 ]
 def getInvidious(): return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
-def randomize_user_agent(c): return c.format(rua='spawn --userscript randomize_user_agent.py -c')
+def randomize_user_agent(c): return c.format('spawn --userscript randomize_user_agent.py -c')
 c.content.headers.user_agent = user_agents[random.randint(0, len(user_agents)-1)]
 c.content.headers.accept_language ='en-US,en;q=0.5'
-c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
+c.content.headers.custom = {"accept": http_accepts[random.randint(0, len(http_accepts)-1)]}
+c.content.headers.custom = {"accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
 c.content.canvas_reading = False
 c.content.webgl = False
 c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
@@ -52,6 +53,7 @@ c.content.pdfjs = True
 # c.hints.chars = 'asdfjkl;'
 c.hints.chars = 'asdfjkl'
 c.colors.webpage.preferred_color_scheme = 'dark'
+c.content.default_encoding = 'utf-8'
 
 # behavior
 c.bindings.key_mappings = {"<Ctrl-[>": "<Escape>", "<Ctrl-6>": "<Ctrl-^>",
@@ -234,8 +236,8 @@ c.fonts.tabs.unselected = tabFont
 
 def bind():
     def navbind(bind, link):
-        config.bind('d' + bind,         randomize_user_agent('{rua} \'open ' + link + '\''))
-        config.bind('d' + bind.upper(), randomize_user_agent('{rua} \'open -t ' + link + '\''))
+        config.bind('d' + bind,         randomize_user_agent('{} \'open ' + link + '\''))
+        config.bind('d' + bind.upper(), randomize_user_agent('{} \'open -t ' + link + '\''))
 
     config.unbind('J',  mode='normal')
     config.unbind('K',  mode='normal')
@@ -257,8 +259,6 @@ def bind():
     config.bind('H', 'back -t')
     config.bind('L', 'forward -t')
     config.bind('?', 'open -t qute://help/img/cheatsheet-big.png')
-    config.bind('f', randomize_user_agent('hint links {rua} \'open ') + '{hint-url}\'')
-    config.bind('F', randomize_user_agent('hint links {rua} \'open -t ') + '{hint-url}\'')
 
     config.bind('<Ctrl-J>', 'scroll-page 0 0.5')
     config.bind('<Ctrl-K>', 'scroll-page 0 -0.5')
