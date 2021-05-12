@@ -12,20 +12,22 @@ import random
 invidious_mirrors = ['vid.puffyan.us', #'invidious.snopyta.org', # 'invidious.exonip.de', # 'inv.skyn3t.in',
 ]
 def getInvidious(): return invidious_mirrors[random.randint(0, len(invidious_mirrors)-1)]
+
 def randomize_user_agent(c): return c.format('spawn --userscript randomize_user_agent.py -c')
 c.content.headers.user_agent = user_agents[random.randint(0, len(user_agents)-1)]
 c.content.headers.accept_language ='en-US,en;q=0.5'
 c.content.headers.custom = {"accept": http_accepts[random.randint(0, len(http_accepts)-1)]}
-c.content.headers.custom = {"accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
 c.content.canvas_reading = False
 c.content.webgl = False
 c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
 c.content.proxy = 'system'
 c.content.javascript.enabled = False
+c.content.headers.do_not_track = True
+c.content.headers.referer = 'same-domain'
+c.qt.process_model = 'process-per-site-instance'
 
 javascript_whitelist.extend(invidious_mirrors)
 for url in javascript_whitelist: config.set('content.javascript.enabled', True, url)
-
 
 config = config  # type: ConfigAPI
 c = c  # type: ConfigContainer
@@ -64,7 +66,8 @@ c.downloads.location.prompt = False
 c.downloads.location.directory = '~/Downloads/'
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        # 'y': 'https://youtube.com/results?search_query={}',
-                       'y': getInvidious()+'/search?q={}',
+                       # 'y': getInvidious()+'/search?q={}',
+                       'y': 'https://invidious.exonip.de/search?q={}',
                        'r': 'https://reddit.com/r/{}',
                        'w': 'https://en.wikipedia.org/w/index.php?search={}',
                        'rp': 'https://redditp.com/r/{}',
@@ -244,8 +247,8 @@ def bind():
     config.unbind('H',  mode='normal')
     config.unbind('L',  mode='normal')
     config.unbind('d',  mode='normal')
-    config.unbind('th', mode='normal')
-    config.unbind('tl', mode='normal')
+    # config.unbind('th', mode='normal')
+    # config.unbind('tl', mode='normal')
     config.unbind('?',  mode='normal')
     config.unbind(';t', mode='normal')
     config.unbind(';t', mode='normal')
@@ -282,6 +285,7 @@ def bind():
     config.bind('dnv', 'open -t https://www.vg.no/')
     config.bind('dns', 'open -t https://mastodon.social/web/timelines/home')
     config.bind('dnk', 'open -t https://klassekampen.no/')
+    config.bind('dny', 'open -t https://www.yr.no/en/forecast/daily-table/1-46556/Norway/Viken/Moss/Moss')
 
     config.bind(',s',  'open -t qute://settings')
     config.bind(',S',  'spawn --userscript add_js_entry.py')
@@ -296,5 +300,6 @@ def bind():
     config.bind(',e',  'spawn --userscript emacspaste')
     config.bind(',p',  'tab-pin')
     config.bind(',f',  'spawn --userscript qute-pass --password-only')
+    config.bind(',ts', 'set content.javascript.enabled true {url}')
 
 bind()
