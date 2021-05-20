@@ -1,10 +1,3 @@
-/* pre.prettyprint, pre.result { */
-/*   -webkit-filter: invert(100%); */
-/*   filter: invert(100%); */
-/*   background-color: #d8d4cc !important; */
-/* } */
-/* for code with white backround */
-
 /* invidious */
 .pure-u-md-2-24{
     width: 0% !important;
@@ -12,7 +5,6 @@
 .pure-u-md-20-24{
     width: 100% !important;
 }
-
 * {
   border-color: #657b83 !important;
 }
@@ -1693,29 +1685,20 @@ body #conversation-list-rows .conversation{
 #sr-header-area{
   background-color: #272b33 !important;
 }
-#facebook ._-kb div{
+.hybvsw6c, .cddn0xzi, .tdjehn4e, .rnr61an3{
   background-color: #272b33 !important;
 }
-.playControls__inner, .playControls__bg{
+/* soundcloud.com */
+.sc-classic .dropdownContent__container,
+.commentForm.visible.m-small .commentForm__wrapper,
+.header__navMenu > li > a.selected, .header > li > a:focus,
+.l-footer, .sound__soundActions, .dropbar__content,
+.playControls__inner, .playControls__bg,
+.trackItemWithEdit.active, .trackItemWithEdit.active .trackItemWithEdit__additional, .tabs__tabs, .g-modal-section, .addToPlaylistItem__actions, .g-dark, .sc-background-light, .readMoreBadge__countWrapper,
+.sc-border-light, .sc-border-light-right, .sc-border-light-bottom,
+.sc-classic .headerMenu.m-light{
   background-color: #272b33 !important;
-}
-.trackItemWithEdit.active, .trackItemWithEdit.active .trackItemWithEdit__additional, .tabs__tabs, .g-modal-section, .addToPlaylistItem__actions, .g-dark, .sc-background-light, .readMoreBadge__countWrapper{
-  background-color: #272b33 !important;
-}
-.sc-border-light, .sc-border-light-right, .sc-border-light-bottom{
-  background-color: #272b33 !important;
-}
-.l-footer, .sound__soundActions{
-  background-color: #272b33 !important;
-}
-.header__navMenu > li > a.selected, .header > li > a:focus{
-  background-color: #272b33 !important;
-}
-.dropbar__content{
-  background-color: #272b33 !important;
-}
-.commentForm.visible.m-small .commentForm__wrapper{
-  background-color: #272b33 !important;
+  color: #878E7D !important;
 }
 .button{
   background-color: #2f343f !important;
@@ -2400,28 +2383,24 @@ tr td{
   border-color: #272b33 !important;
   color: #878E7D !important;
 }
-
 #right-column, #left-column {
   background: #272b33 !important;
   background-color: #272b33 !important;
   border-color: #272b33 !important;
   color: #878E7D !important;
 }
-
 .sidebar-toc ul li.current > a, .sidebar-toc ul li.current > a:hover {
   background: #272b33 !important;
   background-color: #272b33 !important;
   border-color: #272b33 !important;
   color: #878E7D !important;
 }
-
 .awsui, .awsui-util-container, .awsui-util-container-header, .home-content, .itemCard, .item-title {
   background: #272b33 !important;
   background-color: #272b33 !important;
   border-color: #272b33 !important;
   color: #878E7D !important;
 }
-
 .cwdb-dashboard-content, .awsui-alert-type-info, .cwdb-text-container, .cwdb-toolbar, .Select-control, .cwdb-copilot-empty-message, .cwdb-text-container {
   background: #272b33 !important;
   background-color: #272b33 !important;
@@ -2436,7 +2415,6 @@ tr td{
   border: 0 !important;
   color: #878E7D !important;
 }
-
 .cwdb-metrics-search-card-container, .search-input-tagsinput, .awsui-tabs-tab-active, .awsui-tabs-tab-active:hover, .awsui-tabs-tab-active:focus {
   background: #272b33 !important;
   background-color: #272b33 !important;
@@ -2444,7 +2422,6 @@ tr td{
   border: 0 !important;
   color: #878E7D !important;
 }
-
 .cwdb-chart-container-background, .cwdb-chart svg, .FlexTable, .awsui-tabs-tab-link, #f {
   background: #272b33 !important;
   background-color: #272b33 !important;
@@ -2458,54 +2435,43 @@ tr td{
   border-bottom: #272b33 !important;
   color: #878E7D !important;
 }
-
 ::-webkit-scrollbar {
   width: 4px;
   height: 8px;
 }
-
 ::-webkit-scrollbar-track:vertical {
   background: #272b33 !important;
 }
-
 ::-webkit-scrollbar-thumb:vertical {
   background: #2F343D !important;
   border-radius: 8px;
   border-right: 1px solid #272b33;
 }
-
 ::-webkit-scrollbar-track:horizontal {
   background: #272b33 !important;
 }
-
 ::-webkit-scrollbar-thumb:horizontal {
   background: #2F343D !important;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-corner {
   background: #2F343D !important;
   color: #839496 !important;
 }
-
 .l-container {
     padding: 0 0 !important;
     margin: 0 0 !important;
     width: auto !important;
 }
-
 .profileHeaderBackground, .profileHeaderBackground__visual {
   background-color: #272b33 !important;
 }
-
 .profileHeader {
     margin-left: 16% !important;
 }
-
 #content {
     margin-top: 20px;
 }
-
 .banner.m-promotion {
   background-color: #272b33 !important;
 }
@@ -2517,7 +2483,6 @@ tr td{
   -webkit-filter: invert(80%);
   filter: invert(80%);
 }
-
 .b0n0qX, .yEdCPS, ._2YQ493 {
   background-color: #272b33 !important;
   color: #878E7D !important;
@@ -2530,34 +2495,30 @@ tr td{
   background: None !important;
   background-color: #272b33 !important;
   color: #878E7D !important;
-
+}
 .tutorial-content, .mui-appbar, .categories {
   border-color: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
 }
-
 /* linuxmusicians.com */
 .wrap, .content, .button, .navbar, .headerbar, .forumbg, .bg1, .bg2, .forabg, ul.forums {
   background-color: #272b33 !important;
   color: #839496 !important;
   background-image: none !important;
 }
-
 /* Yoins.com */
 .fd-page-container, .flash-list-div, .com-header, .top-nav, .tab-top-nav, .mask, .top-panel {
   background: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
 }
-
 /* Zalando.no */
 .z-navicat-header_navContent, .cat_tag-20vv5, .cat_head-3QSpK, .cat_box-61TrD, .reVeb9, .pVrzNP {
   background: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
 }
-
 /* elfadistrelec.no */
 .skin-productlist-products-plp, .skin-layout-product-list, .plp-content, .mod-stickyheader,
 .sticky-level-1, .mod-metahd, .breadcrumb .skin-breadcrumb-product__main,
@@ -2571,14 +2532,12 @@ tr td{
   background-color: #272b33 !important;
   color: #839496 !important;
 }
-
 /* ebay.com */
 .tabs, .fake-tabs {
   background: #272b33 !important;
   background-color: #272b33 !important;
   color: #839496 !important;
 }
-
 /* digikey.no */
 .linked-index-list, .layout-twocolumn, .homepage-featured__content div,
 homepage-featured__content-title, .homepage-featured__content-desc,
@@ -2588,6 +2547,31 @@ homepage-featured__content-title, .homepage-featured__content-desc,
 .product-details-headline, .product-details-section table th,
 .product-details-section table td, .associations, .cart-errors div{
   background: #272b33 !important;
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+/* odysee.com */
+.card, claim-preview-title, .header{
+  background-color: #272b33 !important;
+}
+/* finn.no */
+.pageholder, .ads__unit, .top-bar__nav, .input-toggle label {
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+/* spyshop.no */
+.bx-wrapper .bx-viewport, .headline span,
+.category-products>.toolbar, .category-products .toolbar-bottom>.toolbar,
+.box-item .product-name, .ava-long, .ava-short{
+  background-color: #272b33 !important;
+  color: #839496 !important;
+}
+/* oda.com */
+.wide-container.light-grey, .c-cardstack__card, .c-productlist, .popover,
+.nav-pills>li>a, .sub-header, h4.child-category-headline, .modal-content,
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus,
+.modal-dialog .close, .checkout-step .alert.alert-notice, .bg-color-gradient,
+.btn-default{
   background-color: #272b33 !important;
   color: #839496 !important;
 }

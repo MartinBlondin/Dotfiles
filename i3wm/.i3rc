@@ -224,12 +224,13 @@ for_window [class="Thunar"]              resize set 1000 500
 for_window [class="godot"]               floating enable
 for_window [class="java"]                floating enable
 for_window [title="java"]                floating enable
-# for_window [class="mpv"]                 floating enable
 for_window [title="QTTestApp"]           floating enable
 for_window [title="main.py"]             floating enable
 for_window [title="matplotlib"]          floating enable
 for_window [title="Network Connections"] floating enable
 for_window [title="forcefloat"]          floating enable
+for_window [class="tor"]                 floating enable
+for_window [class="firefox.real"]        floating enable
 
 default_border pixel 0
 hide_edge_borders both

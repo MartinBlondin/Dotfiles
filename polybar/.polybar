@@ -10,31 +10,32 @@ bottom = true
 background = #00000000
 foreground = #B1c87fa1
 
-modules-left = battery volume network
+modules-left = battery volume
 modules-center = i3
-modules-right = my-text-label date
+modules-right = crypto label date
 
-font-0 = FontAwesome:pixelsize=16;1
-font-1 = Roboto Slab Mono:pixelsize=12;1
-font-2 = siji:pixelsize=10;0
+font-0 = FontAwesome:pixelsize=17;1
+font-1 = Roboto Mono:pixelsize=13;syle=bold;1
+font-2 = "coins:style=Regular;1"
+font-3 = siji:pixelsize=10;1
 
-[bar/topbar]
-width = 100%
-fixed-center = true
-height = 25
-bottom = false
-override-redirect = true
-wm-restack = i3
+# [bar/topbar]
+# width = 100%
+# fixed-center = true
+# height = 0
+# bottom = false
+# override-redirect = true
+# wm-restack = i3
 
-background = #00000000
-foreground = #B1c87fa1
+# background = #00000000
+# foreground = #B1c87fa1
 
-modules-left =
-modules-center =
-modules-right =
+# modules-left =
+# modules-center =
+# modules-right =
 
-font-0 = Roboto Slab Mono:pixelsize=10;1
-font-1 = FontAwesome:pixelsize=16;1
+# font-1 = Roboto Slab Mono:pixelsize=10;1
+# font-2 = FontAwesome:pixelsize=16;1
 # font-2 = siji:pixelsize=10;0
 
 [module/battery]
@@ -99,6 +100,15 @@ bar-volume-fill-font = 2
 bar-volume-empty = " "
 bar-volume-empty-font = 2
 
+[module/crypto]
+type = custom/script
+exec = ~/.config/polybar/pcrypto.py --base USD --coins eth xmr
+interval = 60
+
+[module/label]
+type = custom/text
+content = "                                "
+
 # [module/network]
 # type = internal/network
 # interface = enp0s26u1u4u2
@@ -109,8 +119,3 @@ bar-volume-empty-font = 2
 
 # label-connected = "%downspeed:9%  "
 # label-disconnected = " "
-
-[module/my-text-label]
-type = custom/text
-content = Goals: DA! GV!
-content-padding = 32

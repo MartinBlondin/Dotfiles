@@ -43,9 +43,10 @@ c.tabs.title.format = '{current_title}'
 c.tabs.title.alignment = 'center'
 c.downloads.position = 'bottom'
 c.scrolling.smooth = True
+c.window.transparent = True
+c.colors.webpage.bg = '#272b33'
 # c.colors.webpage.bg = '#AA1c2028'
 # c.colors.webpage.bg = '#00000000'
-c.colors.webpage.bg = '#272b33'
 c.completion.height = '20%'
 c.statusbar.show = 'never'
 c.hints.uppercase = True
@@ -96,6 +97,8 @@ c.tabs.background = True
 c.editor.command = ['emacsclient', '-c', '{}']
 c.auto_save.session = True
 
+# bg_color = '#AA1c2028'
+bg_color = '#272b33'
 theme = {
     'panel': {
         'height': 28,
@@ -111,9 +114,9 @@ theme = {
 
     'colors': {
         'bg': {
-            'normal': '#272b33',
-            'active': '#272b33',
-            'inactive': '#272b33',
+            'normal': bg_color,
+            'active': bg_color,
+            'inactive': bg_color,
         },
 
         'fg': {

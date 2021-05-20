@@ -79,11 +79,13 @@ settings:
         x: tab-close
   content.headers.custom:
     global:
-      accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+      accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
   content.headers.user_agent:
-    global: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_3_1) AppleWebKit/605.1.15 (KHTML,
-      like Gecko) Version/14.1 Safari/605.1.15
+    global: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+      Gecko) Chrome/90.0.4430.93 Safari/537.36
   content.javascript.enabled:
     https://www.soundcloud.com: true
   content.notifications.enabled:
     https://www.reddit.com: false
+  window.transparent:
+    global: true
