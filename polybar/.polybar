@@ -102,12 +102,12 @@ bar-volume-empty-font = 2
 
 [module/crypto]
 type = custom/script
-exec = ~/.config/polybar/pcrypto.py --base USD --coins eth xmr
-interval = 60
+exec = ~/.config/polybar/pcrypto.py --base USD --coins btc eth xmr
+interval = 600
 
 [module/label]
 type = custom/text
-content = "                                "
+content = "                      "
 
 # [module/network]
 # type = internal/network

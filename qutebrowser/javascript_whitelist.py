@@ -68,4 +68,10 @@ javascript_whitelist = [
     'https://jaxx.io',
     'https://www.coinomi.com',
     'https://www.bitrates.com',
+    'https://translate.google.com',
+    'https://www.simplex.com',
+    'https://simpleswap.io',
+    'https://www.vita.no',
+    'https://www.cryptonator.com',
+    'https://www.bidali.com',
 ]
