@@ -81,8 +81,7 @@ settings:
     global:
       accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
   content.headers.user_agent:
-    global: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
-      Gecko) Chrome/90.0.4430.93 Safari/537.36
+    global: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0
   content.javascript.enabled:
     https://www.soundcloud.com: true
   content.notifications.enabled:
