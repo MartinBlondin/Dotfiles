@@ -4,5 +4,5 @@ from time import sleep
 worker = input('Worker name: ')
 
 while True:
-    call(['ethminer', '-P', f'stratum1+tcp://0x9c18e6655Ff76cf7ed5bc49A919b754AEa93ad64.{worker}@eu1.ethermine.org:4444', '-G', '-R'])
+    call(['ethminer', '-P', f'stratum1+tcp://0x3cB225F235fBc43c8fc8e337CCe2F03E784c2192.{worker}@eu1.ethermine.org:4444', '-U', '-R'])
     sleep(30)
